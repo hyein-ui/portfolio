@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="호텔 로열 파라다이스">
+    <meta name="keywords" content="호텔, 로열, 파라다이스, hotel, royal, paradise">
+    <meta name="author" content="KIM Hye-In">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&sect; Hotel Royal Paradise &sect; &colon;&colon; 호텔 로열 파라다이스</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- jquery -->
+    <script src="js/jquery-1.12.4.min.js"></script>
+    
+    <!-- font awsome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    
+    <!-- bxSlider -->
+    <!-- <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> -->
+    
+    <!-- css -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style_main.css">
+
+    <!-- js -->
+    <script src="js/common.js"></script>
+    <script src="js/custom_main.js"></script>
+    
+
+    <!-- 옛버전 브라우저 호환 조건주석. IE 9 이하 작동. -->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+
+    
+    <!-- [진입] 안내 모달 -->
+    <div class="portfolio_guide">
+        <div class="pfg_inner">
+            <div class="pfg_contents">
+                <strong>Description <i class="fa-solid fa-comment-dots"></i></strong>
+                <h2>아래의 내용을 작업했습니다 :)</h2>
+                <em><i class="fa-regular fa-circle-check"></i> 사이트 레이아웃 및 디자인</em>
+                <em><i class="fa-regular fa-circle-check"></i> 메인페이지</em>
+                <ol>
+                    <li>메인메뉴 마우스오버시 해당 서브메뉴 보이기</li>
+                    <li>상단 광고 모달, 팝업 광고 모달</li>
+                    <li>오늘 하루 더 이상 보지 않기 기능 구현</li>
+                    <li>슬라이더 구현, 초세기, 페이지 전환 버튼(직접제작)</li>
+                    <li>우측하단에 따라다니는 퀵메뉴</li>
+                    <li>사이드메뉴 부드럽게 열고 닫기</li>
+                    <li>각종 마우스오버 효과</li>
+                </ol>
+                <em><i class="fa-regular fa-circle-check"></i> 서브페이지 - 로그인 화면</em>
+                <ul>
+                    <li>아이디 및 비밀번호 오류시 알림창 표출</li>
+                </ul>
+    
+                <button type="button" class="pfg_close">창을 닫고 사이트를 둘러봅니다</button>
+                <div class="notToday">
+                    <input type="checkbox" name="nt" id="nt">
+                    <label for="nt">오늘 하루 보지 않기</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+    <!-- 접이식 모달 -->
+    <div class="modal_top">
+        <div class="wrap">
+            <a href="#">유료 멤버십 가입시,  최대 10만원 할인쿠폰 증정</a>
+            <em class="mt_nomore">x 오늘 하루 보지 않기</em>
+            <img src="images/modal_close.png" alt="광고 닫기">
+        </div>
+    </div>
+
+    <!-- 팝업 모달 -->
+    <div class="popup">
+        <!-- 슬라이더 -->
+        <div class="pop_slider">
+            <!-- 슬라이드 -->
+            <ul class="pop_slides">
+                <li>
+                    <a href="#">
+                        <img src="images/popup_img1.png" alt="팝업내용1">
+                        <div class="txtbox">
+                            <h3>로맨틱라운지 이용권 최대 20% 할인</h3>
+                            <p>
+                                합리적인 가격으로 샴페인을 무제한으로 즐길 수 있는 유일한 기회!
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/popup_img2.png" alt="팝업내용2">
+                        <div class="txtbox">
+                            <h3>럭셔리 크루즈 혜택 for 멤버십</h3>
+                            <p>
+                                멤버십 최초 가입시 고품격 럭셔리 크루즈 특별 할인권이 제공됩니다.
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/popup_img3.png" alt="팝업내용3">
+                        <div class="txtbox">
+                            <h3>다이닝 to Go 서비스 홈파티팩</h3>
+                            <p>
+                                고급 레스토랑에서만 만나볼 수 있는 스페셜 코스요리를 홈파티로 프라이빗하게 즐겨보세요.
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- 페이지네이션 -->
+            <ul class="pager">
+                <li class="on">1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div>
+
+        <!-- 클릭영역 -->
+        <div class="pop_btm clearfix">
+            <div class="pop_no">
+                <input type="checkbox" name="pophide" id="pophide">
+                <label for="pophide">오늘은 더 이상 보지 않기</label>
+            </div>
+            <div class="pop_close">
+                <img src="images/pop_close.png" alt="팝업창 닫기">
+                <span>닫기</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 헤더 -->
+    <header>
+        <!-- 로고 배경 -->
+        <div class="logo_bg">
+            <div class="logo_bgimg"><span class="blind">.</span></div>
+        </div>
+               
+        <!-- 서브메뉴 배경 -->
+        <div class="sub_menu_bg"><span class="blind">.</span></div> 
+
+        <!-- 헤더 장식 틀 -->
+        <div class="header_deco clearfix">
+            <div class="hd_lt"><span class="blind">.</span></div>
+            <div class="hd_rt"><span class="blind">.</span></div>
+        </div>
+
+        <!-- 로고 -->
+        <h1 class="logo"><a href="index.html"><span class="blind">호텔 로열 파라다이스</span></a></h1>
+
+        <!-- 상단 메뉴 -->
+        <div class="top_menu wrap">
+            <div class="tm_inner clearfix">
+                <div class="lang">
+                    <div class="lang_now"><span>KOR</span><i class="fa-solid fa-caret-down"></i></div>
+                    
+                    <ul class="lang_opt">
+                        <li class="kor">KOR</li>
+                        <li class="eng">ENG</li>
+                    </ul>
+                </div>                
+                
+                <div class="login"><a href="login.html">LOGIN</a></div>
+            </div>
+        </div>
+
+        <!-- 내비게이션 -->
+        <nav>
+            <!-- 메인메뉴 -->
+            <ul class="main_menu">
+                <!-- 1 -->
+                <li><a href="#">RESERVATION</a>
+                    <ul class="sub_menu"><!-- 서브메뉴 -->
+                        <li><a href="#">객실예약
+                        </a></li>
+                        <li><a href="#">예약조회&sol;취소
+                        </a></li>
+                    </ul>
+                </li>
+                <!-- 2 -->
+                <li><a href="#">ROOMS</a>
+                    <ul class="sub_menu"><!-- 서브메뉴 -->
+                        <li><a href="#">Deluxe</a></li>
+                        <li><a href="#">Premium</a></li>
+                        <li><a href="#">Royal Suite</a></li>
+                    </ul>
+                </li>
+                <!-- 3 -->
+                <li><a href="#">FACILITIES</a>
+                    <ul class="sub_menu"><!-- 서브메뉴 -->
+                        <li><a href="#">Dine & Drink</a></li>
+                        <li><a href="#">Private Beach</a></li>
+                        <li><a href="#">Spa & Pool</a></li>
+                        <li><a href="#">Fitness</a></li>
+                        <li><a href="#">Shopping</a></li>
+                        <li><a href="#">Convention</a></li>
+                        <li><a href="#">Wedding</a></li>
+                        <li><a href="#">층별안내</a></li>
+                    </ul>
+                </li>
+                <!-- 4 -->
+                <li><a href="#">OFFERS</a>
+                    <ul class="sub_menu"><!-- 서브메뉴 -->
+                        <li><a href="#">Promotion</a></li>
+                        <li><a href="#">Event</a></li>
+                    </ul>
+                </li>
+                <!-- 5 -->
+                <li><a href="#">MEMBERSHIP</a>
+                    <ul class="sub_menu"><!-- 서브메뉴 -->
+                        <li><a href="#">혜택 둘러보기</a></li>
+                        <li><a href="#">멤버십 가입</a></li>
+                    </ul>
+                </li>
+                <!-- 6 -->
+                <li><a href="#">LOCATION</a>
+                    <ul class="sub_menu"><!-- 서브메뉴 -->
+                        <li><a href="#">오시는 길</a></li>
+                        <li><a href="#">Shuttle</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- 유저 메뉴 모음 -->
+        <div class="um_bg">
+            <!-- 열기/닫기 핸들 -->
+            <div class="um_handle">
+                <img class="um_op on" src="images/oepn.png" alt="유저메뉴 열기">
+                <img class="um_cl" src="images/close.png" alt="유저메뉴 닫기">
+            </div>
+            
+            <div class="user_menu">
+                <!-- 인사메세지 -->
+                <div class="um_welcome">
+                    <strong>Welcome</strong>
+                    <p>정성껏 모시겠습니다.</p>
+                </div>
+                <!-- 로그인/회원가입 버튼 -->
+                <div class="um_btn">
+                    <a href="login.html" class="um_login">로그인</a>
+                    <a href="#" class="um_join">회원가입</a>
+                </div>
+                <!-- 회원정보창 -->
+                <div class="stat">
+                    <p><em class="mem_name">박종우</em>님</p>
+                    <p>Membership &colon; <span class="mem_grade">GOLD</span></p>
+                </div>
+                
+                <!-- 메뉴 리스트 -->
+                <div class="um_list">
+                    <ul class="um_main">
+                        <li><a href="#">마이페이지</a></li>
+                        <li><a href="#">예약조회</a></li>
+                        <li><a href="#">비회원 예약조회</a></li>
+                    </ul>
+
+                    <ul class="um_main">
+                        <li><a href="#">고객센터</a>
+                            <ul class="um_sub">
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">1&colon;1문의</a></li>
+                                <li><a href="#">공지사항</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="um_main">
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+        
+    <!-- 메인 -->
+    <main>
+        <!-- 메인비주얼 -->
+        <div class="main_visual">
+            <!-- 메인 슬라이더 -->
+            <div class="mainSlider">
+                <!-- 슬라이드 -->
+                <ul class="ms_slides clearfix">
+                    <!-- 1 -->
+                    <li class="ms1">
+                        <div class="txtbox">
+                            <em>Unique Hotel Service</em>
+                            <p>
+                                고객을 위해 과감한 시설 투자를 아끼지 않는 로열 파라다이스 호텔은
+                                <br>항상 새로운 트렌드를 추구하고 있습니다.
+                            </p>
+                        </div>
+                    </li>
+                    <!-- 2 -->
+                    <li class="ms2">
+                        <div class="txtbox">
+                            <em>Memories Over the Horizon</em>
+                            <p>
+                                최고의 휴양지에서 즐기는 가장 특별한 경험
+                            </p>
+                        </div>
+                    </li>
+                    <!-- 3 -->
+                    <li class="ms3">
+                        <div class="txtbg">
+                            <div class="txtbox">
+                                <em>Dream Banquete</em>
+                                <p>모두가 꿈꾸는 아름다운 연회</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- 이전/다음 버튼 -->
+                <div class="prev_next">
+                    <div class="prev"><span class="blind">.</span></div>
+                    <div class="next"><span class="blind">.</span></div>
+                </div>
+                
+                <!-- 초세기 -->
+                <div class="timer">
+                    <div class="circle_bg"></div>
+                    <div class="circle">
+                        <div class="center_circle"><span class="seconds">7</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 빠른 예약 -->
+            <div class="quickRsvn">
+                <!-- 타이틀 -->
+                <div class="qr_title"><i class="fa-regular fa-gem"></i> Quick Reservation</div>
+
+                <!-- 예약박스 -->
+                <div class="qrBox">
+                    <!-- 날짜박스 -->
+                    <div class="checkinBox clearfix">
+                        <div class="chk chk_in">
+                            <h4>Chek-in</h4>
+                            <em>2022.05.09</em>
+                        </div>
+
+                        <div class="chk_tilde">
+                            <em>&#8275;</em>
+                        </div>
+
+                        <div class="chk chk_out">
+                            <h4>Check-out</h4>
+                            <em>2022.05.10</em>
+                        </div>
+
+                        <div class="chk_days">
+                            <h4>Days</h4>
+                            <em><span class="daysNum">1</span>박</em>
+                        </div>
+                    </div>
+
+                    <!-- 옵션박스 -->
+                    <ul class="qrOptions">
+                        <li>
+                            <div class="q_top">
+                                <h4>Room</h4>
+                            </div>
+                            <div class="q_btm">
+                                <button type="button" class="btn_minus">&minus;</button>
+                                <span class="num roomNum">1</span>
+                                <button type="button" class="btn_plus">&plus;</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="q_top">
+                                <h4>Adult</h4>
+                            </div>
+                            <div class="q_btm">
+                                <button type="button" class="btn_minus">&minus;</button>
+                                <span class="num adultNum">1</span>
+                                <button type="button" class="btn_plus">&plus;</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="q_top">
+                                <h4>Child</h4>
+                                <b>13세 이하</b>
+                            </div>
+                            <div class="q_btm">
+                                <button type="button" class="btn_minus">&minus;</button>
+                                <span class="num childNum">0</span>
+                                <button type="button" class="btn_plus">&plus;</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="q_top">
+                                <h4>Infant</h4>
+                                <b>2세 이하</b>
+                            </div>
+                            <div class="q_btm">
+                                <button type="button" class="btn_minus">&minus;</button>
+                                <span class="num infantNum">0</span>
+                                <button type="button" class="btn_plus">&plus;</button>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!-- 검색버튼 -->
+                    <button class="qrSearch">SEARCH</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 프로모션 -->
+        <section class="promotion">
+            <div class="divider"><span class="blind">promotion</span></div>
+
+            <div class="prContent container">
+                <ul class="prList clearfix">
+                    <li>
+                        <img src="images/promotion_img1.png" alt="프로모션1">
+                        <div class="cover">
+                            <h5>패밀리 프로모션</h5>
+                            <em>2022. 05. 01 &#8275; 2022. 05. 31</em>
+                            <p>
+                                5월 패밀리 프로모션 패키지로 사랑하는 가족들과 함께 행복하고 소중한 추억을 함께 만들어 보세요.
+                            </p>
+                            <a href="#" class="see">자세히</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="images/promotion_img2.png" alt="프로모션2">
+                        <div class="cover">
+                            <h5>풀사이드 패키지</h5>
+                            <em>2022. 05. 10 &#8275; 2022. 06. 10</em>
+                            <p>
+                                세상에서 가장 호화로운 풀사이드 패키지로 즐거움을 두 배로 만끽하세요.
+                            </p>
+                            <a href="#" class="see">자세히</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="images/promotion_img3.png" alt="프로모션3">
+                        <div class="cover">
+                            <h5>디럭스 스페셜</h5>
+                            <em>2022. 05. 01 &#8275; 2022. 05. 31</em>
+                            <p>
+                                휴식이 필요한 당신을 위해, 최상의 호캉스 패키지가 기다립니다.
+                            </p>
+                            <a href="#" class="see">자세히</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="prTitle">
+                    <img src="images/sectionTitle_promotion.png" alt="Promotion">
+                    <h2>프로모션</h2>
+                    <a href="#" class="btn_more">&plus;</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 이벤트 -->
+        <section class="event">
+            <div class="divider"><span class="blind">event</span></div>
+
+            <div class="evContent container">
+                <div class="evTitle">
+                    <img src="images/sectionTitle_event.png" alt="event">
+                    <h2>이벤트</h2>
+                    <a href="#" class="btn_more">&plus;</a>
+                </div>
+
+                <ul class="evList clearfix">
+                    <li>
+                        <a href="#">
+                            <img src="images/event_img1.png" alt="이벤트1">
+                            <div class="cover on">
+                                <h5>이브닝 풀사이드 로맨스 이벤트</h5>
+                                <em>2022. 05. 01 &#8275; 2022. 05. 15</em>
+                            </div>
+                            <p class="itemNumber on">1</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img class="off" src="images/event_img2.png" alt="이벤트2">
+                            <div class="cover">
+                                <h5>멤버십 회원을 위한 프라이빗 해변 특별혜택</h5>
+                                <em>2022. 05. 16 &#8275; 2022. 08. 15</em>
+                            </div>
+                            <p class="itemNumber">2</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img class="off" src="images/event_img3.png" alt="이벤트3">
+                            <div class="cover">
+                                <h5>더 베이 아로마스파 특별행사</h5>
+                                <em>2022. 05. 20 &#8275; 2022. 06. 14</em>
+                            </div>
+                            <p class="itemNumber">3</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img class="off" src="images/event_img4.png" alt="이벤트4">
+                            <div class="cover">
+                                <h5>로맨틱라운지 이용권 최대 20% 할인</h5>
+                                <em>2022. 05. 20 &#8275; 2022. 12. 31</em>
+                            </div>
+                            <p class="itemNumber">4</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+
+
+    <!-- 플로팅 링크 -->
+    <ul class="fltLink">
+        <li><a href="#"><p>빠른예약</p></a></li>
+        <li><a href="#"><p>오시는길</p></a></li>
+        <li class="toTop"><a href="#"><p><i class="fa-solid fa-caret-up"></i> Top</p></a></li>
+    </ul>
+
+
+    <!-- 푸터 -->
+    <footer class="container">
+        <div class="f_top clearfix">
+            <ul class="f_links clearfix">
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">사업자정보확인</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">고객센터</a></li>
+                <li><a href="#">오시는길</a></li>
+            </ul>
+
+            <div class="sns">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="f_bottom clearfix">
+            <ul class="clearfix">
+                <li><b>&lpar;주&rpar; 호텔로열파라다이스</b></li>
+                <li><b>주소 &colon;</b> 경북 울진군 북면 나곡리 해변로 357</li>
+                <li><b>Tel &colon;</b> 051-1234-5678</li>
+                <li class="clear"><b>사업자등록번호 &colon;</b> 123-45-67890</li>
+                <li><b>통신판매번호 &colon;</b> 제 2022-나곡해변-123호</li>
+                <li><b>대표이사 &colon;</b> 이바다</li>
+                <li class="clear">COPYRIGHT &copy; 2022 Hye-In KIM. All rights reserved.</li>
+            </ul>
+
+            <img src="images/wa_mark.png" alt="웹표준성인증마크">
+        </div>
+    </footer>
+</body>
+</html>

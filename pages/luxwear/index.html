@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="룩스웨어">
+    <meta name="keywords" content="룩스웨어, luxwear, 애슬레져, 스포츠룩, 요가, 필라테스">
+    <meta name="author" content="Hye-In KIM">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXWEAR</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">    
+
+    <!-- fontawesome 4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+    <!-- google material icons -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    
+    <!-- css -->
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/main_style.css" type="text/css">
+    
+    <!-- js -->
+    <script src="js/custom.js" defer></script>
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+<body>
+    <!-- [진입] 안내 모달 -->
+    <div class="portfolio_guide">
+        <div class="pfg_inner">
+            <div class="pfg_contents">
+                <strong>Description <i class="fa fa-commenting" aria-hidden="true"></i></strong>
+                <h2>아래의 내용을 작업했습니다 :)</h2>
+                <em><i class="fa fa-check-square-o" aria-hidden="true"></i> 사이트 레이아웃 및 디자인, 로고 디자인</em>
+                <em><i class="fa fa-check-square-o" aria-hidden="true"></i> 메인페이지</em>
+                <ol>
+                    <li>메인메뉴에 따라 서브메뉴 나타내기</li>
+                    <li>메인 슬라이더 구현: 일시정지, 재생 가능</li>
+                    <li>서브 슬라이더 구현: 마우스오버 하는 동안에는 동작 일시정지</li>
+                    <li>상품 썸네일: 마우스오버시 기능성 아이콘 표출</li>
+                    <li>SNS 파트: 탭메뉴 구현, 마우스오버 효과</li>
+                </ol>
+                <em><i class="fa fa-check-square-o" aria-hidden="true"></i> 사이트 기획과정 파일로 보기<a href="downloads/luxwear_styleguide.pdf" class="file">파일 다운로드</a></em>
+                
+    
+                <button type="button" class="pfg_close">창을 닫고 사이트를 둘러봅니다</button>
+                <div class="notToday">
+                    <input type="checkbox" name="nt" id="nt">
+                    <label for="nt">오늘 하루 보지 않기</label>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+
+    <!-- 헤더 -->
+    <header>
+        <div class="header_top">
+            <ul class="user_menu">
+                <li><a href="#"><i class="material-icons-outlined">login</i> 로그인</a></li>
+                <li><a href="#"><i class="material-icons-outlined">shopping_bag</i> 장바구니</a></li>
+                <li><a href="#"><i class="material-icons-outlined">account_box</i> 마이페이지</a></li>
+                <li><a href="#"><i class="material-icons-outlined">contact_support</i> 고객센터</a></li>
+                <li><a href="#"><i class="material-icons-outlined">article</i> 공지사항</a></li>
+            </ul>
+        </div>
+
+        <div class="header_bt container clearfix">
+            <h1><a href="index.html"><img src="images/logo-01.png" alt="룩스웨어"></a></h1>
+            
+            <nav>
+                <ul class="gnb">
+                    <li><a href="#" class="del">당일발송</a></li>
+                    <li><a href="#" class="plus">1+1</a></li>
+                    <li class="view_sub"><a href="#">상의</a>
+                        <ul class="submenu">
+                            <li><a href="#">롱슬리브</a></li>
+                            <li><a href="#">숏슬리브</a></li>
+                            <li><a href="#">슬리브리스</a></li>
+                            <li><a href="#">브라탑</a></li>
+                            <li><a href="#">캡라이닝웨어</a></li>
+                        </ul>
+                    </li>
+                    <li class="view_sub"><a href="#">하의</a>
+                        <ul class="submenu">
+                            <li><a href="#">롱레깅스</a></li>
+                            <li><a href="#">숏레깅스</a></li>
+                            <li><a href="#">롱팬츠</a></li>
+                            <li><a href="#">숏팬츠</a></li>
+                        </ul>
+                    </li>
+                    <li class="view_sub"><a href="#">악세사리</a>
+                        <ul class="submenu">
+                            <li><a href="#">언더웨어</a></li>
+                            <li><a href="#">양말</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="summer">SUMMER SALE</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="submenu_bg notxt">bg</div>
+    </header>
+
+
+    <!-- 메인비주얼 -->
+    <div class="main_visual container">
+        <ul class="slide">
+            <li class="notxt"><a href="#">con</a></li>
+            <li class="notxt"><a href="#">con</a></li>
+        </ul>
+
+        <ul class="pager">
+            <li class="notxt active">con</li>
+            <li class="notxt">con</li>
+        </ul>
+
+        <div class="pause_play">
+            <div class="pause"><i class="fa fa-pause" aria-hidden="true"></i></div>
+            <div class="play"><i class="fa fa-play" aria-hidden="true"></i></div>
+        </div>
+    </div>
+
+
+    <!-- fa_product -->
+    <section class="fa_product">
+        <p>BEST GEAR BEST CHALLENGES WITH LUXWEAR</p>
+        <div class="container">
+            <!-- 슬라이드 -->
+            <div class="fa_slide_wrap">
+                <ul class="fa_slide">
+                    <li>
+                        <a href="#" class="card_img">
+                            <img src="images/best-01.png" alt="lux">
+                            <div class="txtbox">
+                                <span class="material-icons-outlined">visibility</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="card_img">
+                            <img src="images/best-02.png" alt="lux">
+                            <div class="txtbox">
+                                <span class="material-icons-outlined">visibility</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="card_img">
+                            <img src="images/best-03.png" alt="lux">
+                            <div class="txtbox">
+                                <span class="material-icons-outlined">visibility</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="card_img">
+                            <img src="images/best-04.png" alt="lux">
+                            <div class="txtbox">
+                                <span class="material-icons-outlined">visibility</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="card_img">
+                            <img src="images/best-05.png" alt="lux">
+                            <div class="txtbox">
+                                <span class="material-icons-outlined">visibility</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="card_img">
+                            <img src="images/best-06.png" alt="lux">
+                            <div class="txtbox">
+                                <span class="material-icons-outlined">visibility</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="card_img">
+                            <img src="images/best-07.png" alt="lux">
+                            <div class="txtbox">
+                                <span class="material-icons-outlined">visibility</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="card_img">
+                            <img src="images/best-08.png" alt="lux">
+                            <div class="txtbox">
+                                <span class="material-icons-outlined">visibility</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 왼쪽 오른쪽 버튼 -->
+            <div class="fa_lt_rt">
+                <button class="fa_lt" type="button"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                <button class="fa_rt" type="button"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- new_products -->
+    <section class="new_products">
+        <div class="container">
+            <h2>NEW</h2>
+            <ul class="ck clearfix">
+                <li>
+                    <a href="#">
+                        <div class="card_img">
+                            <img src="images/new-01.png" alt="lux">
+                            <div class="card_back">
+                                <div class="cb_con notxt">옵션</div>
+                                <div class="iconbox">
+                                    <i class="material-icons-outlined">shopping_cart</i>
+                                    <i class="material-icons-outlined">favorite_border</i>
+                                </div>
+                            </div>
+                        </div>                           
+                        
+                        <div class="product_txt">
+                            <strong>로키 사이드 스트링 롱슬리브</strong>
+                            <p><em>56,000원</em>28,000원</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <div class="card_img">
+                            <img src="images/new-02.jpg" alt="lux">
+                            <div class="card_back">
+                                <div class="cb_con notxt">옵션</div>
+                                <div class="iconbox">
+                                    <i class="material-icons-outlined">shopping_cart</i>
+                                    <i class="material-icons-outlined">favorite_border</i>
+                                </div>
+                            </div>
+                        </div>                           
+                        
+                        <div class="product_txt">
+                            <strong>디아나 시스루 브라탑</strong>
+                            <p><em>51,000원</em>29,000원</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <div class="card_img">
+                            <img src="images/new-03.png" alt="lux">
+                            <div class="card_back">
+                                <div class="cb_con notxt">옵션</div>
+                                <div class="iconbox">
+                                    <i class="material-icons-outlined">shopping_cart</i>
+                                    <i class="material-icons-outlined">favorite_border</i>
+                                </div>
+                            </div>
+                        </div>                           
+                        
+                        <div class="product_txt">
+                            <strong>뉴트럴 숏슬리브</strong>
+                            <p><em>50,000원</em>25,000원</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <div class="card_img">
+                            <img src="images/new-10.png" alt="lux">
+                            <div class="card_back">
+                                <div class="cb_con notxt">옵션</div>
+                                <div class="iconbox">
+                                    <i class="material-icons-outlined">shopping_cart</i>
+                                    <i class="material-icons-outlined">favorite_border</i>
+                                </div>
+                            </div>
+                        </div>                           
+                        
+                        <div class="product_txt">
+                            <strong>지미콘 폴 쇼츠</strong>
+                            <p><em>46,000원</em>23,000원</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <div class="card_img">
+                            <img src="images/new-05.png" alt="lux">
+                            <div class="card_back">
+                                <div class="cb_con notxt">옵션</div>
+                                <div class="iconbox">
+                                    <i class="material-icons-outlined">shopping_cart</i>
+                                    <i class="material-icons-outlined">favorite_border</i>
+                                </div>
+                            </div>
+                        </div>                           
+                        
+                        <div class="product_txt">
+                            <strong>스위트 더블 후크 브라탑</strong>
+                            <p><em>46,000원</em>23,000원</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <div class="card_img">
+                            <img src="images/new-06.png" alt="lux">
+                            <div class="card_back">
+                                <div class="cb_con notxt">옵션</div>
+                                <div class="iconbox">
+                                    <i class="material-icons-outlined">shopping_cart</i>
+                                    <i class="material-icons-outlined">favorite_border</i>
+                                </div>
+                            </div>
+                        </div>                           
+                        
+                        <div class="product_txt">
+                            <strong>에파 커버업 ( 9colors )</strong>
+                            <p><em>28,000원</em>18,000원</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <div class="card_img">
+                            <img src="images/new-07.jpg" alt="lux">
+                            <div class="card_back">
+                                <div class="cb_con notxt">옵션</div>
+                                <div class="iconbox">
+                                    <i class="material-icons-outlined">shopping_cart</i>
+                                    <i class="material-icons-outlined">favorite_border</i>
+                                </div>
+                            </div>
+                        </div>                           
+                        
+                        <div class="product_txt">
+                            <strong>그랑 텐션 레깅스</strong>
+                            <p><em>56,000원</em>26,000원</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <div class="card_img">
+                            <img src="images/new-04.png" alt="lux">
+                            <div class="card_back">
+                                <div class="cb_con notxt">옵션</div>
+                                <div class="iconbox">
+                                    <i class="material-icons-outlined">shopping_cart</i>
+                                    <i class="material-icons-outlined">favorite_border</i>
+                                </div>
+                            </div>
+                        </div>                           
+                        
+                        <div class="product_txt">
+                            <strong>링클 숏슬리브 탑</strong>
+                            <p><em>54,000원</em>27,000원</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <div class="card_img">
+                            <img src="images/new-08.jpg" alt="lux">
+                            <div class="card_back">
+                                <div class="cb_con notxt">옵션</div>
+                                <div class="iconbox">
+                                    <i class="material-icons-outlined">shopping_cart</i>
+                                    <i class="material-icons-outlined">favorite_border</i>
+                                </div>
+                            </div>
+                        </div>                           
+                        
+                        <div class="product_txt">
+                            <strong>룩플러스 파워 서포트 레깅스</strong>
+                            <p><em>70,000원</em>39,000원</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <div class="card_img">
+                            <img src="images/new-09.png" alt="lux">
+                            <div class="card_back">
+                                <div class="cb_con notxt">옵션</div>
+                                <div class="iconbox">
+                                    <i class="material-icons-outlined">shopping_cart</i>
+                                    <i class="material-icons-outlined">favorite_border</i>
+                                </div>
+                            </div>
+                        </div>                           
+                        
+                        <div class="product_txt">
+                            <strong>디라이트 레깅스 5부</strong>
+                            <p><em>46,000원</em>25,000원</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            
+        </div>
+    </section>
+
+    <!-- BEST -->
+    <section class="best_product">
+        <div class="container">
+            <h2>BEST IN SNS</h2>
+            <ul class="tab_menu">
+                <li class="on">상의</li>
+                <li>하의</li>
+                <li>아우터</li>
+            </ul>
+
+            <ul class="tab_con">
+                <li class="on">
+                    <ul class="clearfix">
+                        <li>
+                            <a href="#">
+                                <img src="images/bestTop-01.png" alt="lux">
+                                <div class="coverbox">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    <em>Instagram</em>
+                                    <p>@FunnyR</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/bestTop-02.png" alt="lux">
+                                <div class="coverbox">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    <em>Instagram</em>
+                                    <p>@sunflower</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/bestTop-03.png" alt="lux">
+                                <div class="coverbox">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    <em>Instagram</em>
+                                    <p>@rose</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/bestTop-04.png" alt="lux">
+                                <div class="coverbox">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    <em>Instagram</em>
+                                    <p>@daisy</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="clearfix">
+                        <li>
+                            <a href="#">
+                                <img src="images/bestPants-01.png" alt="lux">
+                                <div class="coverbox">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    <em>Instagram</em>
+                                    <p>@FunnyR</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/bestPants-02.jpg" alt="lux">
+                                <div class="coverbox">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    <em>Instagram</em>
+                                    <p>@rose</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/bestPants-03.png" alt="lux">
+                                <div class="coverbox">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    <em>Instagram</em>
+                                    <p>@sunflower</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/bestPants-04.png" alt="lux">
+                                <div class="coverbox">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    <em>Instagram</em>
+                                    <p>@daisy</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="clearfix">
+                        <li>
+                            <a href="#">
+                                <img src="images/bestOuter-01.png" alt="lux">
+                                <div class="coverbox">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    <em>Instagram</em>
+                                    <p>@daisy</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/bestOuter-02.png" alt="lux">
+                                <div class="coverbox">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    <em>Instagram</em>
+                                    <p>@sunflower</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/bestOuter-03.png" alt="lux">
+                                <div class="coverbox">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    <em>Instagram</em>
+                                    <p>@loverstory</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/bestOuter-04.png" alt="lux">
+                                <div class="coverbox">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    <em>Instagram</em>
+                                    <p>@FunnyR</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="f_top">
+            <div class="container">
+                <ul class="f_menu">
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">고객상담</a></li>
+                    <li><a href="#">찾아오시는 길</a></li>
+                </ul>
+
+                <ul class="sns">
+                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="f_bottom">
+            <div class="container">
+                <div class="fb_left">
+                    <img src="images/logo-03.png" alt="룩스웨어">
+                </div>
+
+                <div class="fb_right">
+                    <ul>
+                        <li>룩스웨어</li>
+                        <li>사업자등록번호 : 642-27-00780</li>
+                        <li>대표이사 김수미</li>
+                        <li class="cl">주소 서울 용산구 청파동3가 132-23 미래빌딩 3층</li>
+                        <li>대표전화 : 070-4738-0033 </li>
+                        <li class="cl">E-mail : luxwear20@naver.com</li>
+                    </ul>
+                    <p class="cl">Copyright &copy;Hye-In KIM, Ltd All Rights Reserved.</p>
+                    
+                    <div class="wa_mark">
+                        <img src="images/mark_wa.png" alt="인증마크">
+                    </div>
+                </div>
+            </div>
+        </div><!-- //.f_bottom -->
+    </footer>
+</body>
+
+</html>

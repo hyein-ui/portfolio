@@ -1,0 +1,62 @@
+
+@use 'variables';
+@use 'mixins';
+
+
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+
+
+  main{
+
+    section{
+      width: 100%;
+      height: 300px;
+    }
+
+
+  }
+}
+
+
+
+// 전역 타이포그래피 베이스
+
+
+
+
+
+// 전역 포커스 링 스타일
+:focus-visible {
+  @include mixins.focus-visible;
+}
+
+
+// 스크린리더용 텍스트 숨김
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+// 숨김처리
+.hide{
+  display: none;
+}

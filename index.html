@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="포트폴리오">
+    <meta name="keywords" content="포트폴리오, 웹퍼블리셔, UI, UX">
+    <meta name="author" content="Hye-In KIM">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PORTFOLIO - HYEIN KIM</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" sizes="16x16">
+
+    <!-- font awsome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="style/css/main.css">
+
+    <!-- js -->
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <!-- 키보드 포커싱 순서를 고려해 DOM 배치 -->
+
+        <div class="left-group">
+            <h1 class="logo"><a href="#"><img src="images/logo.svg" alt="김혜인 포트폴리오"></a></h1>
+            <button class="ham" aria-label="메뉴 열기" aria-controls="mainNav" aria-expanded="false"><img src="images/hamMenu.svg" alt="" aria-hidden="true"></button>
+        </div>
+
+        <nav id="mainNav" class="gnb" hidden>
+            <ul class="gnb-menu">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about-me">About Me</a></li>
+                <li><a href="#feature">Feature</a></li>
+                <li class="has-submenu"><a href="#focus">Works</a>
+                    <ul class="submenu">
+                        <li><a href="#focus">Focus</a></li>
+                        <li><a href="#other">other</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="toggle-switch toggle-switch--theme">
+            <input type="checkbox" id="themeToggle" class="toggle-switch__input" role="switch" />
+            <label for="themeToggle" class="toggle-switch__label">
+                <span class="toggle-switch__text">다크 모드</span>
+                <span class="toggle-switch__slider" aria-hidden="true"></span>
+            </label>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div>
+                <strong>HYE-IN KIM</strong>
+            </div>
+
+            <h2>portfolio</h2>
+
+            <p class="text-decorative">Web Publisher</p>
+        </section>
+
+
+        <section id="about-me" class="about-me">
+            <h2>About Me</h2>
+        </section>
+
+        <section id="feature" class="feature">
+            <h2>Feature</h2>
+        </section>
+
+        <section id="focus" class="focus">
+            <h2>Focus</h2>
+        </section>
+
+        <section id="other" class="other">
+            <h2>other</h2>
+        </section>
+
+        <section id="thanks" class="thanks">
+            <h2>Thank you</h2>
+        </section>
+    </main>
+
+    <footer>&copy;2026. Hye-In KIM. All rights reserved.</footer>
+
+    <!-- <button class="scroll-top" aria-label="Scroll to top">
+        ↑
+    </button> -->
+
+
+</body>
+
+</html>

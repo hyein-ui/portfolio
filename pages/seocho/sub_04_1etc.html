@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="서초구 보건소">
+    <meta name="keywords" content="서초구 보건소, 서초구, 보건소, 서초, 보건">
+    <meta name="author" content="KIM Hye-In">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서초구 보건소 - 진료서비스</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- jquery -->
+    <script src="js/jquery-1.12.4.min.js"></script>
+
+    <!-- swiper cdn -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <!-- font awsome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <!-- script -->
+    <script src="js/common.js"></script>
+    <script src="js/sub.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_sub.css">
+
+        <!-- 옛버전 브라우저 호환 조건주석. IE 9 이하 작동. -->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+<body>
+    
+    <!-- 전체메뉴 모달 -->
+    <div class="allMenu_modal">
+        <div class="allMenu_top clearfix">
+            <h2>전체메뉴</h2>
+
+            <button type="button" class="btn_closeAllMenu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+       
+        <div class="allMenu_bt">
+            <ul class="all_big clearfix">
+                <!-- 1 -->
+                <li><a href="#">보건소소개</a>
+                    <ul class="all_mid space">
+                        <li><a href="#">조직도</a></li>
+                        <li><a href="#">보건소서비스헌장</a></li>
+                        <li><a href="#">청사안내</a></li>
+                        <li><a href="#">방배보건지소</a>
+                            <ul class="all_small">
+                                <li><a href="#">관련 안내</a></li>
+                                <li><a href="#">찾아오시는길</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">서초모자보건지소</a></li>
+                        <li><a href="#">찾아오시는길</a></li>
+                    </ul>
+                    <a href="sub_04_1primary.html">진료서비스</a>
+                    <ul class="all_mid">
+                        <li><a href="sub_04_1primary.html">진료안내</a>
+                            <ul class="all_small">
+                                <li><a href="sub_04_1primary.html">1차진료</a></li>
+                                <li><a href="sub_04_1dental.html">구강진료</a></li>
+                                <li><a href="sub_04_1etc.html">기타진료</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">건강검진</a>
+                            <ul class="all_small">
+                                <li><a href="#">건강검진</a></li>
+                                <li><a href="#">각종검사</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">정신건강증진센터</a></li>
+                        <li><a href="#">체력측정</a></li>
+                    </ul>
+                </li>
+
+
+                <!-- 2 -->
+                <li><a href="#">생애주기건강관리</a>
+                    <ul class="all_mid">
+                        <li><a href="#">건강도시서초</a>
+                            <ul class="all_small">
+                                <li><a href="#">건강도시란?</a></li>
+                                <li><a href="#">건강한생활터</a></li>
+                                <li><a href="#">안전한생활터</a></li>
+                                <li><a href="#">담배연기 제로 서초</a></li>
+                                <li><a href="#">토요열린보건소</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">영유아</a>
+                            <ul class="all_small">
+                                <li><a href="#">검진 &sol; 예방접종</a></li>
+                                <li><a href="#">영양</a></li>
+                                <li><a href="#">육아</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">어린이,청소년</a>
+                            <ul class="all_small">
+                                <li><a href="#">구강관리</a></li>
+                                <li><a href="#">영양 &sol; 운동사업</a></li>
+                                <li><a href="#">건강관리</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">임산부</a>
+                            <ul class="all_small">
+                                <li><a href="#">임신 출산 준비</a></li>
+                                <li><a href="#">임산부 건강관리</a></li>
+                                <li><a href="#">산모&middot;신생아 건강관리<br>지원사업&lpar;산모돌보미&rpar;</a></li>
+                                <li><a href="#">신생아관리</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">의료비지원</a>
+                            <ul class="all_small">
+                                <li><a href="#">난임부부 시술비 지원사업</a></li>
+                                <li><a href="#">고위험 임산부 의료비 <br>지원</a></li>
+                                <li><a href="#">미숙아 &middot; 선천성이상아 <br>의료비 지원</a></li>
+                                <li><a href="#">선천성대사이상 검사비 <br>및 환아 관리</a></li>
+                                <li><a href="#">선천성 난청검사 및 보청기지원</a></li>
+                                <li><a href="#">저소득층 기저귀 &middot; 조제분유 지원</a></li>
+                                <li><a href="#">청소년 산모 임신출산 의료비 지원</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 3 -->
+                <li>
+                    <ul class="all_mid space">
+                        <li><a href="#">청.장년</a>
+                            <ul class="all_small">
+                                <li><a href="#">만성질환 관리</a></li>
+                                <li><a href="#">암 예방 관리</a></li>
+                                <li><a href="#">희귀 질환자 의료비지원</a></li>
+                                <li><a href="#">서울형 유급병가지원사업</a></li>
+                                <li><a href="#">건강관리</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">어르신</a>
+                            <ul class="all_small">
+                                <li><a href="#">건강관리</a></li>
+                                <li><a href="#">치매관리</a></li>
+                                <li><a href="#">식생활 교육</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">취약계층</a>
+                            <ul class="all_small">
+                                <li><a href="#">구강관리</a></li>
+                                <li><a href="#">방문건강관리</a></li>
+                                <li><a href="#">지역사회중심재활</a></li>
+                                <li><a href="#">인플루엔자(독감)예방접종</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">전체계층</a>
+                            <ul class="all_small">
+                                <li><a href="#">건강부모교육</a></li>
+                                <li><a href="#">예방접종</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <a href="#">민원안내</a>
+                    <ul class="all_mid">
+                        <li><a href="#">민원안내</a>
+                            <ul class="all_small">
+                                <li><a href="#">제증명 발급안내</a></li>
+                                <li><a href="#">인허가 신고안내</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">민원상담</a></li>
+                        <li><a href="#">민원서식</a></li>
+                        <li><a href="#">행정처분의견제출</a>
+                            <ul class="all_small">
+                                <li><a href="#">행정처분 업소명단공개</a></li>
+                                <li><a href="#">행정처분의견제출</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">자율점검</a>
+                            <ul class="all_small">
+                                <li><a href="#">식품위생</a></li>
+                                <li><a href="#">공중위생</a></li>
+                                <li><a href="#">의약업소</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">인터넷발급조회</a>
+                            <ul class="all_small">
+                                <li><a href="#">제증명 온라인 발급</a></li>
+                                <li><a href="#">검사결과 온라인 조회</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 4 -->
+                <li><a href="#">위생안전도시서초</a>
+                    <ul class="all_mid space">
+                        <li><a href="#">식품위생</a>
+                            <ul class="all_small">
+                                <li><a href="#">식품위생영업</a></li>
+                                <li><a href="#">위생교육기관</a></li>
+                                <li><a href="#">식품진흥기금</a></li>
+                                <li><a href="#">안심식당</a></li>
+                                <li><a href="#">모범음식점</a></li>
+                                <li><a href="#">배달음식점</a></li>
+                                <li><a href="#">음식점 위생등급제</a></li>
+                                <li><a href="#">식중독</a></li>
+                                <li><a href="#">음식문화 개선</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">식품안전</a>
+                            <ul class="all_small">
+                                <li><a href="#">식품안전영업</a></li>
+                                <li><a href="#">어린이급식관리지원센터</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">위생교육기관</a></li>
+                        <li><a href="#">공중위생</a>
+                            <ul class="all_small">
+                                <li><a href="#">공중위생영업</a></li>
+                                <li><a href="#">위생교육기관</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">원산지표시제</a>
+                            <ul class="all_small">
+                                <li><a href="#">원산지표시제도란?</a></li>
+                                <li><a href="#">원산지표시제</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <a href="#">참여소식</a>
+                    <ul class="all_mid">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">의약업소정보방</a></li>
+                        <li><a href="#">행정정보</a>
+                            <ul class="all_small">
+                                <li><a href="#">식품위생정보</a></li>
+                                <li><a href="#">공중위생정보</a></li>
+                                <li><a href="#">허위청구요양기관명단</a></li>
+                                <li><a href="#">기타행정정보</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">예약신청</a></li>
+                    </ul>
+                </li>
+
+                <!-- 5 -->
+                <li><a href="#">건강정보</a>
+                    <ul class="all_mid">
+                        <li><a href="#">관내의료기관찾기</a>
+                            <ul class="all_small">
+                                <li><a href="#">예방접종 위탁의료기관 <br>안내</a></li>
+                                <li><a href="#">병·의원·약국 안내</a></li>
+                                <li><a href="#">산후조리원</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">감염병FAQ</a>
+                            <ul class="all_small">
+                                <li><a href="#">봄철 유행감염병</a></li>
+                                <li><a href="#">여름철 유행감염병</a></li>
+                                <li><a href="#">가을철 유행감염병</a></li>
+                                <li><a href="#">겨울철유행 감염병</a></li>
+                                <li><a href="#">사계절 유행 감염병</a></li>
+                                <li><a href="#">식중독</a></li>
+                                <li><a href="#">성매개감염병</a></li>
+                                <li><a href="#">생물테러가능감염병</a></li>
+                                <li><a href="#">해외여행질병</a></li>
+                                <li><a href="#">보건소 HIV 검사</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">건강자료실</a>
+                            <ul class="all_small">
+                                <li><a href="#">질병과 증상안내</a></li>
+                                <li><a href="#">꼭 알아야할 건강정보</a></li>
+                                <li><a href="#">청소년건강만화수상집</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">건강동영상</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    
+    <!-- 헤더 -->
+    <header id="header">
+        <!-- 상단 -->
+        <div class="htop wrap clearfix">
+            <h1 class="logo"><a href="index.html"><img src="images/logo.png" alt="서초구 보건소"></a></h1>
+
+            <div class="htop_ri">
+                <ul class="userUtil clearfix">
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
+                    <li class="lang"><a href="#">KOR<i class="fa-solid fa-caret-down"></i></a>
+                        <ul class="lang_optbox">
+                            <li><a href="#">KOR</a></li>
+                            <li><a href="#">ENG</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="search">
+                        <button type="button" class="srch_btn">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+    
+                        <div class="srch_box">
+                            <div class="con">
+                                <p>통합검색</p>
+                                <input type="text" placeholder="검색어를 입력해주세요.">
+                                <button type="submit"><img src="images/search_btn.png" alt="검색"></button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- 하단 -->
+        <div class="hbottom">
+            <nav class="gnb wrap clearfix">
+                <ul class="m_menu">
+                    <!-- 1 -->
+                    <li><a href="#">보건소소개</a>
+                        <ul class="s_menu">
+                            <li><a href="#">조직도</a></li>
+                            <li><a href="#">보건소</a></li>
+                            <li><a href="#">서비스헌장</a></li>
+                            <li><a href="#">청사안내</a></li>
+                            <li><a href="#">방배보건지소</a></li>
+                            <li><a href="#">서초모자보건지소</a></li>
+                            <li><a href="#">찾아오시는길</a></li>
+                        </ul>
+                    </li>
+                    <!-- 2 -->
+                    <li><a href="#">생애주기건강관리</a>
+                        <ul class="s_menu">
+                            <li><a href="#">건강도시서초</a></li>
+                            <li><a href="#">영유아</a></li>
+                            <li><a href="#">어린이,청소년</a></li>
+                            <li><a href="#">임산부</a></li>
+                            <li><a href="#">의료비지원</a></li>
+                            <li><a href="#">청.장년</a></li>
+                            <li><a href="#">어르신</a></li>
+                            <li><a href="#">취약계층</a></li>
+                            <li><a href="#">전체계층</a></li>
+                        </ul>
+                    </li>
+                    <!-- 3 -->
+                    <li><a href="#">위생안전도시서초</a>
+                        <ul class="s_menu">
+                            <li><a href="#">식품위생</a></li>
+                            <li><a href="#">식품안전</a></li>
+                            <li><a href="#">위생교육기관</a></li>
+                            <li><a href="#">공중위생</a></li>
+                            <li><a href="#">원산지표시제</a></li>
+                        </ul>
+                    </li>
+                    <!-- 4 -->
+                    <li><a href="sub_04_1primary.html">진료서비스</a>
+                        <ul class="s_menu">
+                            <li><a href="sub_04_1primary.html">진료안내</a></li>
+                            <li><a href="#">건강검진</a></li>
+                            <li><a href="#">정신건강증진센터</a></li>
+                            <li><a href="#">체력측정</a></li>
+                        </ul>
+                    </li>
+                    <!-- 5 -->
+                    <li><a href="#">민원안내</a>
+                        <ul class="s_menu">
+                            <li><a href="#">민원안내</a></li>
+                            <li><a href="#">민원상담</a></li>
+                            <li><a href="#">민원서식</a></li>
+                            <li><a href="#">행정처분의견제출</a></li>
+                            <li><a href="#">자율점검</a></li>
+                            <li><a href="#">인터넷발급조회</a></li>
+                        </ul>
+                    </li>
+                    <!-- 6 -->
+                    <li><a href="#">건강정보</a>
+                        <ul class="s_menu">
+                            <li><a href="#">관내의료기관찾기</a></li>
+                            <li><a href="#">감염병FAQ</a></li>
+                            <li><a href="#">건강자료실</a></li>
+                            <li><a href="#">건강동영상</a></li>
+                        </ul>
+                    </li>
+                    <!-- 7 -->
+                    <li><a href="#">참여소식</a>
+                        <ul class="s_menu">
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">의약업소정보방</a></li>
+                            <li><a href="#">행정정보</a></li>
+                            <li><a href="#">예약신청</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <button type="button" class="allbtn">
+                    <img src="images/allMenu_2.png" alt="전체메뉴">
+                </button>
+            </nav>
+        </div>
+    </header> 
+
+
+    <!-- 본문 -->
+    <div class="medical_service wrap clearfix">
+        
+        <div class="leftMenu">
+            <h2>진료서비스</h2>
+            <ul class="leftMenu_main">
+                <!-- 1 -->
+                <li><a href="sub_04_1primary.html">진료안내</a><span><i class="fa-solid fa-angle-down"></i></span>
+                    <ul class="leftMenu_sub on">
+                        <li><a href="sub_04_1primary.html">1차진료</a></li>
+                        <li><a href="sub_04_1dental.html">구강진료</a></li>
+                        <li><a href="sub_04_1etc.html">기타진료</a></li>
+                    </ul>
+                </li> 
+                <!-- 2 -->
+                <li><a href="#">건강검진</a><span><i class="fa-solid fa-angle-down"></i></span>
+                    <ul class="leftMenu_sub">
+                        <li><a href="#">건강검진</a></li>
+                        <li><a href="#">각종검사</a></li>
+                    </ul>
+                </li>
+                <!-- 3 -->
+                <li><a href="#">정신건강증진센터</a></li>
+                <!-- 4 -->
+                <li><a href="#">체력측정</a></li>
+            </ul>
+        </div>
+
+        <section class="r_content">
+            <h3 class="con_title">진료안내 <span> &ndash; 기타진료</span></h3>
+            
+            <div class="con_body">
+                <div class="taps on">
+                    <ul class="tap_menu">
+                        <li class="on">한방진료</li>
+                        <li>물리치료</li>
+                        <li>결핵진료</li>
+                    </ul>
+                    <ul class="tap_content">
+                        <li>
+                            <dl>
+                                <dt>한방진료</dt>
+                                <dd><span>대 상 : </span>한방진료를 원하는 만 15세 이상 모든 주민</dd>
+                                <dd><span>진료내용 : </span>건강상담 및 침 시술, 과립형약 투약 등</dd>
+                                <dd><span>진료절차</span>
+                                    <ul>
+                                        <li><strong>침 예약시 : 방문 및 전화예약 &rarr; 1층 한방과 접수 &rarr; 진료 &rarr; 민원실수납</strong></li>
+                                        <li><strong>일반진료 : 1층 한방과 접수 &rarr; 진료 &rarr; 민원실 수납 &rarr; 보건소 &lpar;원내&rpar; 약국 조제</strong></li>
+                                    </ul>
+                                </dd>
+                                <dd><span>진 료 비</span>
+                                    <ul>
+                                        <li><strong>만 65세 미만 전 주민 : 1100원 이상 ~</strong></li>
+                                        <li><strong>만 65세 이상 서울주민 및 국가유공자 및 의료보호대상자 : 무료</strong></li>
+                                    </ul>
+                                </dd>
+                                <dd><span>준 비 물 : </span>신분증</dd>
+                                <dd><span>문의 및 예약 : </span>&phone; 02-2155-8119</dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>물리치료</dt>
+                                <dd><span>대 상 : </span>물리치료를 원하는 모든 주민 &lpar;요통, 관절염 등 급·만성관절염 환자 등&rpar;</dd>
+                                <dd><span>진료내용 : </span>전기치료, 열치료, 운동치료</dd>
+                                <dd><span>치료장비 : </span>핫팩, 경피신경자극치료기, 간섭흡입파 치료기, 파라핀치료기, 어깨회전기 등</dd>
+                                <dd><span>치료절차 : </span>1층 진료실 접수 &rarr; 의사진료 및 물리치료처방 &rarr; 1층 물리치료실 접수</dd>
+                                <dd><span>진료비 : </span>1,600원
+                                    <ul>
+                                        <li><strong>진료비는 처방내용에 따라 달라질 수 있음</strong></li>
+                                        <li><strong>65세이상 서울시 주민은 본인부담금 면제</strong></li>
+                                    </ul>
+                                </dd>
+                                <dd><span>준 비 물 : </span>의료보험증 또는 의료보호증</dd>
+                                <dd><span>기타사항 : </span>예약제 운영&lpar;전화 및 방문예약 가능&rpar;</dd>
+                                <dd><span>문 의 : </span>&phone;02-2155-8147</dd>
+                            </dl>
+                        </li>
+                        <li>
+                            <dl>
+                                <dt>결핵진료</dt>
+                                <dd><span>목 적 : </span>만성 전염성질환인 결핵을 조기 퇴치하여 국민 보건향상에 기여</dd>
+                                <dd><span>진료대상</span>
+                                    <ul>
+                                        <li><strong>호흡기 계통에 이상소견이 있는자&lpar;2주이상 기침&rpar;</strong></li>
+                                        <li><strong>환자 가족 및 환자 동거자, 결핵 고위험군&lpar;당뇨 등 만성질환자, HIV감염자&rpar;</strong></li>
+                                    </ul>
+                                </dd>
+                                <dd><span>진료기간 : </span>연중</dd>
+                                <dd><span>진료내용 : </span>흉부 X선 사진 및 객담검사</dd>
+                                <dd><span>진료비용 : </span>검진수수료 무료, 결핵진단서 발급 1,500원</dd>
+                                <dd><span>문의 및 안내 : </span>&phone; 02-2155-8098</dd>
+                            </dl>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+
+
+    <!-- toTop 버튼 -->
+    <div class="toTop">
+        <a href="#header">
+            <p><img src="images/up.png" alt="맨 위로"></p>
+        </a>
+    </div>
+
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="f_top wrap clearfix">
+            <div class="q_links">
+                <ul>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">찾아오시는길</a></li>
+                    <li><a href="#">RSS</a></li>
+                </ul>
+            </div>
+            <div class="site_links">
+                <select>
+                    <option>관련사이트</option>
+                    <option value="https://parents.seocho.go.kr/">건강부모e음</option>
+                    <option value="https://seocho.seouldementia.or.kr/">치매지원센터</option>
+                    <option value="http://www.scgmhc.or.kr/">정신건강복지센터</option>
+                    <option value="http://www.scaizone.or.kr/">서초아이존</option>
+                    <option value="https://www.nhis.or.kr/nhis/healthin/retrieveSsmkMdtrMdcAdminSearch.do">금연 치료기관</option>
+                    <option value="https://www.nosmokeguide.go.kr/">금연 길라잡이</option>
+                    <option value="https://www.nhis.or.kr/">국민건강보험</option>
+                    <option value="https://www.mfds.go.kr/">식품위해정보공개</option>
+                </select>
+                <button type="button">이동</button>
+            </div>
+        </div>
+
+        <div class="f_bottom wrap clearfix">
+            <ul class="f_info">
+                <li>(06750) 서울특별시 서초구 남부순환로 2584 (서초동)</li>
+                <li class="d_in">Tel. 02-2155-8114 (120 다산콜센터로 연결)</li>
+                <li class="d_in">02-2155-6100~3 (야간·공휴일/당직실)</li>
+                <li class="copy">Copyright 2022 Hye-In KIM, ALL RIGHTS RESERVED</li>
+            </ul>
+
+            <img src="images/logo_grey.png" alt="서초구 보건소 로고">
+        </div>
+    </footer>
+
+</body>
+</html>

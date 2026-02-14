@@ -1,0 +1,5 @@
+@use '../base/variables';
+
+section.hero{
+  background: var(--color-bg-primary);
+}

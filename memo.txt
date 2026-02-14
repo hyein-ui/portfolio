@@ -1,0 +1,106 @@
+/* ===== SCSS와 Autoprefixer 같이 쓰는 법 ===== */
+SCSS에서 프리픽스 직접 쓰지 말 것
+
+
+// ----- Sass CLI 설치 -----
+Node.js 설치 후 
+bash에서
+
+설치
+npm install -g sass
+확인
+sass --version
+
+
+// ----- Autoprefixer 설치 -----
+주의
+Live Sass Compiler는 Autoprefixer를 기본 포함하지 않음
+SCSS → CSS 컴파일 이후 사용
+
+bash에서
+① 프로젝트 루트에서 초기화(한번만)
+npm init -y
+
+② Autoprefixer + PostCSS 설치
+npm install -D postcss postcss-cli autoprefixer
+
+③ 브라우저 기준 설정 (중요)
+package.json 에서
+{
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
+또는 최상위 루트에 파일 만들기(권장)
+.browserslistrc
+본문에 작성
+> 0.5%
+last 2 versions
+not dead
+
+
+
+// ----- PostCSS 설정 파일로 사용 -----
+최상위 루트에 파일 만들기
+postcss.config.js
+본문에 작성
+module.exports = {
+  plugins: [
+    require('autoprefixer')
+  ]
+}
+
+
+
+
+
+// ----- 직접 실행 명령어 -----
+bash에서
+
+① Sass 컴파일
+sass style/scss/main.scss style/css/main.css
+
+② Autoprefixer 적용
+npx postcss style/css/main.css --use autoprefixer -o style/css/main.css
+
+만약 PostCSS 설정파일(postcss.config.js) 있으면
+npx postcss style/css/main.css -o style/css/main.css
+
+
+// ----- watch 실행 명령어 -----
+bash에서
+
+특정 파일만 watch
+sass --watch style/scss/main.scss:style/css/main.css
+
+멈추기
+Ctrl + C
+
+
+// ----- watch 하면서 Autoprefixer까지 실행 명령어 (권장) -----
+package.json
+postcss.config.js
+.browserslistrc
+세가지 다 있어야 함
+
+필수설치
+npm install -D sass postcss postcss-cli autoprefixer npm-run-all
+
+
+package.json 파일에 작성
+{
+  "scripts": {
+    "sass": "sass --watch style/scss/main.scss:style/css/main.css",
+    "postcss": "postcss style/css/main.css -o style/css/main.css --watch",
+    "watch": "npm-run-all --parallel sass postcss"
+  }
+}
+
+
+main.css 파일 생성한 후
+
+bash에서
+npm run watch
+

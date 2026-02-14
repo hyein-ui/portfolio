@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+/* ======== 헤더 색상변경 ======== */
+.htop .htop_ri ul.userUtil>li{border-right: 1px solid #316992;}
+.htop .htop_ri ul.userUtil>li>a{color: #316992;}
+.htop .htop_ri ul.userUtil>li>ul.lang_optbox>li{background-color: #ebebeb;}
+.htop .htop_ri ul.userUtil>li>ul.lang_optbox>li:hover{background-color: #d3e3ee;}
+.htop .htop_ri ul.userUtil>li.search .srch_btn{color: #316992;}
+.hbottom{border-top: 1px solid #316992;}
+.hbottom .gnb ul.m_menu>li>a{color: #316992;}
+.hbottom .gnb ul.m_menu>li>ul.s_menu{border: 1px solid #eee;}
+
+
+/* ======== medical_service ======== */
+.medical_service{margin: 250px auto 100px auto;}
+
+/* ======== leftMenu ======== */
+.leftMenu{float: left;}
+.leftMenu h2{width: 200px; height: 200px; background-color: #3cb1ab; border-radius: 50%; font-size: 30px; font-weight: 600; text-align: center; line-height: 200px; color: #fff;}
+/* 1depth */
+ul.leftMenu_main{margin-top: 36px;}
+ul.leftMenu_main>li{width: 200px; border-top: 1px solid #3cb1ab; margin-bottom: 30px;}
+ul.leftMenu_main>li>a{display: inline-block; width: 175px; padding-top: 7px; font-size: 20px; font-weight: 500;}
+ul.leftMenu_main>li>span{display: inline-block;}
+ul.leftMenu_main>li>span>i{color: #3cb1ab;}
+/* 2depth */
+ul.leftMenu_sub>li{width: 200px;}
+ul.leftMenu_sub>li>a{display: block; font-size: 18px; color: #777777; padding-top: 20px;}
+/* operate */
+ul.leftMenu_main>li>a:hover{color: #3cb1ab;}
+ul.leftMenu_sub>li>a:hover{color: #3cb1ab;}
+ul.leftMenu_sub{display: none;}
+ul.leftMenu_sub.on{display: block;}
+
+
+/* ======== r_content ======== */
+.r_content{float: right; width: 1000px;}
+.r_content h3.con_title{margin-top: 70px; padding: 20px; font-size: 24px; font-weight: 600; border: 1px solid #3cb1ab; border-radius: 4px;}
+.r_content h3.con_title span{display: inline-block; font-weight: 400; color: #3cb1ab;}
+.r_content .con_body{margin-top: 30px; padding: 10px 30px 80px; border: 1px solid #dddddd; border-radius: 4px;}
+/* -- 탭메뉴 사용시 */
+.r_content .con_body .taps{display: none; margin-top: 20px;}
+.r_content .con_body .taps.on{display: block;}
+.r_content .con_body .taps ul.tap_menu{font-size: 0;}
+.r_content .con_body .taps ul.tap_menu>li{display: inline-block; width: 200px; height: 50px; background-color: #c8f3f1; border-right: 1px solid #fff; font-size: 20px; font-weight: 500; line-height: 50px; text-align: center; cursor: pointer;}
+.r_content .con_body .taps ul.tap_menu>li.on{background-color: #98dfdb;}
+.r_content .con_body .taps ul.tap_content{margin-top: 10px;}
+.r_content .con_body .taps ul.tap_content>li{display: none;}
+.r_content .con_body .taps ul.tap_content>li.on{display: block;}
+/* -- 본문 */
+.r_content .con_body dl dt{margin-top: 20px; font-size: 24px; font-weight: 600; line-height: 2;}
+.r_content .con_body dl dd{font-size: 18px; line-height: 2;}
+.r_content .con_body dl dd span{font-weight: 500;}
+.r_content .con_body dl dd a{display: inline-block; margin-left: 10px; width: 90px; height: 30px; font-size: 14px; font-weight: 500; text-align: center; line-height: 30px; color: #fff; border-radius: 12px; background-color: #3cb1ab;}
+.r_content .con_body dl dd ul{margin-left: 20px;}
+.r_content .con_body dl dd ul>li{font-size: 17px;}
+.r_content .con_body dl dd ul>li>p{margin-left: 10px;}
+.r_content .con_body dl dd ul>li>div.con_note>ol{list-style: decimal; margin-left: 30px;}
+.r_content .con_body dl dd ul>li>div.con_note>em{text-decoration: underline;}
+.r_content .con_body dl dd ul>li>div.con_note>ol>li{font-size: 16px;}
+

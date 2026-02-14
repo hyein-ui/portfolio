@@ -1,0 +1,28 @@
+@use 'variables' as *;
+
+
+/* ===== 반응형 모바일 퍼스트 ===== */
+@mixin respond($breakpoint){
+  $size: map-get($breakpoints, $breakpoint);
+
+  @if $size {
+    @media (min-width: $size) {
+      @content;
+    }
+  } @else {
+    @warn "`#{$breakpoint}`는 정의되지 않은 breakpoint 입니다.";
+  }
+}
+@mixin hover {
+  @media (hover : hover) and (pointer: fine){
+    @content;
+  }
+}
+
+
+
+/* 전역 포커스 링 스타일 */
+@mixin focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}

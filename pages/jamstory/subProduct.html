@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="잼스토리">
+    <meta name="keywords" content="잼스토리, 잼, 수제, 딸기, 청, 논산, 선물, 특산품, 과일">
+    <meta name="author" content="KIM Hye-In">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>잼스토리</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" sizes="16x16">
+
+    <!-- jquery -->
+    <script src="js/jquery-1.12.4.min.js"></script>
+
+    <!-- font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <!-- js -->
+    <script src="js/custom_subProduct.js"></script>
+    <script src="js/common.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_subProduct.css">
+
+    <!-- 옛버전 브라우저 호환 조건주석. IE 9 이하 작동. -->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+   
+    <!-- 사이드메뉴 모달 -->
+    <div class="sideMenu">
+        <div class="side_top inner">
+            <ul class="userMenu">
+                <li><a href="#"><img src="images/icon_user.png" alt="로그인"></a></li>
+                <li><a href="#"><img src="images/icon_cart.png" alt="장바구니"></a></li>
+                <li class="side_close"><img src="images/sidemenu_close_arrow.png" alt="사이드메뉴 닫기"></li>
+            </ul>
+        </div>
+
+        <div class="side_iconmenu">
+            <ul class="inner">
+                <li><a href="#"><img src="images/sidemenu_icon_home.png" alt="홈으로"></a></li>
+                <li><a href="#"><img src="images/sidemenu_icon_favorite.png" alt="위시리스트"></a></li>
+                <li><a href="#"><img src="images/sidemenu_icon_cart.png" alt="장바구니"></a></li>
+                <li><a href="#"><img src="images/sidemenu_icon_delivery.png" alt="배송조회"></a></li>
+            </ul>
+        </div>
+
+        <div class="side_bottom inner">
+            <ul class="firstMenu">
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">마이페이지</a></li>
+                <li><a href="#">주문내역</a></li>
+                <li><a href="#">장바구니</a></li>
+                <li><a href="#">배송조회</a></li>
+            </ul>
+
+            <ul class="secondMenu">
+                <li><a class="en" href="#">Notice</a></li>
+                <li><a class="en" href="#">FAQ</a></li>
+                <li><a href="#">입금확인</a></li>
+                <li><a class="en" href="#">QnA</a></li>
+            </ul>
+            
+            <ul class="thirdMenu">
+                <li><a class="en" href="#">Blog</a></li>
+            </ul>
+        </div>
+
+        <div class="toTop inner">
+            <button type="button">TOP</button>
+        </div>
+    </div>
+
+   
+    <!-- 헤더 -->
+    <header>
+        <div class="h_top">
+            <h1 class="logo"><a href="index.html"><span class="blind">잼스토리</span></a></h1>
+
+            <ul class="userMenu">
+                <li><a href="#"><img src="images/icon_user.png" alt="로그인"></a></li>
+                <li><a href="#"><img src="images/icon_cart.png" alt="장바구니"></a></li>
+                <li class="side_open"><img src="images/sidemenu_open_arrow.png" alt="사이드메뉴 열기"></li>
+            </ul>
+        </div>
+        
+        <!-- 내비게이션 -->
+        <nav>
+            <ul class="mainMenu inner">
+                <li><a class="en" href="subProduct.html">Jam Story</a></li>
+                <li><a href="subProduct.html">수제잼</a></li>
+                <li><a href="subProduct.html">선물용</a></li>
+                <li><a href="subProduct.html">시즌상품</a></li>
+                <li><a href="subProduct.html">입금확인</a></li>
+                <li><a href="subProduct.html">고객센터</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <!-- 메인 -->
+    <main>
+        <div class="sub_products">
+            <h2>Products</h2>
+            <ul class="tabMenu clearfix">
+                <li class="on">전체상품</li>
+                <li class="jam">수제잼</li>
+                <li class="gift">선물용</li>
+                <li class="season">시즌상품</li>
+            </ul>
+    
+            <ul class="productList">
+                <!-- 1 -->
+                <li class="clearfix jam">
+                    <div class="imgbox">
+                        <a href="#">자세히 보기 &rarr;</a>
+                    </div>
+                    <div class="txtbox">
+                        <a href="#">
+                            <p>수제 딸기잼 1kg</p>
+                            <strong>18,000원</strong>
+                        </a>
+                    </div>
+                </li>
+                <!-- 2 -->
+                <li class="clearfix jam">
+                    <div class="imgbox">
+                        <a href="#">자세히 보기 &rarr;</a>
+                    </div>
+                    <div class="txtbox">
+                        <a href="#">
+                            <p>수제 딸기잼 2ea</p>
+                            <strong>25,000원</strong>
+                        </a>
+                    </div>
+                </li>
+                <!-- 3 -->
+                <li class="clearfix season">
+                    <div class="imgbox">
+                        <a href="#">자세히 보기 &rarr;</a>
+                    </div>
+                    <div class="txtbox">
+                        <a href="#">
+                            <p>딸기 콩포트 1kg</p>
+                            <strong>20,000원</strong>
+                        </a>
+                    </div>
+                </li>
+                <!-- 4 -->
+                <li class="clearfix season">
+                    <div class="imgbox">
+                        <a href="#">자세히 보기 &rarr;</a>
+                    </div>
+                    <div class="txtbox">
+                        <a href="#">
+                            <p>딸기 콩포트 580g x 2</p>
+                            <strong>26,000원</strong>
+                        </a>
+                    </div>
+                </li>
+                <!-- 5 -->
+                <li class="clearfix season">
+                    <div class="imgbox">
+                        <a href="#">자세히 보기 &rarr;</a>
+                    </div>
+                    <div class="txtbox">
+                        <a href="#">
+                            <p>수제 딸기청</p>
+                            <strong>23,000원</strong>
+                        </a>
+                    </div>
+                </li>
+                <!-- 6 -->
+                <li class="clearfix gift">
+                    <div class="imgbox">
+                        <a href="#">자세히 보기 &rarr;</a>
+                    </div>
+                    <div class="txtbox">
+                        <a href="#">
+                            <p>선물 A형</p>
+                            <strong>21,000원</strong>
+                        </a>
+                    </div>
+                </li>
+                <!-- 7 -->
+                <li class="clearfix gift">
+                    <div class="imgbox">
+                        <a href="#">자세히 보기 &rarr;</a>
+                    </div>
+                    <div class="txtbox">
+                        <a href="#">
+                            <p>선물 B형</p>
+                            <strong>27,000원</strong>
+                        </a>
+                    </div>
+                </li>
+                <!-- 8 -->
+                <li class="clearfix gift">
+                    <div class="imgbox">
+                        <a href="#">자세히 보기 &rarr;</a>
+                    </div>
+                    <div class="txtbox">
+                        <a href="#">
+                            <p>답례품 수제잼</p>
+                            <strong>9,000원</strong>
+                        </a>
+                    </div>
+                </li>
+    
+            </ul>
+    
+    
+        </div>
+    </main>
+
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="f_top">
+            <ul class="wrap">
+                <li><a href="#">잼스토리</a></li>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+            </ul>
+        </div>
+        <div class="f_bottom">
+            <ul class="wrap">
+                <li>
+                    <h4>Information</h4>
+                    <ul>
+                        <li><strong>잼스토리</strong>충청남도 논산시 강경읍 옥녀봉로51번길 11</li>
+                        <li class="in"><strong>대표 : </strong>박지혜</li>
+                        <li class="in"><strong>사업자번호 : </strong>130-29-51039</li>
+                        <li><strong>통신판매신고번호 : </strong>제2008-충남논산-00018호</li>
+                        <li class="in"><strong>대표번호 : </strong>010-9151-3029</li>
+                        <li class="in"><strong>메일 : </strong>chihye420@naver.com</li>
+                        <li>COPYRIGHT 2022 <strong>Hye-In KIM</strong>ALL RIGHTS RESERVED.</li>
+                    </ul>
+                    <img src="images/mark_wa.png" alt="웹접근성인증마크">
+                </li>
+                <li>
+                    <h4>고객센터</h4>
+                    <h5>010-9151-3029</h5>
+                    <p>평일 10:00 ~ 17:00</p>
+                    <p>점심 12:00 ~ 13:00</p>
+                    <p>[ 토요일/일요일/공휴일 휴무 ]</p>
+                    
+                </li>
+                <li>
+                    <h4>입금계좌</h4>
+                    <h5>351-0523-3278-43</h5>
+                    <em><strong>농협</strong>예금주 : 박지혜</em>
+                    <p><strong>우리에스크로 안전거래 가맹점</strong></p>
+                    <p>10만원 이상 구매시 우리에스크로</p>
+                    <p>서비스 사용이 가능합니다.</p>
+                    
+                </li>
+                <li>
+                    <h4 class="f_blog">Blog</h4>
+                    <p><a href="https://blog.naver.com/chihye420">https://blog.naver.com/chihye420</a></p>
+                    <h4 class="f_email">Email</h4>
+                    <p>chihye420@naver.com</p>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    
+</body>
+</html>

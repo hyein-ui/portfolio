@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+
+/* ======== [진입] 안내 모달 ======== */
+.portfolio_guide{position: fixed; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); z-index: 1000;}
+.portfolio_guide .pfg_inner{position: absolute; left: 50%; top: 10%; transform: translateX(-50%); width: 500px; height: 550px; background-color: #fff; border-radius: 10px;}
+.portfolio_guide .pfg_inner::after{content: ''; display: block; width: 95%; height: 95%; border: 2px dashed salmon; box-sizing: border-box; border-radius: 10px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+.portfolio_guide .pfg_inner .pfg_contents{width: 100%; height: 100%; position: absolute; left: 0; top: 0; padding: 30px; box-sizing: border-box;}
+
+.portfolio_guide .pfg_inner .pfg_contents strong{display: block; font-family: 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: 500; line-height: 1.5; color: salmon;}
+.portfolio_guide .pfg_inner .pfg_contents h2{font-family: 'Noto Sans KR', sans-serif; font-size: 26px; font-weight: 600; line-height: 1.5; color: #2b2b2b; margin: 0 0 20px 0; text-align: left; letter-spacing: 0;}
+.portfolio_guide .pfg_inner .pfg_contents em{display: block; font-family: 'Noto Sans KR', sans-serif; font-size: 18px; font-weight: 500; line-height: 1.5; color: #2b2b2b; margin-top: 10px;}
+.portfolio_guide .pfg_inner .pfg_contents em i{color: #545454;}
+.portfolio_guide .pfg_inner .pfg_contents ol{list-style: decimal; margin-left: 20px; margin-bottom: 10px;}
+.portfolio_guide .pfg_inner .pfg_contents ol li{font-family: 'Noto Sans KR', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.5; color: #2b2b2b;}
+
+.portfolio_guide .pfg_inner .pfg_contents button.pfg_close{position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); z-index: 1001; width: 85%; height: 40px; border: none; background-color: salmon; border-radius: 4px; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; font-size: 17px; font-weight: 400; color: #fff; line-height: 40px;}
+.portfolio_guide .pfg_inner .pfg_contents button.pfg_close:hover{background-color: sandybrown;}
+.portfolio_guide .pfg_inner .pfg_contents .notToday{position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 1002;}
+.portfolio_guide .pfg_inner .pfg_contents .notToday input{cursor: pointer; width: 14px; height: 16px;}
+.portfolio_guide .pfg_inner .pfg_contents .notToday label{cursor: pointer; font-family: 'Noto Sans KR', sans-serif; font-size: 16px;}
+
+
+
+/* ========== 메인비주얼 ========== */
+.mainVisual{width: 100%; height: 600px; position: relative; margin-top: 150px;}
+/* ---- (슬라이드) --- */
+.mainVisual ul.slides{width: 100%; height: 600px;}
+/* .mainVisual ul.slides li{width: 1900px; height: 600px; position: absolute; left: 50%; top: 0; transform: translateX(-50%);} */
+.mainVisual ul.slides li{width: 100%; height: 600px; position: relative;}
+/* ---- (버튼) --- */
+.page{position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);}
+.page button, .page ul.indicator{display: inline-block; vertical-align: middle;}
+.page button{background: transparent; border: transparent; cursor: pointer;}
+.page button i{font-size: 20px; color: #fff;}
+.mainVisual ul.indicator li{float: left; width: 16px; height: 16px; border-radius: 8px; background: rgba(255, 255, 255, 0.7); cursor: pointer;}
+ul.indicator li.prev{background: rgba(255, 255, 255, 0.3);}
+ul.indicator li.on{background: rgba(255, 255, 255, 1);}
+ul.indicator li.aft{background: rgba(255, 255, 255, 0.3);}
+/* ---- (슬라이드 1번) --- */
+.mainVisual ul.slides li:nth-child(1){background: url(../images/mainslide_img01.png) no-repeat center; font-family: 'Noto Sans KR', sans-serif;}
+.mainVisual ul.slides li:nth-child(1) .txtbox{position: absolute; left: 50%; top: 80px; margin-left: 250px;}
+.mainVisual ul.slides li:nth-child(1) .txtbox p{margin-top: 34px; font-size: 36px; font-weight: 700; color: #434343;}
+.mainVisual ul.slides li:nth-child(1) .txtbox p span::before{content: ''; display: block; width: 240px; height: 12px; background: url(../images/dots.png) no-repeat; margin: 0 0 14px 18px;}
+.mainVisual ul.slides li:nth-child(1) .txtbox p span{font-size: 61px; font-weight: 700; color: #fff;}
+.mainVisual ul.slides li:nth-child(1) .txtbox p strong{font-size: 54px; font-weight: 700; color: #d83838;}
+.mainVisual ul.slides li:nth-child(1) .txtbox .hash{font-size: 18px; font-weight: 500; line-height: 2; color: #666666;}
+/* ---- (슬라이드 2번) --- */
+.mainVisual ul.slides li:nth-child(2){background: url(../images/mainslide_img02.png) no-repeat center;}
+.mainVisual ul.slides li:nth-child(2) .txtbox{position: absolute; left: 50%; top: 140px; margin-left: 250px;}
+.mainVisual ul.slides li:nth-child(2) p{font-family: 'Noto Sans KR', sans-serif; font-size: 70px; font-weight: 700; line-height: 100px; color: #fff; text-shadow: 6px 6px 5px rgba(0, 0, 0, 0.3);}
+/* ---- (슬라이드 3번) --- */
+.mainVisual ul.slides li:nth-child(3){background: url(../images/mainslide_img03.png) no-repeat center; font-family: 'Noto Sans KR', sans-serif;}
+.mainVisual ul.slides li:nth-child(3) .txtbox{position: absolute; left: 50%; top: 190px; margin-left: -600px;}
+.mainVisual ul.slides li:nth-child(3) .txtbox p{font-size: 36px; font-weight: 500; color: #666666; margin-bottom: 20px;}
+.mainVisual ul.slides li:nth-child(3) .txtbox p span{font-size: 40px; font-weight: 600; color: #e97171;}
+.mainVisual ul.slides li:nth-child(3) .txtbox strong{font-size: 60px; font-weight: 600; color: #e97171; line-height: 80px;}
+.mainVisual ul.slides li:nth-child(3) .txtbox strong::after{content: ''; display: inline-block; width: 40px; height: 47px; background: url(../images/heart.png) no-repeat; margin-left: 10px;}
+
+
+
+/* ========== 시즌상품 ========== */
+.szn_product{height: 460px; padding: 80px 0; box-sizing: border-box;}
+.szn_product a{display: block; width: 1320px; height: 300px; background: url(../images/seasonal_banner.png) no-repeat; font-family: 'Nanum Myeongjo', serif; position: relative; transition: all 0.5s;}
+.szn_product a h3{font-size: 48px; font-weight: 700; color: #eeeff3; position: absolute; left: 68px; top: 84px;}
+.szn_product a p{font-size: 30px; line-height: 50px; font-weight: 400; color: #a6a6a6; position: absolute; right: 68px; top: 84px;}
+.szn_product a:hover{opacity: 0.8;}
+
+
+/* ========== 상품 ========== */
+.products{height: 1508px;}
+.products ul li{float: left; width: 424px; height: 474px; font-family: 'Noto Sans KR', sans-serif; margin-bottom: 50px; transition: all 0.5s;}
+.products ul li:hover{opacity: 0.8;}
+.products ul li:nth-child(3n-1){margin: 0 24px;}
+.products ul li a p{width: 424px; height: 50px; font-size: 20px; font-weight: 500; color: #666666; line-height: 50px; position: relative;}
+.products ul li a p span{color: #f57474; position: absolute; right: 0; top: 0;}
+.products a.seemore{display: block; width: 260px; height: 60px; box-sizing: border-box; border: 1px solid #f57474; border-radius: 2px; font-family: 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: 500; letter-spacing: 8px; color: #f57474; line-height: 60px; text-align: center; margin: 0 auto; transition: all 0.5s;}
+.products a.seemore:hover{background-color: #fde6e6;}
+
+
+
+/* ========== 브랜드 ========== */
+.brand{width: 100%; height: 560px; margin-bottom: 80px; background: url(../images/brand_img.png) no-repeat #f99e9e; position: relative;}
+.brand .txtbox{position: absolute; left: 1280px; top: 120px; }
+.brand .txtbox h3::before{content: ''; display: block; width: 19px; height: 19px; background: url(../images/icon_leaf.png); margin-bottom: 20px;}
+.brand .txtbox h3{font-size: 48px; font-weight: 800; color: #eeeff3; margin-bottom: 66px;}
+.brand .txtbox strong{display: block; font-size: 24px; font-weight: 700; color: #004837; line-height: 46px; margin-bottom: 20px;}
+.brand .txtbox p{font-size: 18px; font-weight: 700; color: #666666; line-height: 30px;}
+
+
+
+/* ========== 팜스토리 ========== */
+.inner{width: 1000px; margin: 0 auto;}
+.farm_story ul.imgbox{height: 500px; position: relative;}
+.farm_story ul.imgbox li{position: absolute;}
+.farm_story ul.imgbox li a{transition: all 0.5s;}
+.farm_story ul.imgbox li a:hover{opacity: 0.8;}
+/* --- (위치) */
+.farm_img01{left: 0; top: 0;}
+.farm_img02{left: 500px; top: 0;}
+.farm_img03{left: 800px; top: 0;}
+.farm_img04{left: 800px; top: 150px;}
+.farm_img05{left: 500px; top: 300px;}
+/* --- (선) */
+.farm_img01 img{width: 500px; height: 500px; border-right: 1px solid #fff; box-sizing: border-box;}
+.farm_img02 img{width: 300px; height: 300px; border-right: 1px solid #fff; box-sizing: border-box;}
+.farm_img03 img{width: 200px; height: 150px; border-bottom: 1px solid #fff; box-sizing: border-box;}
+.farm_img04 img{width: 200px; height: 150px;}
+.farm_img05 img{width: 500px; height: 200px; border-top: 1px solid #fff; box-sizing: border-box;}
+
+/* ========== 관련사이트 ========== */
+.rel_sites ul{padding: 100px 0;}
+.rel_sites ul{display: flex; justify-content: space-between;}
+
+
+

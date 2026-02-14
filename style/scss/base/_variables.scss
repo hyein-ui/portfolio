@@ -1,0 +1,62 @@
+:root {
+  /* ===== 1. Font Family ===== */
+  --font-base: 'SUITE Variable', sans-serif;
+  --font-english: 'Roboto Slab', serif;
+  --font-decoration: 'Ephesis', cursive;
+
+
+  
+  /* ===== 2. Color Palette (Raw values) ===== */
+  --color-black: #000;
+  --color-gray-900: #333;
+  --color-white: #fff;
+  --color-white-alpha-60: rgba(255, 255, 255, 0.6);
+  --color-white-alpha-85: rgba(255, 255, 255, 0.85);
+
+  --color-purple-500: #8A70FF;
+
+  --color-skyblue-500: #96C0FF;
+  --color-skyblue-200: #E3EEFF;
+
+  --color-pink-200: #F3E7E9;
+  --color-pink-200-alpha-60: rgba(243, 231, 233, 0.6);
+  --color-pink-200-alpha-50: rgba(243, 231, 233, 0.5);
+
+  --color-magenta: #ef3080;
+
+
+
+  /* ===== 3. Gradients (Composition) ===== */
+  --gradient-skyblue-purple-wide: linear-gradient(180deg, var(--color-skyblue-500) 0%, var(--color-purple-500) 85%);
+  --gradient-skyblue-purple-narrow: linear-gradient(90deg, var(--color-skyblue-500) 20%, var(--color-purple-500) 80%);
+
+  --gradient-skyblue-pink: linear-gradient(0deg, var(--color-pink-200-alpha-50) 0%, var(--color-skyblue-200) 85%);
+  --gradient-pink-skyblue: linear-gradient(180deg, var(--color-pink-200-alpha-50) 0%, var(--color-skyblue-200) 85%);
+  --gradient-pink-skyblue-fade-in: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--color-pink-200-alpha-60) 50%, var(--color-skyblue-200) 85%);
+
+  --gradient-gray-fade-in: linear-gradient(180deg, rgba(253, 251, 251, 0.4) 0%, rgba(235, 237, 238, 0.7) 85%);
+
+
+
+  /* ===== 4. Semantic Tokens ===== */
+  /* 글자색 */
+  --color-text-primary: var(--color-gray-900);
+  --color-text-inverse: var(--color-white);
+
+  /*  배경색 */
+  --color-bg-primary: var(--color-white);
+  --color-bg-footer: var(--color-gray-900);
+  --color-bg-surface: var(--gradient-gray-fade-in);
+
+  /* 전역 포커스 링 색상 */
+  --color-focus-ring: var(--color-magenta);
+}
+
+
+
+
+
+
+/* ===== 반응형 min-width 변수 ===== */
+$breakpoints: (md: 800px, lg: 1280px);
+

@@ -1,0 +1,28 @@
+
+/* 1. Reset */
+@use 'base/reset';
+
+/* 2. Tokens & tool */
+@use 'base/fonts';
+@use 'base/variables';
+@use 'base/mixins';
+
+/* 3. Base styles */
+@use 'base/base';
+
+/* 4. Layout */
+@use 'layout/header';
+@use 'layout/footer';
+
+/* 5. Components */
+@use 'components/button';
+@use 'components/toggle-switch';
+
+/* 6. Sections */
+@use 'sections/hero';
+@use 'sections/about';
+@use 'sections/feature';
+@use 'sections/focus';
+@use 'sections/other';
+@use 'sections/thanks';
+

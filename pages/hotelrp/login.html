@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="호텔 로열 파라다이스">
+    <meta name="keywords" content="호텔, 로열, 파라다이스, hotel, royal, paradise">
+    <meta name="author" content="KIM Hye-In">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&sect; Hotel Royal Paradise &sect; &colon;&colon; 호텔 로열 파라다이스</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- jquery -->
+    <script src="js/jquery-1.12.4.min.js"></script>
+    
+    <!-- font awsome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style_login.css">
+
+    <!-- js -->
+    <script src="js/common.js"></script>
+    <script src="js/custom_login.js"></script>
+    
+
+    <!-- 옛버전 브라우저 호환 조건주석. IE 9 이하 작동. -->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+    <!-- 접이식 모달 -->
+    <div class="modal_top">
+        <div class="wrap">
+            <a href="#">유료 멤버십 가입시,  최대 10만원 할인쿠폰 증정</a>
+            <em class="mt_nomore">x 오늘 하루 보지 않기</em>
+            <img src="images/modal_close.png" alt="광고 닫기">
+        </div>
+    </div>
+
+    
+    <!-- 헤더 -->
+    <header>
+        <!-- 로고 배경 -->
+        <div class="logo_bg">
+            <div class="logo_bgimg"><span class="blind">.</span></div>
+        </div>
+               
+        <!-- 서브메뉴 배경 -->
+        <div class="sub_menu_bg"><span class="blind">.</span></div> 
+
+        <!-- 헤더 장식 틀 -->
+        <div class="header_deco clearfix">
+            <div class="hd_lt"><span class="blind">.</span></div>
+            <div class="hd_rt"><span class="blind">.</span></div>
+        </div>
+
+        <!-- 로고 -->
+        <h1 class="logo"><a href="index.html"><span class="blind">호텔 로열 파라다이스</span></a></h1>
+
+        <!-- 상단 메뉴 -->
+        <div class="top_menu wrap">
+            <div class="tm_inner clearfix">
+                <div class="lang">
+                    <div class="lang_now"><span>KOR</span><i class="fa-solid fa-caret-down"></i></div>
+                    
+                    <ul class="lang_opt">
+                        <li class="kor">KOR</li>
+                        <li class="eng">ENG</li>
+                    </ul>
+                </div>                
+                
+                <div class="login"><a href="login.html">LOGIN</a></div>
+            </div>
+        </div>
+
+        <!-- 내비게이션 -->
+        <nav>
+            <!-- 메인메뉴 -->
+            <ul class="main_menu">
+                <!-- 1 -->
+                <li><a href="#">RESERVATION</a>
+                    <ul class="sub_menu"><!-- 서브메뉴 -->
+                        <li><a href="#">객실예약
+                        </a></li>
+                        <li><a href="#">예약조회&sol;취소
+                        </a></li>
+                    </ul>
+                </li>
+                <!-- 2 -->
+                <li><a href="#">ROOMS</a>
+                    <ul class="sub_menu"><!-- 서브메뉴 -->
+                        <li><a href="#">Deluxe</a></li>
+                        <li><a href="#">Premium</a></li>
+                        <li><a href="#">Royal Suite</a></li>
+                    </ul>
+                </li>
+                <!-- 3 -->
+                <li><a href="#">FACILITIES</a>
+                    <ul class="sub_menu"><!-- 서브메뉴 -->
+                        <li><a href="#">Dine & Drink</a></li>
+                        <li><a href="#">Private Beach</a></li>
+                        <li><a href="#">Spa & Pool</a></li>
+                        <li><a href="#">Fitness</a></li>
+                        <li><a href="#">Shopping</a></li>
+                        <li><a href="#">Convention</a></li>
+                        <li><a href="#">Wedding</a></li>
+                        <li><a href="#">층별안내</a></li>
+                    </ul>
+                </li>
+                <!-- 4 -->
+                <li><a href="#">OFFERS</a>
+                    <ul class="sub_menu"><!-- 서브메뉴 -->
+                        <li><a href="#">Promotion</a></li>
+                        <li><a href="#">Event</a></li>
+                    </ul>
+                </li>
+                <!-- 5 -->
+                <li><a href="#">MEMBERSHIP</a>
+                    <ul class="sub_menu"><!-- 서브메뉴 -->
+                        <li><a href="#">혜택 둘러보기</a></li>
+                        <li><a href="#">멤버십 가입</a></li>
+                    </ul>
+                </li>
+                <!-- 6 -->
+                <li><a href="#">LOCATION</a>
+                    <ul class="sub_menu"><!-- 서브메뉴 -->
+                        <li><a href="#">오시는 길</a></li>
+                        <li><a href="#">Shuttle</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- 유저 메뉴 모음 -->
+        <div class="um_bg">
+            <!-- 열기/닫기 핸들 -->
+            <div class="um_handle">
+                <img class="um_op on" src="images/oepn.png" alt="유저메뉴 열기">
+                <img class="um_cl" src="images/close.png" alt="유저메뉴 닫기">
+            </div>
+            
+            <div class="user_menu">
+                <!-- 인사메세지 -->
+                <div class="um_welcome">
+                    <strong>Welcome</strong>
+                    <p>정성껏 모시겠습니다.</p>
+                </div>
+                <!-- 로그인/회원가입 버튼 -->
+                <div class="um_btn">
+                    <a href="login.html" class="um_login">로그인</a>
+                    <a href="#" class="um_join">회원가입</a>
+                </div>
+                <!-- 회원정보창 -->
+                <div class="stat">
+                    <p><em class="mem_name">박종우</em>님</p>
+                    <p>Membership &colon; <span class="mem_grade">GOLD</span></p>
+                </div>
+                
+                <!-- 메뉴 리스트 -->
+                <div class="um_list">
+                    <ul class="um_main">
+                        <li><a href="#">마이페이지</a></li>
+                        <li><a href="#">예약조회</a></li>
+                        <li><a href="#">비회원 예약조회</a></li>
+                    </ul>
+
+                    <ul class="um_main">
+                        <li><a href="#">고객센터</a>
+                            <ul class="um_sub">
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">1&colon;1문의</a></li>
+                                <li><a href="#">공지사항</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="um_main">
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- 메인 -->
+    <main>
+        <div class="inner">
+            <div class="login_top">
+                <img src="images/keyhole.png" alt="로그인">
+                <h2>회원 로그인</h2>
+            </div>
+
+            <form class="login_form clearfix" name="loginfrm">
+                <fieldset>
+                    <legend class="blind">로그인폼</legend>
+
+                    <ul class="idpw">
+                        <li>
+                            <label for="user_id">ID</label>
+                            <input type="text" name="user_id" id="user_id" placeholder="user111">
+                            <em class="login_error_id">&ast; 올바른 아이디를 입력해주세요.</em>
+                        </li>
+                        <li>
+                            <label for="user_pw">PW</label>
+                            <input type="password" name="user_pw" id="user_pw" placeholder="12341234">
+                            <em class="login_error_pw">&ast; 올바른 비밀번호를 입력해주세요.</em>
+                        </li>
+                    </ul>
+    
+                    <button class="loginbtn" type="button">LOGIN</button>
+                </fieldset>
+            </form>
+
+            <input type="checkbox" name="auto_login" id="auto_login" class="atlogin_chk">
+            <label for="auto_login" class="atlogin_lab">아이디 저장</label>
+
+            <div class="find_idpw">
+                <a href="#" class="find_id">아이디 찾기</a>
+                <a href="#" class="find_pw">비밀번호 찾기</a>
+            </div>
+
+            <div class="login_btm">
+                <div class="divider"><span class="blind">회원가입툴</span></div>
+                
+                <a class="lo_join" href="#">사이트 회원가입</a>
+                <ul class="sns_join">
+                    <li>
+                        <a href="#">
+                            <img class="snslogo" src="images/login_naver.png" alt="Naver로 로그인">
+                            <p>Naver로 로그인</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img class="snslogo" src="images/login_kakao.png" alt="Kakao로 로그인">
+                            <p>Kakao로 로그인</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img class="snslogo" src="images/login_facebook.png" alt="Facebook으로 로그인">
+                            <p>Facebook으로 로그인</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img class="snslogo" src="images/login_google.png" alt="Google로 로그인">
+                            <p>Google로 로그인</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+
+
+    <!-- 푸터 -->
+    <footer class="container">
+        <div class="f_top clearfix">
+            <ul class="f_links clearfix">
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">사업자정보확인</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">고객센터</a></li>
+                <li><a href="#">오시는길</a></li>
+            </ul>
+
+            <div class="sns">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="f_bottom clearfix">
+            <ul class="clearfix">
+                <li><b>&lpar;주&rpar; 호텔로열파라다이스</b></li>
+                <li><b>주소 &colon;</b> 경북 울진군 북면 나곡리 해변로 357</li>
+                <li><b>Tel &colon;</b> 051-1234-5678</li>
+                <li class="clear"><b>사업자등록번호 &colon;</b> 123-45-67890</li>
+                <li><b>통신판매번호 &colon;</b> 제 2022-나곡해변-123호</li>
+                <li><b>대표이사 &colon;</b> 이바다</li>
+                <li class="clear">COPYRIGHT &copy; 2022 Hye-In KIM. All rights reserved.</li>
+            </ul>
+
+            <img src="images/wa_mark.png" alt="웹표준성인증마크">
+        </div>
+    </footer>
+</body>
+</html>

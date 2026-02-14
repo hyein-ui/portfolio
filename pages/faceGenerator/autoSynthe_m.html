@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>KS 메타휴먼 제너레이터</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+
+    <!-- css -->
+    <link rel="stylesheet" href="static/css/base_m.css">
+    
+    <!-- font-awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- google icons CDN -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="static/image/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="static/image/favicon.ico">
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+    <!-- js -->
+    <script src="static/js/function_m.js"></script>
+    
+    <!-- slideBar UI -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <!-- [전달사항]
+        태그 class 속성에 off 클래스를 적용하면 안보이기 처리됨. ( display: none; )
+        페이지 최초 진입시 안보이는 것들은 off가 이미 달려있는데, 이 off는 지우면 javascript에서 오작동함.(해당되는 것 옆에 주석 달아놓음)
+        작업을 위해 잠깐 보는 용도로만 지우는건 가능.
+    -->
+    
+</head>
+<body>
+    <link rel="stylesheet" href="static/css/autoSynthe_m.css">
+    
+
+    <header class="wrap">
+        <div class="header clearfix">
+            <div class="logo" data-url="index_m">
+                <img src="static/image/web/main_logo.png" alt="One pick AI Generator">
+            </div>
+            
+            <div class="logout">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </div>
+        </div>
+
+        <div class="btnBox">
+            <div class="btn active" data-url="index_m">합성</div>
+            <div class="btn" data-url="angle_m">각도조정</div>
+        </div>
+    </header>
+
+
+    <main>
+        <div class="SyntheLayer layer_auto">            
+            <!-- 바닥색상 메꾸기용 -->
+            <div class="spaceBg"></div>   
+
+            <!-- 닫기 버튼 -->
+            <div class="btn_close" data-url="index_m">
+                <span class="material-symbols-outlined">close</span>
+            </div>
+            
+            <!-- 타이틀 -->
+            <div class="wrap">
+                <h5><i class="fa-solid fa-wand-magic-sparkles"></i> 자동 합성</h5>
+            </div>
+                       
+            <div class="wrap">
+                <!-- 이미지박스 -->
+                <div class="body">
+                    <div class="resultBox">
+                        <!-- 원본사진 고르기 -->
+                        <div class="imgArea">
+                            <div class="orgImgBox layer_auto">
+                                <div class="originImg"></div>
+                
+                                <input type="hidden" value="" id="npzFile">
+                
+                                <div class="icon" id="image">
+                                    <img src="static/image/web/picto_photo.png" alt="탭하여 이미지 선택">
+                                    <div class="info">탭하여<br>이미지 선택</div>    
+                                </div>
+                            </div>
+                            <p>image1</p>
+                        </div>
+            
+                        <!-- '+' 이미지 -->
+                        <div class="addImgBox">
+                            <i class="fa-solid fa-plus addImg"></i>
+                            <input type="hidden" value="" id="type1">
+                            <input type="hidden" value="" id="type2">
+                        </div>
+            
+                        <!-- 시드 사진 고르기 -->
+                        <div class="imgArea">
+                            <div class="seedImgBox layer_auto">
+                                <div class="seedImg"></div>
+                                <input type="hidden" value="" id="seedNum">
+                
+                                <div class="icon" id="seed">
+                                    <img src="static/image/web/picto_photo.png" alt="탭하여 이미지 선택">
+                                    <div class="info">탭하여<br>이미지 선택</div>
+                                </div>
+                            </div>
+                            <p>image2</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="btn_autoSyn">
+                    <div class="startBtn_autoSyn">합성 시작</div>
+                    <div class="reloadPage"><span class="material-symbols-outlined">refresh</span></div>
+                </div>
+            </div>           
+        </div>
+
+
+        <!-- 이미지셀렉 패널 -->
+        <div class="imgpannelLayer off"><!-- off가 있어야 오작동 안함 -->
+            <!-- 바닥색상 메꾸기용 -->
+            <div class="spaceBg"></div>
+        
+            <div class="imgpannel">
+                <!-- 탭메뉴 -->
+                <div class="tabBox clearfix">
+                    <div class="menu clearfix active" id="image">
+                        <div class="icon"></div>
+                        <div class="content">Images</div>
+                    </div>
+            
+                    <div class="menu" id="seed">
+                        <div class="icon"></div>
+                        <div class="content">Seeds</div>
+                    </div>
+            
+                    <div class="menu" id="result">
+                        <div class="icon"></div>
+                        <div class="content">Result</div>
+                    </div>
+                </div>
+            
+                <!-- 내용부 -->
+                <div class="tabDetailBox clearfix" oncontextmenu='return false'>
+                    <!-- 실제코드 -->
+                    <!-- <label class="uploadImage" for="input-mainImage">신규 이미지 업로드</label>
+                    <input type="file" name="mainImage[]" id="input-mainImage" class="upload-hidden input-file" multiple>
+                
+                    <div class="mTitle">Images</div>
+                
+                    <div class="imageBox">
+                         {% for proj in projList %}
+                        <div class="preProjImage" data-url="{{ proj.proj_image }}" data-npz="{{ proj.proj_npz }}" style='background-image: url("{{ proj.proj_image }}")'></div>
+                        {% endfor %}
+                    </div>
+                
+                    <div class="page">
+                       {% if leftPage != 0 %}
+                           <div class="leftPage" data-page="{{ leftPage }}"  data-type="image"></div>
+                       {% endif %}
+                
+                       {% for pages in paging %}
+                           <div class="pages {% if pages == 1 %} active {% endif %}" data-page="{{ pages }}" data-type="image">{{ pages }}</div>
+                       {% endfor %}
+                
+                       {% if 1 != lastPage %}
+                           <div class="rightPage" data-page="{{ rightPage }}" data-type="image"></div>
+                       {% endif %}
+                    </div> -->
+
+
+
+                    <!-- 목록코드를 불러오는 폴더 generator/templates/ajax -->
+                    <!-- 아래 내용대로 각각 반영해주세요 -->
+
+                    <!-- ========== images 내용 ========== -->
+                    <div class="pannelLeft">
+                        <label class="uploadImage" for="input-mainImage">신규 이미지 업로드</label>
+                        <input type="file" name="mainImage[]" id="input-mainImage" class="upload-hidden input-file" multiple>
+                    </div>
+                    <div class="pannelRight">
+                        <div class="mTitle">Images</div>                
+                        <div class="imageBox">
+                            <div class="preProjImage" data-url="static/image/baseImage/newjeans.jpg" data-npz="{{ proj.proj_npz }}" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="preProjImage" data-url="static/image/baseImage/newjeans2.jpg" data-npz="{{ proj.proj_npz }}" style='background-image: url(static/image/baseImage/newjeans2.jpg)'></div>
+                            <div class="preProjImage" data-url="static/image/baseImage/newjeans3.jpg" data-npz="{{ proj.proj_npz }}" style='background-image: url(static/image/baseImage/newjeans3.jpg)'></div>
+                            <div class="preProjImage" data-url="static/image/baseImage/newjeans4.jpg" data-npz="{{ proj.proj_npz }}" style='background-image: url(static/image/baseImage/newjeans4.jpg)'></div>
+                            <div class="preProjImage" data-url="static/image/baseImage/newjeans5.jpg" data-npz="{{ proj.proj_npz }}" style='background-image: url(static/image/baseImage/newjeans5.jpg)'></div>
+                            <div class="preProjImage" data-url="static/image/baseImage/newjeans6.jpg" data-npz="{{ proj.proj_npz }}" style='background-image: url(static/image/baseImage/newjeans6.jpg)'></div>
+                            <div class="preProjImage" data-url="static/image/baseImage/newjeans.jpg" data-npz="{{ proj.proj_npz }}" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="preProjImage" data-url="static/image/baseImage/newjeans.jpg" data-npz="{{ proj.proj_npz }}" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="preProjImage" data-url="static/image/baseImage/newjeans.jpg" data-npz="{{ proj.proj_npz }}" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="preProjImage" data-url="static/image/baseImage/newjeans.jpg" data-npz="{{ proj.proj_npz }}" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="preProjImage" data-url="static/image/baseImage/newjeans.jpg" data-npz="{{ proj.proj_npz }}" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="preProjImage" data-url="static/image/baseImage/newjeans.jpg" data-npz="{{ proj.proj_npz }}" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                        </div>
+                    </div>
+        
+
+                    
+                    <!-- ========== seeds 내용 ========== -->
+                    <!-- <div class="pannelLeft seedLeft">
+                        <div class="mTitle seedsTitle">
+                            Filter
+                            <div class="fClear"></div>
+                        </div>
+                    
+                        <div class="filterBox filterBox1 clearfix">
+                            <div class="title">성별</div>
+                            
+                            <div class="btBox">
+                                <input type="checkbox" name="genderRadio" class="genderRadio" value="Man" id="check_man" checked>
+                                <label class="genderExpand" for="check_man">남자</label>
+                                <input type="checkbox" name="genderRadio" class="genderRadio" value="Woman" id="check_woman" checked>
+                                <label class="genderExpand" for="check_woman">여자</label>
+                            </div>
+                        </div>
+                    
+                        <div class="filterBox">
+                            <p class="clearfix">
+                            <label class="title" for="age">나이</label>
+                            <input type="text" id="age" readonly style="border:0; font-weight:bold;">
+                            </p>
+                    
+                            <div id="slider-range"></div>
+                        </div>
+                    </div>
+                
+                    <div class="pannelRight">
+                        <div class="mTitle seedsTitle">Images</div>
+                        <div class="seedImgBox">
+                            <div class="seedImage" data-seed="{{ seed.image_num }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="seedImage" data-seed="{{ seed.image_num }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="seedImage" data-seed="{{ seed.image_num }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="seedImage" data-seed="{{ seed.image_num }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="seedImage" data-seed="{{ seed.image_num }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="seedImage" data-seed="{{ seed.image_num }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="seedImage" data-seed="{{ seed.image_num }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="seedImage" data-seed="{{ seed.image_num }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="seedImage" data-seed="{{ seed.image_num }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="seedImage" data-seed="{{ seed.image_num }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="seedImage" data-seed="{{ seed.image_num }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="seedImage" data-seed="{{ seed.image_num }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                        </div>
+                    </div>
+                
+                    <script>
+                        $( function() {
+                            $("#slider-range").slider({
+                                range: true,
+                                min: 20,
+                                max: 39,
+                                values: [20, 39],
+                                slide: function (event, ui) {
+                                    let chk_Val = [];
+                    
+                                    $('input:checkbox[name=genderRadio]').each(function (index) {
+                                        if ($(this).is(":checked") == true) {
+                                            chk_Val.push($(this).val());
+                                        }
+                                    });
+                    
+                                    var gender = chk_Val.join(',');
+                    
+                                    $("#age").val("" + ui.values[0] + " - " + ui.values[1]);
+                                    slider_age1 = ui.values[0];
+                                    slider_age2 = ui.values[1];
+                    
+                                    if( gender == ""){
+                                        alert("성별은 남/여 중 하나는 선택해야합니다.");
+                                        return;
+                                    }
+                    
+                                    getSeedList(gender, ui.values[0], ui.values[1])
+                                }
+                            });
+                            $( "#age" ).val( $( "#slider-range" ).slider( "values", 0 ) + " - " + $( "#slider-range" ).slider( "values", 1 ) );
+                        });
+                    </script> -->
+        
+
+
+                    <!-- ========== result 내용 ========== -->
+                    <!-- <div class="pannelLeft"></div>
+                    <div class="pannelRight">
+                        <div class="mTitle">Result Metahuman</div>
+                        <div class="savedImgBox">
+                            <div class="resultImage" data-npz="{{ result.npzname }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="resultImage" data-npz="{{ result.npzname }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="resultImage" data-npz="{{ result.npzname }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="resultImage" data-npz="{{ result.npzname }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="resultImage" data-npz="{{ result.npzname }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="resultImage" data-npz="{{ result.npzname }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="resultImage" data-npz="{{ result.npzname }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="resultImage" data-npz="{{ result.npzname }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="resultImage" data-npz="{{ result.npzname }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="resultImage" data-npz="{{ result.npzname }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="resultImage" data-npz="{{ result.npzname }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="resultImage" data-npz="{{ result.npzname }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="resultImage" data-npz="{{ result.npzname }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="resultImage" data-npz="{{ result.npzname }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                            <div class="resultImage" data-npz="{{ result.npzname }}" data-url="static/image/baseImage/newjeans.jpg" style='background-image: url(static/image/baseImage/newjeans.jpg)'></div>
+                        </div>
+                    </div> -->
+
+                    <!-- ========== 페이지네이션 내용 ========== -->
+                    <div class="page">
+                        <div class="leftPage" data-page="{{ leftPage }}"  data-type="image">&nbsp;&nbsp;</div>
+                        <div class="pages {% if pages == 1 %} active {% endif %}" data-page="{{ pages }}" data-type="image">1</div>
+                        <div class="pages {% if pages == 1 %}" data-page="{{ pages }}" data-type="image">2</div>
+                        <div class="pages {% if pages == 1 %}" data-page="{{ pages }}" data-type="image">3</div>
+                        <div class="pages {% if pages == 1 %}" data-page="{{ pages }}" data-type="image">4</div>
+                        <div class="pages {% if pages == 1 %}" data-page="{{ pages }}" data-type="image">5</div>
+                        <div class="pages {% if pages == 1 %}" data-page="{{ pages }}" data-type="image">6</div>
+                        <div class="pages {% if pages == 1 %}" data-page="{{ pages }}" data-type="image">7</div>
+                        <div class="pages {% if pages == 1 %}" data-page="{{ pages }}" data-type="image">8</div>
+                        <div class="pages {% if pages == 1 %}" data-page="{{ pages }}" data-type="image">9</div>
+                        <div class="pages {% if pages == 1 %}" data-page="{{ pages }}" data-type="image">10</div>
+                        <div class="rightPage" data-page="{{ rightPage }}" data-type="image">&nbsp;&nbsp;</div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+
+        <!-- 결과창 -->
+        <!-- 
+            로딩 끝나면 off 클래스를 없애기.
+            jquery 코드로는 아래대로 작성하면 됨.
+            $('.autoSynResult').removeClass('off');
+        -->
+        <div class="autoSynResult off">
+            <!-- 바닥색상 메꾸기용 -->
+            <div class="spaceBg"></div>
+            <div class="bgBox">
+                <h4>RESULT</h4>
+                <p>이미지를 탭하면 크게 볼 수 있습니다.</p>
+
+                <div class="chkAll imageCenterBox">
+                    <input type="checkbox" name="auto_chkAll" id="auto_chkAll">
+                    <label for="auto_chkAll">모두 선택하기</label>
+                </div>
+
+                <ul class="autoImgList imageCenterBox">
+                    <li>
+                        <div class="autoImg" data-url="{{  }}" data-npz="{{  }}" style='background-image: url("{{  }}")'>
+                        </div>
+                        <input type="checkbox" name="chk_autoImg" id="chk_autoImg1"><!-- id 각각 다르게 해야함 -->
+                    </li>
+                    <li>
+                        <div class="autoImg" data-url="{{  }}" data-npz="{{  }}" style='background-image: url("{{  }}")'>
+                        </div>
+                        <input type="checkbox" name="chk_autoImg" id="chk_autoImg2">
+                    </li>
+                    <li>
+                        <div class="autoImg" data-url="{{  }}" data-npz="{{  }}" style='background-image: url("{{  }}")'>
+                        </div>
+                        <input type="checkbox" name="chk_autoImg" id="chk_autoImg3">
+                    </li>
+                    <li>
+                        <div class="autoImg" data-url="{{  }}" data-npz="{{  }}" style='background-image: url("{{  }}")'>
+                        </div>
+                        <input type="checkbox" name="chk_autoImg" id="chk_autoImg4">
+                    </li>
+                    <li>
+                        <div class="autoImg" data-url="{{  }}" data-npz="{{  }}" style='background-image: url("{{  }}")'>
+                        </div>
+                        <input type="checkbox" name="chk_autoImg" id="chk_autoImg5">
+                    </li>
+                    <li>
+                        <div class="autoImg" data-url="{{  }}" data-npz="{{  }}" style='background-image: url("{{  }}")'>
+                        </div>
+                        <input type="checkbox" name="chk_autoImg" id="chk_autoImg6">
+                    </li>
+                </ul>
+
+                <div class="btnBox_rst imageCenterBox">
+                    <div class="btn_saveChk">선택 이미지 저장</div>
+                    <div class="btn_again" data-url="autoSynthe_m">다시 하기</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 결과이미지 확대 모달창 -->
+        <div class="bigImage_Modal off"><!-- off가 있어야 오작동 안함 -->
+            <div class="indexNum">00</div>
+            <div class="bigImage"></div>
+            <button type="button">닫기</button>
+        </div>
+
+    </main>
+
+
+    <!-- 로딩중 레이어 -->
+    <div class="loading">
+        <div class="lodingImage"></div>
+        <div class="message">프로젝션을 진행중입니다.</div>
+    </div>
+
+
+    <!-- Forbidden (CSRF token missing or incorrect) 에러 해결 -->
+    <script>
+        $.ajaxSetup({
+            headers: { "X-CSRFToken": '{{csrf_token}}' }
+        });
+    </script>
+
+    <script>
+        var user = "{{ userID }}";
+    </script>
+</body>
+</html>
