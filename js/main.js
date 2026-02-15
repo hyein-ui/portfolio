@@ -17,6 +17,24 @@ ham.addEventListener('click', () => {
 });
 
 
+/* ===== scroll top 버튼 ===== */
+const scrollBtn = document.querySelector('.scroll-top');
+// 버튼 보이는 구간 설정
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    scrollBtn.classList.add('show');
+  } else {
+    scrollBtn.classList.remove('show');
+  }
+});
+// 스크롤 실행
+scrollBtn.addEventListener('click', ()=>{
+  window.scrollTo({
+    top : 0,
+    behavior: 'smooth',
+  });
+});
+
 
 
 
@@ -38,12 +56,12 @@ const breakpoints = {
 const mqMiddle = window.matchMedia(breakpoints.md);
 const mqLarge = window.matchMedia(breakpoints.lg);
 
-function initResponsive(){
-  if(mqLarge.matches){
+function initResponsive() {
+  if (mqLarge.matches) {
     mqLargeInit();
-  } else if(mqMiddle.matches){
+  } else if (mqMiddle.matches) {
     mqMiddleInit();
-  } else{
+  } else {
     mqSmallInit();
   }
 }
@@ -54,24 +72,26 @@ mqMiddle.addEventListener('change', initResponsive);
 mqLarge.addEventListener('change', initResponsive);
 
 /* --- 반응형 분기별 실행할 함수 --- */
-function mqSmallInit(){// 모바일(디폴트)
-  
+function mqSmallInit() { // 모바일(디폴트)
+
   /* 메인메뉴 */
   mainNav.hidden = true;
   ham.setAttribute('aria-expanded', false);
 
 
 }
-function mqMiddleInit(){// min-width: 800px
-  
+
+function mqMiddleInit() { // min-width: 800px
+
   /* 메인메뉴 */
   mainNav.hidden = true;
   ham.setAttribute('aria-expanded', false);
 
 
 }
-function mqLargeInit(){// min-width: 1280px
-  
+
+function mqLargeInit() { // min-width: 1280px
+
   /* 메인메뉴 */
   mainNav.hidden = false;
   ham.setAttribute('aria-expanded', false);

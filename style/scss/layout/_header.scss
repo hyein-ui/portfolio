@@ -17,6 +17,8 @@ header {
   .left-group {
     display: flex;
     flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
 
     h1.logo {
@@ -36,6 +38,7 @@ header {
 
     button.ham {
       width: 24px;
+      height: 24px;
 
       @include mixins.respond(lg){
         display: none;
@@ -120,7 +123,7 @@ header {
             width: 100%;
 
             >a::before{
-              display: inline-block;
+              display: inline;
               content: '-';
               margin-right: 4px;
             }
