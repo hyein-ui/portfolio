@@ -169,6 +169,8 @@ a, button {
 
 /* 4. Layout */
 header {
+  position: relative;
+  z-index: 9999;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -439,7 +441,12 @@ section.hero .hero-name {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
+}
+@media (min-width: 800px) {
+  section.hero .hero-name {
+    gap: 24px;
+  }
 }
 section.hero .hero-name img {
   width: 20px;
@@ -448,7 +455,12 @@ section.hero .hero-name img {
 section.hero .hero-name strong {
   font-family: var(--font-english);
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+}
+@media (min-width: 800px) {
+  section.hero .hero-name strong {
+    font-size: 1.5rem;
+  }
 }
 section.hero .title-ani {
   position: relative;
@@ -466,41 +478,78 @@ section.hero .title-ani__brace {
 section.hero .title-ani__shapes {
   display: flex;
   justify-content: space-between;
-  width: 700px;
+  width: 70%;
+  max-width: 450px;
+}
+@media (min-width: 800px) {
+  section.hero .title-ani__shapes {
+    width: 75%;
+    max-width: 700px;
+  }
+}
+@media (min-width: 1280px) {
+  section.hero .title-ani__shapes {
+    width: 700px;
+    max-width: none;
+  }
 }
 section.hero .title-ani__shape {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
+}
+@media (min-width: 800px) {
+  section.hero .title-ani__shape {
+    width: 50px;
+    height: 50px;
+  }
 }
 section.hero .text-decorative {
   font-family: var(--font-decoration);
   font-weight: 400;
-  font-size: 2.25rem;
+  font-size: 2rem;
+}
+@media (min-width: 800px) {
+  section.hero .text-decorative {
+    font-size: 2.25rem;
+  }
 }
 section.hero .sticker {
   position: absolute;
   left: 50%;
   bottom: 0;
   transform: translate(-50%, 50%);
+}
+section.hero .sticker .sticker__inner {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 40px;
   background: var(--gradient-purple-skyblue-wide);
   box-sizing: border-box;
-  padding: 40px 20px;
+  padding: 24px 16px;
+  box-shadow: 0 10px 20px rgba(26, 10, 44, 0.2);
 }
-section.hero .sticker span {
+@media (min-width: 800px) {
+  section.hero .sticker .sticker__inner {
+    padding: 40px 25px;
+  }
+}
+section.hero .sticker .sticker__inner span {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   font-family: var(--font-english);
   font-weight: 400;
-  font-size: 12px;
+  font-size: 10px;
   color: var(--color-white);
 }
-section.hero .sticker span::after {
+@media (min-width: 800px) {
+  section.hero .sticker .sticker__inner span {
+    font-size: 12px;
+  }
+}
+section.hero .sticker .sticker__inner span::after {
   display: block;
   content: "";
   width: 1px;

@@ -3,6 +3,11 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(MorphSVGPlugin);
 
 
+/* ===== GSAP 화면 리사이징 대응 ===== */
+window.addEventListener("resize", () => {
+  tlHero_show.invalidate().restart();
+});
+
 
 /* ===== 메인메뉴 ===== */
 const ham = document.querySelector('.ham');
@@ -45,16 +50,48 @@ scrollBtn.addEventListener('click', () => {
 
 
 /* ===== hero 섹션 ===== */
-/* ----- 타이틀 애니메이션 ----- */
+/* ----- 애니메이션 ----- */
+const titShapeBox = document.querySelector(".title-ani__shapes");
 const titStartShapes = document.querySelectorAll(".title-ani .shape-start");
 const titEndShapes = document.querySelectorAll(".title-ani .shape-end");
-gsap.set(".title-ani__shapes", {
+const heroSticker = document.querySelector(".sticker");
+
+/* 초기 셋팅 */
+gsap.set(titShapeBox, {
   opacity: 0,
   scale: 0.9
 });
+gsap.set(".title-ani__brace--left", { opacity: 0 });
+gsap.set(".title-ani__brace--right", { opacity: 0 });
+
 
 /* 주 타임라인 */
 const tlHero = gsap.timeline();
+
+
+/* 서브 타임라인 : 괄호 움직인 후 모양 등장 */
+const tlHero_text = gsap.timeline({
+  scrollTrigger: {    
+    trigger: ".hero-name",
+    start: "top bottom",
+    toggleActions: "play reverse play reverse",
+  }
+});
+tlHero_text
+.from(".hero-name", {
+  y: 50,
+  opacity: 0,
+  duration: 1,
+  ease: "power2.out",
+})
+.from(".text-decorative", {
+  y: 50,
+  opacity: 0,
+  duration: 1,
+  ease: "power2.out",
+}, "-=0.6");
+tlHero.add(tlHero_text);
+
 
 /* 서브 타임라인 : 괄호 움직인 후 모양 등장 */
 const tlHero_show = gsap.timeline({
@@ -63,18 +100,14 @@ const tlHero_show = gsap.timeline({
   }
 });
 tlHero_show
-  .set(".title-ani__brace--left", {
-    x: 0
-  })
-  .set(".title-ani__brace--right", {
-    x: 0
-  })
+  .set(".title-ani__brace--left", {x: 0, opacity: 1})
+  .set(".title-ani__brace--right", {x: 0, opacity: 1})
   .to(".title-ani__brace--left", {
-    x: -(700 / 2 + 42),
+    x: () => -((titShapeBox.offsetWidth / 2) + (titShapeBox.offsetWidth * 0.06)),
     duration: 1
   })
   .to(".title-ani__brace--right", {
-    x: (700 / 2 + 42),
+    x: () => ((titShapeBox.offsetWidth / 2) + (titShapeBox.offsetWidth * 0.06)),
     duration: 1
   }, "<") // 동시에 실행
   .to(".title-ani__shapes", {
@@ -83,7 +116,7 @@ tlHero_show
     duration: 2,
     ease: "power2.out",
   }, "-=0.3"); //직전 애니메이션 끝나는 지점보다 0.3초 앞에서 시작
-tlHero.add(tlHero_show);
+tlHero.add(tlHero_show, ">");
 
 /* 서브 타임라인 : 모양을 글자로 바꾸기 */
 const tlHero_shapes = gsap.timeline({
@@ -95,7 +128,6 @@ const tlHero_shapes = gsap.timeline({
   yoyo: true,
   repeatDelay: 1, // yoyo에 지연시간 주기
 });
-
 titStartShapes.forEach((startEl, i) => {
   tlHero_shapes.to(startEl, {
     morphSVG: {
@@ -104,11 +136,22 @@ titStartShapes.forEach((startEl, i) => {
     },
   }, 0); // 전부 동시에
 });
-
 tlHero.add(tlHero_shapes);
 
-
-
+/* 서브 타임라인 : 하단 스티커 움직이기 */
+const tlHero_sticker = gsap.timeline();
+tlHero_sticker.fromTo(
+  ".hero .sticker__inner",
+  { y: -5 },
+  {
+    y: 5,
+    duration: 0.6,
+    repeat: -1,
+    yoyo: true,
+    ease: "power2.in"
+  }
+);
+tlHero.add(tlHero_sticker, "-=5");
 
 
 
