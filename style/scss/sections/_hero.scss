@@ -1,5 +1,98 @@
 @use '../base/variables';
 
-section.hero{
-  background: var(--color-bg-primary);
+section.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 80vh;
+  min-height: 600px;
+  max-height: 800px;
+  box-sizing: border-box;
+  padding: 100px 0 150px;
+  text-align: center;
+
+  .hero-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+
+    strong {
+      font-family: var(--font-english);
+      font-weight: 400;
+      font-size: 1.5rem;
+
+    }
+  }
+
+  .title-ani {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0 100px;
+
+    &__brace {
+      position: absolute;
+      font-family: var(--font-english);
+      font-weight: 300;
+      font-size: 36px;
+    }
+
+    &__shapes {
+      display: flex;
+      justify-content: space-between;
+      width: 700px;
+    }
+
+    &__shape {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .text-decorative {
+    font-family: var(--font-decoration);
+    font-weight: 400;
+    font-size: 2.25rem;
+  }
+
+  .sticker{
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    background: var(--gradient-purple-skyblue-wide);
+    box-sizing: border-box;
+    padding: 40px 20px;
+
+    span{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-english);
+      font-weight: 400;
+      font-size: 12px;
+      color: var(--color-white);
+
+      &::after{
+        display: block;
+        content: '';
+        width: 1px;
+        height: 40px;
+        background-color: var(--color-white);
+      }
+    }
+  }
 }

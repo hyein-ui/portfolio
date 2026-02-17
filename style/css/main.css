@@ -105,9 +105,9 @@ table {
   --color-pink-200-alpha-50: rgba(243, 231, 233, 0.5);
   --color-magenta: #ef3080;
   /* ===== 3. Gradients (Composition) ===== */
-  --gradient-skyblue-purple-wide: linear-gradient(180deg, var(--color-skyblue-500) 0%, var(--color-purple-500) 85%);
+  --gradient-purple-skyblue-wide: linear-gradient(0deg, var(--color-skyblue-500) 0%, var(--color-purple-500) 85%);
+  --gradient-purple-skyblue-narrow: linear-gradient(90deg, var(--color-skyblue-500) 20%, var(--color-purple-500) 80%);
   --gradient-skyblue-purple-wide-light: linear-gradient(180deg, var(--color-skyblue-400) 0%, var(--color-purple-400-alpha-60) 85%);
-  --gradient-skyblue-purple-narrow: linear-gradient(90deg, var(--color-skyblue-500) 20%, var(--color-purple-500) 80%);
   --gradient-skyblue-pink: linear-gradient(0deg, var(--color-pink-200-alpha-50) 0%, var(--color-skyblue-200) 85%);
   --gradient-pink-skyblue: linear-gradient(180deg, var(--color-pink-200-alpha-50) 0%, var(--color-skyblue-200) 85%);
   --gradient-pink-skyblue-fade-in: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--color-pink-200-alpha-60) 50%, var(--color-skyblue-200) 85%);
@@ -142,7 +142,7 @@ body {
 }
 body main section {
   width: 100%;
-  height: 300px;
+  min-height: 250px;
 }
 
 :focus-visible {
@@ -179,6 +179,7 @@ header {
   position: sticky;
   left: 0;
   top: 0;
+  gap: 30px;
 }
 header .left-group {
   display: flex;
@@ -186,6 +187,11 @@ header .left-group {
   justify-content: center;
   align-items: center;
   gap: 20px;
+}
+header .left-group h1.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 header .left-group h1.logo a {
   display: inline-block;
@@ -235,6 +241,7 @@ header nav.gnb ul.gnb-menu {
 }
 @media (min-width: 1280px) {
   header nav.gnb ul.gnb-menu {
+    justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
   }
@@ -245,7 +252,8 @@ header nav.gnb ul.gnb-menu > li {
 }
 @media (min-width: 1280px) {
   header nav.gnb ul.gnb-menu > li {
-    width: 133px;
+    width: auto;
+    min-width: 5rem;
     height: 44px;
     text-align: center;
     line-height: 44px;
@@ -322,9 +330,9 @@ button.scroll-top {
   position: fixed;
   right: 1rem;
   bottom: 2.5rem;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 3rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 48px;
   box-sizing: border-box;
   background: var(--gradient-skyblue-purple-wide-light);
   color: var(--color-white-alpha-85);
@@ -351,7 +359,7 @@ button.scroll-top.show {
 .toggle-switch {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
   position: relative;
 }
 .toggle-switch__input {
@@ -371,7 +379,7 @@ button.scroll-top.show {
   background-color: #fff;
 }
 .toggle-switch__input:checked + .toggle-switch__label .toggle-switch__slider::before {
-  transform: translateX(1rem);
+  transform: translateX(16px);
 }
 .toggle-switch__input:disabled + .toggle-switch__label {
   opacity: 0.5;
@@ -380,7 +388,7 @@ button.scroll-top.show {
 .toggle-switch__label {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
   cursor: pointer;
 }
 .toggle-switch__text {
@@ -392,8 +400,8 @@ button.scroll-top.show {
 }
 .toggle-switch__slider {
   position: relative;
-  width: 2.5rem;
-  height: 1.5rem;
+  width: 40px;
+  height: 24px;
   background-color: transparent;
   border: 1px solid var(--color-gray-900);
   box-sizing: border-box;
@@ -404,10 +412,10 @@ button.scroll-top.show {
 .toggle-switch__slider::before {
   content: "";
   position: absolute;
-  width: 1rem;
-  height: 1rem;
-  left: 0.1875rem;
-  top: 0.1875rem;
+  width: 16px;
+  height: 16px;
+  left: 3px;
+  top: 3px;
   background-color: var(--color-gray-900);
   border-radius: 50%;
   transition: transform 0.2s ease;
@@ -416,7 +424,88 @@ button.scroll-top.show {
 
 /* 6. Sections */
 section.hero {
-  background: var(--color-bg-primary);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 80vh;
+  min-height: 600px;
+  max-height: 800px;
+  box-sizing: border-box;
+  padding: 100px 0 150px;
+  text-align: center;
+}
+section.hero .hero-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+section.hero .hero-name img {
+  width: 20px;
+  height: 20px;
+}
+section.hero .hero-name strong {
+  font-family: var(--font-english);
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+section.hero .title-ani {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px 0 100px;
+}
+section.hero .title-ani__brace {
+  position: absolute;
+  font-family: var(--font-english);
+  font-weight: 300;
+  font-size: 36px;
+}
+section.hero .title-ani__shapes {
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+}
+section.hero .title-ani__shape {
+  width: 50px;
+  height: 50px;
+}
+section.hero .text-decorative {
+  font-family: var(--font-decoration);
+  font-weight: 400;
+  font-size: 2.25rem;
+}
+section.hero .sticker {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  background: var(--gradient-purple-skyblue-wide);
+  box-sizing: border-box;
+  padding: 40px 20px;
+}
+section.hero .sticker span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-english);
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--color-white);
+}
+section.hero .sticker span::after {
+  display: block;
+  content: "";
+  width: 1px;
+  height: 40px;
+  background-color: var(--color-white);
 }
 
 section.about-me {

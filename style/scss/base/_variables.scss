@@ -34,9 +34,10 @@
 
 
   /* ===== 3. Gradients (Composition) ===== */
-  --gradient-skyblue-purple-wide: linear-gradient(180deg, var(--color-skyblue-500) 0%, var(--color-purple-500) 85%);
+  --gradient-purple-skyblue-wide: linear-gradient(0deg, var(--color-skyblue-500) 0%, var(--color-purple-500) 85%);
+  --gradient-purple-skyblue-narrow: linear-gradient(90deg, var(--color-skyblue-500) 20%, var(--color-purple-500) 80%);
+
   --gradient-skyblue-purple-wide-light: linear-gradient(180deg, var(--color-skyblue-400) 0%, var(--color-purple-400-alpha-60) 85%);
-  --gradient-skyblue-purple-narrow: linear-gradient(90deg, var(--color-skyblue-500) 20%, var(--color-purple-500) 80%);
 
   --gradient-skyblue-pink: linear-gradient(0deg, var(--color-pink-200-alpha-50) 0%, var(--color-skyblue-200) 85%);
   --gradient-pink-skyblue: linear-gradient(180deg, var(--color-pink-200-alpha-50) 0%, var(--color-skyblue-200) 85%);
