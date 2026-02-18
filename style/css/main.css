@@ -473,7 +473,12 @@ section.hero .title-ani__brace {
   position: absolute;
   font-family: var(--font-english);
   font-weight: 300;
-  font-size: 36px;
+  font-size: 20px;
+}
+@media (min-width: 800px) {
+  section.hero .title-ani__brace {
+    font-size: 36px;
+  }
 }
 section.hero .title-ani__shapes {
   display: flex;
@@ -494,13 +499,18 @@ section.hero .title-ani__shapes {
   }
 }
 section.hero .title-ani__shape {
-  width: 30px;
-  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0 4px;
 }
 @media (min-width: 800px) {
   section.hero .title-ani__shape {
     width: 50px;
     height: 50px;
+    padding: 0;
   }
 }
 section.hero .text-decorative {
