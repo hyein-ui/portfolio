@@ -5,11 +5,25 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(MorphSVGPlugin);
 
 
+  /* ----- [ 헤더 ] ----- */
+  gsap.from("header", {
+    scrollTrigger: {
+      trigger: "#about-me",
+      start: "top top", //#about-me의 top이 뷰포트 top에 닿을때
+      toggleActions: "play none play reverse",
+      // 스크롤 내려서 처음 요소에 닿을때, 스크롤 내려서 요소를 떠날때, 스크롤 올려서 다시 요소에 진입할 때, 스크롤 올려서 요소를 떠날 때
+    },
+    y: -30,
+    opacity: 0,
+    duration: 0.8,
+    ease: "power2.out",
+  });
+
+  
   /* ----- [ hero 섹션 ] ----- */
   const titShapeBox = document.querySelector(".title-ani__shapes");
-  const titStartShapes = document.querySelectorAll(".title-ani .shape-start");
-  const titEndShapes = document.querySelectorAll(".title-ani .shape-end");
-  const heroSticker = document.querySelector(".sticker");
+  const arrTitStartShapes = document.querySelectorAll(".title-ani__shapes .shape-start");
+  const arrTitEndShapes = document.querySelectorAll(".title-ani__shapes .shape-end");
 
   /* (초기 셋팅) */
   gsap.set(titShapeBox, {
@@ -41,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
       duration: 1,
       ease: "power2.out",
     }, "-=0.6");
-  tlHero.add(tlHero_text);
 
   /* (서브 타임라인) : 괄호 움직인 후 모양 등장 */
   const tlHero_show = gsap.timeline({
@@ -66,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
       x: () => ((titShapeBox.offsetWidth / 2) + (titShapeBox.offsetWidth * 0.06)),
       duration: 1
     }, "<") // 동시에 실행
-    .to(".title-ani__shapes", {
+    .to(titShapeBox, {
       opacity: 1,
       scale: 1,
       duration: 2,
@@ -97,10 +110,10 @@ document.addEventListener("DOMContentLoaded", function () {
     yoyo: true,
     repeatDelay: 1, // yoyo에 지연시간 주기
   });
-  titStartShapes.forEach((startEl, i) => {
+  arrTitStartShapes.forEach((startEl, i) => {
     tlHero_shapes.to(startEl, {
       morphSVG: {
-        shape: titEndShapes[i],
+        shape: arrTitEndShapes[i],
         shapeIndex: "auto"
       },
     }, 0); // 전부 동시에

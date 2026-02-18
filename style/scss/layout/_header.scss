@@ -88,8 +88,6 @@ header {
 
         @include mixins.respond(lg) {
           width: auto;
-          // min-width: 4.68rem;
-          // padding: 0 10px;
           height: 44px;
           text-align: center;
           line-height: 44px;
