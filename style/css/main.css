@@ -143,9 +143,13 @@ body {
   color: var(--color-text-primary);
   background-color: var(--color-bg-primary);
 }
+body main {
+  margin-top: -44px;
+}
 body main section {
   width: 100%;
   min-height: 250px;
+  padding: 0 16px;
 }
 
 :focus-visible {
@@ -447,7 +451,7 @@ section.hero {
   flex-direction: column;
   justify-content: space-around;
   height: 80vh;
-  min-height: 600px;
+  min-height: 650px;
   max-height: 800px;
   box-sizing: border-box;
   padding: 100px 0 150px;
@@ -593,27 +597,35 @@ section.feature {
 
 section.thanks {
   background: var(--gradient-pink-skyblue-fade-in);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+@media (min-width: 1280px) {
+  section.thanks {
+    height: 400px;
+  }
 }
 section.thanks .clovers {
   display: flex;
-  width: -moz-fit-content;
-  width: fit-content;
   justify-items: center;
   -o-object-fit: cover;
      object-fit: cover;
   gap: 20px;
-  margin: 0 auto;
-}
-section.thanks .clovers img {
-  display: inline-block;
 }
 section.thanks .textbox {
+  width: 70%;
   display: flex;
-  width: -moz-fit-content;
-  width: fit-content;
-  gap: 130px;
+  justify-content: space-around;
+  flex-wrap: wrap;
   font-family: var(--font-english);
-  margin: 50px auto;
+}
+@media (min-width: 800px) {
+  section.thanks .textbox {
+    width: 40%;
+  }
 }
 section.thanks .textbox span {
   font-weight: 300;

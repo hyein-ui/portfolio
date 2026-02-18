@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
       start: "top top", //#about-me의 top이 뷰포트 top에 닿을때
       toggleActions: "play none play reverse",
       // 스크롤 내려서 처음 요소에 닿을때, 스크롤 내려서 요소를 떠날때, 스크롤 올려서 다시 요소에 진입할 때, 스크롤 올려서 요소를 떠날 때
+      // markers: true,
     },
     y: -30,
     opacity: 0,

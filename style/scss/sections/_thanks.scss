@@ -1,33 +1,40 @@
 @use '../base/variables';
+@use '../base/mixins';
 
 section.thanks {
   background: var(--gradient-pink-skyblue-fade-in);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+
+  @include mixins.respond(lg){
+    height: 400px;
+  }
 
   .clovers {
     display: flex;
-    width: fit-content;
     justify-items: center;
     object-fit: cover;
     gap: 20px;
-    margin: 0 auto;
-
-    img {
-      display: inline-block;
-    }
   }
 
   .textbox{
+    width: 70%;
     display: flex;
-    width: fit-content;
-    gap: 130px;
+    justify-content: space-around;
+    flex-wrap: wrap;
     font-family: var(--font-english);
-    margin: 50px auto;
+
+    @include mixins.respond(md){
+      width: 40%;
+    }
 
     span{
       font-weight: 300;
       font-size: 1.5rem;
     }
-
     h2{
       font-weight: 400;
       font-size: 1.825rem;
