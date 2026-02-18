@@ -1,5 +1,37 @@
 @use '../base/variables';
 
-section.thanks{
+section.thanks {
   background: var(--gradient-pink-skyblue-fade-in);
+
+  .clovers {
+    display: flex;
+    width: fit-content;
+    justify-items: center;
+    object-fit: cover;
+    gap: 20px;
+    margin: 0 auto;
+
+    img {
+      display: inline-block;
+    }
+  }
+
+  .textbox{
+    display: flex;
+    width: fit-content;
+    gap: 130px;
+    font-family: var(--font-english);
+    margin: 50px auto;
+
+    span{
+      font-weight: 300;
+      font-size: 1.5rem;
+    }
+
+    h2{
+      font-weight: 400;
+      font-size: 1.825rem;
+    }
+  }
+
 }

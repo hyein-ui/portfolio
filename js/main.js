@@ -133,10 +133,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateBracePosition(); // 위치만 재계산
   });
-
-
-
 });
+
 
 
 /* ===== 메인메뉴 ===== */
