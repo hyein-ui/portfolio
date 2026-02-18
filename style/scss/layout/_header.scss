@@ -156,7 +156,7 @@ header {
               @include mixins.hover {
                 &:hover {
                   text-decoration: underline;
-                  color: var(--color-purple-500);
+                  color: var(--color-text-nav-hover);
                   font-weight: 400;
                 }
               }
