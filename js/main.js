@@ -4,13 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(MorphSVGPlugin);
 
-  /* ----- [ 화면 리사이징 대응 ] ----- */
-  window.addEventListener("resize", () => {
-    // 애니메이션을 재실행
-    // tlHero_show.invalidate().restart();
-
-    updateBracePosition(); // 위치만 재계산
-  });
 
   /* ----- [ hero 섹션 ] ----- */
   const titShapeBox = document.querySelector(".title-ani__shapes");
@@ -128,6 +121,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   );
   tlHero.add(tlHero_sticker, "-=2.5");
+
+
+
+
+
+  /* ----- [ 화면 리사이징 대응 ] ----- */
+  window.addEventListener("resize", () => {
+    // 애니메이션을 재실행
+    // tlHero_show.invalidate().restart();
+
+    updateBracePosition(); // 위치만 재계산
+  });
+
+
+
 });
 
 
