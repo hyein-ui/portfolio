@@ -75,6 +75,7 @@ header {
       gap: 1.5rem;
       width: 100%;
       font-family: var(--font-english);
+      color: var(--color-black);
 
       @include mixins.respond(lg) {
         justify-content: space-between;

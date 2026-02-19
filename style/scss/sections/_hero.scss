@@ -23,9 +23,10 @@ section.hero {
       gap: 24px;
     }
 
-    img {
+    svg {
       width: 20px;
       height: 20px;
+      fill: var(--color-icon);
     }
 
     strong {
@@ -139,7 +140,7 @@ section.hero {
           content: '';
           width: 1px;
           height: 40px;
-          background-color: var(--color-white);
+          background-color: var(--color-text-inverse);
         }
       }
     }

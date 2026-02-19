@@ -50,7 +50,8 @@
   &__text {
     font-size: 0.875rem;
     line-height: 1;
-    user-select: none;
+    user-select: none; // 드래그 블록 막기
+    color: var(--color-black);
   }
 
   &__slider {

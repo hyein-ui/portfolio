@@ -2,14 +2,40 @@
 @use '../base/mixins';
 
 section.about-me {
+  display: flex;
+  gap: 100px;
+  padding: 150px 16px 100px;
   background: var(--color-bg-aboutme);
 
   .left-group {
-
     &__top {
-      h2 {}
+      position: relative;
+      margin-bottom: 20px;
 
-      .photo-box {
+      h2 {
+        position: absolute;
+        left: 0;
+        top: 60px;
+        font-size: 64px;
+        font-weight: 700;
+        text-align: right;
+        line-height: 0.65;
+
+        &::before {
+          position: absolute;
+          left: 66px;
+          top: -38px;
+          display: block;
+          content: '';
+          width: 50px;
+          height: 45px;
+          background-image: url("../../../images/thumb-up.svg");
+          background-repeat: none;
+        }
+      }
+
+      .photobox {
+        position: relative;
         width: 250px;
         height: 400px;
         box-sizing: border-box;
@@ -18,7 +44,19 @@ section.about-me {
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        position: relative;
+        // margin-left: 106px;
+
+        &::after {
+          position: absolute;
+          right: 40px;
+          bottom: 40px;
+          display: block;
+          content: '';
+          width: 20px;
+          height: 19px;
+          background-image: url("../../../images/heart-red.svg");
+          background-repeat: none;
+        }
 
         .img {
           width: 100%;
@@ -30,16 +68,40 @@ section.about-me {
     }
 
     &__bottom {
-      p{}
-      .links{
-        a{
-          svg{
+      // margin-left: 106px; //.photo-box 의 margin 따라갈 것
+
+      p {
+        font-size: 0.75rem;
+        text-align: center;
+        margin-bottom: 16px;
+      }
+
+      .links {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+
+        &::before {
+          position: absolute;
+          left: 50%;
+          top: -8px;
+          transform: translateX(-50%);
+          display: block;
+          content: "";
+          width: 10px;
+          height: 1px;
+          background-color: var(--color-text-primary);
+        }
+
+        a {
+          svg {
             fill: var(--color--icon);
           }
 
-          @include mixins.hover{
-            &:hover{
-              svg{
+          @include mixins.hover {
+            &:hover {
+              svg {
                 fill: var(--color-icon-hover);
               }
             }
@@ -49,5 +111,85 @@ section.about-me {
     }
   }
 
-  .right-group {}
+  .intro {
+    &__con {
+      h3 {
+        font-family: var(--font-english);
+        font-weight: 400;
+        font-size: 1.5rem;
+        color: var(--color-text-emphasis);
+        margin-bottom: 30px;
+      }
+
+      &--who {
+        .contents {
+          >strong {
+            display: block;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+          }
+
+          .textbox{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            >div{
+              display: flex;
+              flex-direction: column;
+              gap: 14px;
+              font-size: 0.875rem;
+
+              >p{
+                display: flex;
+                gap: 16px;
+                span{
+                  font-weight: 700;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &--skills{
+        .contents{
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          >p{
+
+            &::before{
+              display: block;
+              content: "";
+              width: 10px;
+              height: 1px;
+              background-color: var(--color-text-weak);
+              margin-bottom: 20px; //부모 .contents 의 gap 크기 따라가기
+            }
+
+            >span{
+              display: inline-block;
+              padding: 0.25rem 0.825rem;
+              border: 1px solid var(--color-text-weak);
+              transform: skewX(-8deg);
+              margin: 0.2rem 0.05rem;
+            }
+          }
+        }
+      }
+
+      &--history{
+        .contents{
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+      }
+
+
+    }
+  }
 }
