@@ -9,10 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.from("header", {
     scrollTrigger: {
       trigger: "#about-me",
-      start: "top top", //#about-me의 top이 뷰포트 top에 닿을때
-      toggleActions: "play none play reverse",
-      // 스크롤 내려서 처음 요소에 닿을때, 스크롤 내려서 요소를 떠날때, 스크롤 올려서 다시 요소에 진입할 때, 스크롤 올려서 요소를 떠날 때
-      // markers: true,
+      start: "top top",
+      toggleActions: "play none",
     },
     y: -30,
     opacity: 0,
@@ -20,14 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
     ease: "power2.out",
   });
 
-  
+
   /* ----- [ hero 섹션 ] ----- */
-  const titShapeBox = document.querySelector(".title-ani__shapes");
+  const elTitShapeBox = document.querySelector(".title-ani__shapes");
   const arrTitStartShapes = document.querySelectorAll(".title-ani__shapes .shape-start");
   const arrTitEndShapes = document.querySelectorAll(".title-ani__shapes .shape-end");
 
   /* (초기 셋팅) */
-  gsap.set(titShapeBox, {
+  gsap.set(elTitShapeBox, {
     opacity: 0,
     scale: 0.9
   });
@@ -56,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
       duration: 1,
       ease: "power2.out",
     }, "-=0.6");
+  tlHero.add(tlHero_text);
 
   /* (서브 타임라인) : 괄호 움직인 후 모양 등장 */
   const tlHero_show = gsap.timeline({
@@ -73,14 +72,14 @@ document.addEventListener("DOMContentLoaded", function () {
       opacity: 1
     })
     .to(".title-ani__brace--left", {
-      x: () => -((titShapeBox.offsetWidth / 2) + (titShapeBox.offsetWidth * 0.06)),
+      x: () => -((elTitShapeBox.offsetWidth / 2) + (elTitShapeBox.offsetWidth * 0.06)),
       duration: 1
     })
     .to(".title-ani__brace--right", {
-      x: () => ((titShapeBox.offsetWidth / 2) + (titShapeBox.offsetWidth * 0.06)),
+      x: () => ((elTitShapeBox.offsetWidth / 2) + (elTitShapeBox.offsetWidth * 0.06)),
       duration: 1
     }, "<") // 동시에 실행
-    .to(titShapeBox, {
+    .to(elTitShapeBox, {
       opacity: 1,
       scale: 1,
       duration: 2,
@@ -90,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // [함수] 리사이징 대응 : 괄호 위치 재계산
   function updateBracePosition() {
-    const width = titShapeBox.offsetWidth;
+    const width = elTitShapeBox.offsetWidth;
     const distance = (width / 2) + (width * 0.06);
 
     gsap.set(".title-ani__brace--left", {
@@ -147,99 +146,125 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateBracePosition(); // 위치만 재계산
   });
-});
 
 
 
-/* ===== 메인메뉴 ===== */
-const ham = document.querySelector('.ham');
-const mainNav = document.getElementById('mainNav');
 
-ham.addEventListener('click', () => {
-  const expanded = ham.getAttribute('aria-expanded') === 'true';
-  ham.setAttribute('aria-expanded', !expanded);
+  /* ===== 메인메뉴 ===== */
+  const elHam = document.querySelector(".ham");
+  const elMainNav = document.getElementById("mainNav");
 
-  if (expanded) {
-    // 열려있다면
-    mainNav.hidden = true;
-  } else {
-    // 닫혀있다면
-    mainNav.hidden = false;
-    mainNav.querySelector('a').focus(); // 첫 메뉴 항목에 포커스
-  }
-});
+  elHam.addEventListener("click", () => {
+    const expanded = elHam.getAttribute("aria-expanded") === "true";
+    elHam.setAttribute("aria-expanded", !expanded);
 
-
-
-/* ===== scroll top 버튼 ===== */
-const scrollBtn = document.querySelector('.scroll-top');
-// 버튼 보이는 구간 설정
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    scrollBtn.classList.add('show');
-  } else {
-    scrollBtn.classList.remove('show');
-  }
-});
-// 스크롤 실행
-scrollBtn.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
+    if (expanded) {
+      // 열려있다면
+      elMainNav.hidden = true;
+    } else {
+      // 닫혀있다면
+      elMainNav.hidden = false;
+      elMainNav.querySelector("a").focus(); // 첫 메뉴 항목에 포커스
+    }
   });
-});
 
 
 
+  /* ===== scroll top 버튼 ===== */
+  const elScrollBtn = document.querySelector(".scroll-top");
+  // 버튼 보이는 구간 설정
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      elScrollBtn.classList.add("show");
+    } else {
+      elScrollBtn.classList.remove("show");
+    }
+  });
+  // 스크롤 실행
+  elScrollBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
 
 
 
+  /* ===== 다크모드 theme dark ===== */
+  const elThemeToggleBtn = document.getElementById("themeToggle");
+  const elHtml = document.documentElement;
+  const mqDark = window.matchMedia("(prefers-color-scheme: dark)"); //OS 다크모드 감지
+  const savedTheme = localStorage.getItem("theme"); // 브라우저에 저장한 값 확인
 
-
-/* ===== 반응형 모바일 퍼스트  ===== */
-const breakpoints = {
-  md: '(min-width: 800px)',
-  lg: '(min-width: 1280px)',
-};
-const mqMiddle = window.matchMedia(breakpoints.md);
-const mqLarge = window.matchMedia(breakpoints.lg);
-
-function initResponsive() {
-  if (mqLarge.matches) {
-    mqLargeInit();
-  } else if (mqMiddle.matches) {
-    mqMiddleInit();
+  /* --- 상태 확인 --- */
+  if (savedTheme) { // 값이 저장되어 있으면
+    elHtml.setAttribute("data-theme", savedTheme);
+    elThemeToggleBtn.checked = savedTheme === "dark"; // 토글버튼 상태 동기화
   } else {
-    mqSmallInit();
+    const systemTheme = mqDark.matches ? "dark" : "light"; // OS 테마 값
+    elHtml.setAttribute("data-theme", systemTheme);
+    elThemeToggleBtn.checked = mqDark.matches;
   }
-}
 
-/* --- 반응형 실행 --- */
-initResponsive();
-mqMiddle.addEventListener('change', initResponsive);
-mqLarge.addEventListener('change', initResponsive);
+  /* --- 토글버튼을 누르면 --- */
+  elThemeToggleBtn.addEventListener("change", () => {
+    const newTheme = elThemeToggleBtn.checked ? "dark" : "light";
+    
+    elHtml.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  });
 
-/* --- 반응형 분기별 실행할 함수 --- */
-function mqSmallInit() {
-  // 모바일(디폴트)
 
-  /* 메인메뉴 */
-  mainNav.hidden = true;
-  ham.setAttribute('aria-expanded', false);
-}
 
-function mqMiddleInit() {
-  // min-width: 800px
 
-  /* 메인메뉴 */
-  mainNav.hidden = true;
-  ham.setAttribute('aria-expanded', false);
-}
 
-function mqLargeInit() {
-  // min-width: 1280px
 
-  /* 메인메뉴 */
-  mainNav.hidden = false;
-  ham.setAttribute('aria-expanded', false);
-}
+  /* ===== 반응형 모바일 퍼스트  ===== */
+  const breakpoints = {
+    md: "(min-width: 800px)",
+    lg: "(min-width: 1280px)",
+  };
+  const mqMiddle = window.matchMedia(breakpoints.md);
+  const mqLarge = window.matchMedia(breakpoints.lg);
+
+  function initResponsive() {
+    if (mqLarge.matches) {
+      mqLargeInit();
+    } else if (mqMiddle.matches) {
+      mqMiddleInit();
+    } else {
+      mqSmallInit();
+    }
+  }
+
+  /* --- 반응형 실행 --- */
+  initResponsive();
+  mqMiddle.addEventListener("change", initResponsive);
+  mqLarge.addEventListener("change", initResponsive);
+
+  /* --- 반응형 분기별 실행할 함수 --- */
+  function mqSmallInit() {
+    // 모바일(디폴트)
+
+    /* 메인메뉴 */
+    elMainNav.hidden = true;
+    elHam.setAttribute("aria-expanded", false);
+  }
+
+  function mqMiddleInit() {
+    // min-width: 800px
+
+    /* 메인메뉴 */
+    elMainNav.hidden = true;
+    elHam.setAttribute("aria-expanded", false);
+  }
+
+  function mqLargeInit() {
+    // min-width: 1280px
+
+    /* 메인메뉴 */
+    elMainNav.hidden = false;
+    elHam.setAttribute("aria-expanded", false);
+  }
+
+});

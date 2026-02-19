@@ -87,6 +87,7 @@ table {
   /* ===== 2. Color Palette (Raw values) ===== */
   --color-black: #000;
   --color-gray-900: #333;
+  --color-gray-100: #f5f5f5;
   --color-white: #fff;
   --color-white-alpha-85: rgba(255, 255, 255, 0.85);
   --color-white-alpha-60: rgba(255, 255, 255, 0.6);
@@ -115,16 +116,27 @@ table {
   --gradient-pink-skyblue-fade-in: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--color-pink-200-alpha-60) 50%, var(--color-skyblue-200) 85%);
   --gradient-gray-fade-in: linear-gradient(180deg, rgba(253, 251, 251, 0.4) 0%, rgba(235, 237, 238, 0.7) 85%);
   /* ===== 4. Semantic Tokens ===== */
+  /* 전역 포커스 링 색상 */
+  --color-focus-ring: var(--color-magenta);
+  /*  배경색 */
+  --color-bg-primary: var(--color-white);
+  --color-bg-footer: var(--color-gray-900);
+  --color-bg-aboutme: var(--gradient-skyblue-pink);
+  --color-bg-feature: var(--color-pink-200-alpha-50);
+  --color-bg-thanks: var(--gradient-pink-skyblue-fade-in);
   /* 글자색 */
   --color-text-primary: var(--color-gray-900);
   --color-text-inverse: var(--color-white);
   --color-text-nav-hover: var(--color-purple-500);
-  /*  배경색 */
-  --color-bg-primary: var(--color-white);
-  --color-bg-footer: var(--color-gray-900);
-  --color-bg-surface: var(--gradient-gray-fade-in);
-  /* 전역 포커스 링 색상 */
-  --color-focus-ring: var(--color-magenta);
+  /* 아이콘색 */
+  --color-icon: var(--color-gray-900);
+  --color-icon-hover: var(--color-purple-500);
+}
+
+/* 다크모드 */
+[data-theme=dark] {
+  --color-bg-primary: var(--color-gray-900);
+  --color-text-primary: var(--color-gray-100);
 }
 
 /* ===== 반응형 min-width 변수 ===== */
@@ -588,15 +600,41 @@ section.hero .sticker .sticker__inner span::after {
 }
 
 section.about-me {
-  background: var(--gradient-skyblue-pink);
+  background: var(--color-bg-aboutme);
 }
-
+section.about-me .left-group__top .photo-box {
+  width: 250px;
+  height: 400px;
+  box-sizing: border-box;
+  border-radius: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+section.about-me .left-group__top .photo-box .img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+section.about-me .left-group__bottom .links a svg {
+  fill: var(--color--icon);
+}
+@media (hover: hover) and (pointer: fine) {
+  section.about-me .left-group__bottom .links a:hover svg {
+    fill: var(--color-icon-hover);
+  }
+}
 section.feature {
-  background: var(--color-pink-200-alpha-50);
+  background: var(--color-bg-feature);
 }
 
 section.thanks {
-  background: var(--gradient-pink-skyblue-fade-in);
+  background: var(--color-bg-thanks);
   display: flex;
   flex-direction: column;
   justify-content: center;

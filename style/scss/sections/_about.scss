@@ -1,5 +1,53 @@
 @use '../base/variables';
+@use '../base/mixins';
 
-section.about-me{
-  background: var(--gradient-skyblue-pink);
+section.about-me {
+  background: var(--color-bg-aboutme);
+
+  .left-group {
+
+    &__top {
+      h2 {}
+
+      .photo-box {
+        width: 250px;
+        height: 400px;
+        box-sizing: border-box;
+        border-radius: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+
+        .img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+
+    &__bottom {
+      p{}
+      .links{
+        a{
+          svg{
+            fill: var(--color--icon);
+          }
+
+          @include mixins.hover{
+            &:hover{
+              svg{
+                fill: var(--color-icon-hover);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .right-group {}
 }

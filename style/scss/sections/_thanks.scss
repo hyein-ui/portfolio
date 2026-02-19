@@ -2,7 +2,7 @@
 @use '../base/mixins';
 
 section.thanks {
-  background: var(--gradient-pink-skyblue-fade-in);
+  background: var(--color-bg-thanks);
   display: flex;
   flex-direction: column;
   justify-content: center;
