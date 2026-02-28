@@ -729,7 +729,6 @@ section.about-me .left-group .contents .bottom .links a svg {
 }
 section.about-me .right-group .pin-wrap {
   overflow: hidden;
-  background-color: aqua;
 }
 @media (min-width: 800px) {
   section.about-me .right-group .pin-wrap {
@@ -739,13 +738,21 @@ section.about-me .right-group .pin-wrap {
 section.about-me .right-group .pin-wrap .intro {
   display: flex;
   flex-wrap: nowrap;
+  flex-direction: column;
+  gap: 80px;
+}
+@media (min-width: 800px) {
+  section.about-me .right-group .pin-wrap .intro {
+    flex-direction: row;
+    gap: 0;
+  }
 }
 section.about-me .right-group .pin-wrap .intro__con {
   flex: 0 0 100%;
 }
 @media (min-width: 800px) {
   section.about-me .right-group .pin-wrap .intro__con {
-    padding-right: 100px;
+    padding: 0 100px 0 30px;
     box-sizing: border-box;
   }
 }
@@ -780,9 +787,11 @@ section.about-me .right-group .pin-wrap .intro__con--who .contents .textbox > di
 section.about-me .right-group .pin-wrap .intro__con--who .contents .textbox > div > p span {
   font-weight: 700;
 }
+section.about-me .right-group .pin-wrap .intro__con--skills {
+  margin-left: 4px;
+}
 @media (min-width: 800px) {
   section.about-me .right-group .pin-wrap .intro__con--skills {
-    padding-left: 4px;
     box-sizing: border-box;
   }
 }

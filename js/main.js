@@ -273,44 +273,17 @@ document.addEventListener("DOMContentLoaded", function () {
     [breakpoints.sm]: function () {
       /* --- sm --- */
 
+
+    },
+    [breakpoints.md]: function () {
+      /* --- md --- */
+  
       /* about me 가로스크롤 */
       /* 가로스크롤 애니메이션
         div.pin-spacer를 생성한 후 그 세로길이를 움직일 요소의 가로길이와 같게 만듬.
         trigger 대상을 pin으로 position: fixed로 만들어서 세로스크롤이 되고있지 않는 것처럼 보이게 하는 원리.
         따라서 100vh에 최적화 된 기능이라고 보면 됨.
       */
-     const elRightGroup = document.querySelector(".right-group");
-      const elPinWrap = document.querySelector(".pin-wrap");
-      const elIntro = document.querySelector(".intro");
-
-      function getDistance() {
-        return elIntro.scrollWidth - elRightGroup.clientWidth;
-      }
-
-      const tlIntro = gsap.timeline({
-        scrollTrigger: {
-          trigger: elPinWrap,
-          start: "top top",
-          pin: true,
-          scrub: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          end: () => "+=" + getDistance(),
-        }
-      });
-
-      tlIntro.to(elIntro, {
-        x: () => -getDistance(),
-        ease: "none"
-      });
-
-
-
-    },
-    [breakpoints.md]: function () {
-      /* --- md --- */
-
-      /* about me 가로스크롤 */
       const arrIntroCons = gsap.utils.toArray(".intro .intro__con");
       const elRightGroup = document.querySelector(".right-group");
       const elIntro = document.querySelector(".intro");

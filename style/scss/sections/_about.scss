@@ -132,7 +132,6 @@ section.about-me {
   .right-group {
     .pin-wrap {
       overflow: hidden;
-      background-color: aqua;
 
       @include mixins.respond(md) {
         max-width: 530px;
@@ -141,14 +140,19 @@ section.about-me {
       .intro {
         display: flex;
         flex-wrap: nowrap;
+        flex-direction: column;
+        gap: 80px;
 
-
+        @include mixins.respond(md){
+          flex-direction: row;
+          gap: 0;
+        }
 
         &__con {
           flex: 0 0 100%;
 
           @include mixins.respond(md) {
-            padding-right: 100px;
+            padding: 0 100px 0 30px;
             box-sizing: border-box;
           }
 
@@ -194,8 +198,9 @@ section.about-me {
           }
 
           &--skills {
+            margin-left: 4px;
+
             @include mixins.respond(md) {
-              padding-left: 4px;
               box-sizing: border-box;
             }
 
