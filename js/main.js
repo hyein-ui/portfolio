@@ -1,25 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  /* ========== GSAP 애니메이션 ========== */
-  /* ----- [ 플러그인 ] ----- */
+  /* ========== GSAP 플러그인 ========== */
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(MorphSVGPlugin);
 
 
-  /* ----- [ 헤더 ] ----- */
-  gsap.from("header", {
-    scrollTrigger: {
-      trigger: "#about-me",
-      start: "top top",
-      toggleActions: "play none",
-    },
-    y: -30,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power2.out",
-  });
-
-
-  /* ----- [ hero 섹션 ] ----- */
+  /* ========== hero 섹션 ========== */
   const elTitShapeBox = document.querySelector(".title-ani__shapes");
   const arrTitStartShapes = document.querySelectorAll(".title-ani__shapes .shape-start");
   const arrTitEndShapes = document.querySelectorAll(".title-ani__shapes .shape-end");
@@ -139,6 +124,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+
   /* ----- [ 화면 리사이징 대응 ] ----- */
   window.addEventListener("resize", () => {
     // 애니메이션을 재실행
@@ -209,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /* --- 토글버튼을 누르면 --- */
   elThemeToggleBtn.addEventListener("change", () => {
     const newTheme = elThemeToggleBtn.checked ? "dark" : "light";
-    
+
     elHtml.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
   });
@@ -221,6 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ===== 반응형 모바일 퍼스트  ===== */
   const breakpoints = {
+    sm: "(max-width: 799px)", // 반응형 분기별 GSAP에서 사용하기 위한 추가 브레이크 포인트. 평소엔 사용할 필요 없음.
     md: "(min-width: 800px)",
     lg: "(min-width: 1280px)",
   };
@@ -237,34 +225,126 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  /* --- 반응형 실행 --- */
   initResponsive();
   mqMiddle.addEventListener("change", initResponsive);
   mqLarge.addEventListener("change", initResponsive);
 
   /* --- 반응형 분기별 실행할 함수 --- */
   function mqSmallInit() {
-    // 모바일(디폴트)
-
     /* 메인메뉴 */
     elMainNav.hidden = true;
     elHam.setAttribute("aria-expanded", false);
   }
 
   function mqMiddleInit() {
-    // min-width: 800px
-
     /* 메인메뉴 */
     elMainNav.hidden = true;
     elHam.setAttribute("aria-expanded", false);
   }
 
   function mqLargeInit() {
-    // min-width: 1280px
-
     /* 메인메뉴 */
     elMainNav.hidden = false;
     elHam.setAttribute("aria-expanded", false);
   }
+
+
+
+  /* ===== 반응형 분기별 GSAP 애니메이션 ===== */
+  /* ----- 스크롤트리거 ----- */
+  ScrollTrigger.matchMedia({
+    "all": function () {
+      /* --- 공통 --- */
+
+      /* 헤더 */
+      gsap.from("header", {
+        scrollTrigger: {
+          trigger: ".about-me",
+          start: "top top",
+          toggleActions: "play none none none",
+        },
+        y: -30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out",
+      });
+
+    },
+    [breakpoints.sm]: function () {
+      /* --- sm --- */
+
+      /* about me 가로스크롤 */
+      /* 가로스크롤 애니메이션
+        div.pin-spacer를 생성한 후 그 세로길이를 움직일 요소의 가로길이와 같게 만듬.
+        trigger 대상을 pin으로 position: fixed로 만들어서 세로스크롤이 되고있지 않는 것처럼 보이게 하는 원리.
+        따라서 100vh에 최적화 된 기능이라고 보면 됨.
+      */
+     const elRightGroup = document.querySelector(".right-group");
+      const elPinWrap = document.querySelector(".pin-wrap");
+      const elIntro = document.querySelector(".intro");
+
+      function getDistance() {
+        return elIntro.scrollWidth - elRightGroup.clientWidth;
+      }
+
+      const tlIntro = gsap.timeline({
+        scrollTrigger: {
+          trigger: elPinWrap,
+          start: "top top",
+          pin: true,
+          scrub: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          end: () => "+=" + getDistance(),
+        }
+      });
+
+      tlIntro.to(elIntro, {
+        x: () => -getDistance(),
+        ease: "none"
+      });
+
+
+
+    },
+    [breakpoints.md]: function () {
+      /* --- md --- */
+
+      /* about me 가로스크롤 */
+      const arrIntroCons = gsap.utils.toArray(".intro .intro__con");
+      const elRightGroup = document.querySelector(".right-group");
+      const elIntro = document.querySelector(".intro");
+      const distance = elIntro.scrollWidth - elRightGroup.offsetWidth; // .intro 전체 가로길이 - 보이는 영역 너비 = 실제 가로로 이동해야 할 거리
+
+      const tlIntro = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".about-me",
+          start: "top top",
+          pin: true, //대상을 fixed 처럼 고정
+          scrub: 1, // 1초정도 부드럽게 따라감
+          anticipatePin: 1, //pin 시작시 발생하는 튕김 방지
+          end: () => "+=" + (distance + 800), // 스크롤 여유 800px
+        }
+      });
+      tlIntro.to(arrIntroCons, {
+        x: -distance,
+        ease: "none",
+        duration: 0.8,
+      });
+
+
+    }
+  });
+
+
+
+
+
+
+
+
+
+
+
 
 });

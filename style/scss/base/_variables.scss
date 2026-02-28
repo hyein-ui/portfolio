@@ -32,8 +32,8 @@
 
   --color-pink-400: #efc9d0;
   --color-pink-200: #F3E7E9;
-  --color-pink-200-alpha-60: rgba(243, 231, 233, 0.6);
-  --color-pink-200-alpha-50: rgba(243, 231, 233, 0.5);
+  --color-pink-150: #F9F3F4;
+
 
   --color-magenta: #ef3080;
 
@@ -45,9 +45,9 @@
 
   --gradient-skyblue-purple-wide-light: linear-gradient(180deg, var(--color-skyblue-400) 0%, var(--color-purple-400-alpha-60) 85%);
 
-  --gradient-skyblue-pink: linear-gradient(0deg, var(--color-pink-200-alpha-50) 0%, var(--color-skyblue-200) 85%);
-  --gradient-pink-skyblue: linear-gradient(180deg, var(--color-pink-200-alpha-50) 0%, var(--color-skyblue-200) 85%);
-  --gradient-pink-skyblue-fade-in: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--color-pink-200-alpha-60) 50%, var(--color-skyblue-200) 85%);
+  --gradient-skyblue-pink: linear-gradient(0deg, var(--color-pink-150) 0%, var(--color-skyblue-200) 85%);
+  --gradient-pink-skyblue: linear-gradient(180deg, var(--color-pink-150) 0%, var(--color-skyblue-200) 85%);
+  --gradient-pink-skyblue-fade-in: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--color-pink-150) 50%, var(--color-skyblue-200) 85%);
 
   --gradient-gray-fade-in: linear-gradient(180deg, rgba(253, 251, 251, 0.4) 0%, rgba(235, 237, 238, 0.7) 85%);
   --gradient-gray-fade-in-dark: linear-gradient(180deg, rgba(51, 51, 51, 0.4) 0%, #434343b3 85%);
@@ -61,7 +61,7 @@
   /*  배경색 */
   --color-bg-primary: var(--color-white);
   --color-bg-aboutme: var(--gradient-skyblue-pink);
-  --color-bg-feature: var(--color-pink-200-alpha-50);
+  --color-bg-feature: var(--color-pink-150);
   --color-bg-thanks: var(--gradient-pink-skyblue-fade-in);
   --color-bg-footer: var(--color-gray-900);
 
