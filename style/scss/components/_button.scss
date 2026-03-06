@@ -1,3 +1,41 @@
 @use '../base/variables';
 @use '../base/mixins';
 
+.link-btn {
+  display: inline-block;
+  padding: 0.625rem 1.25rem;
+  background: var(--color-linkbtn);
+  border-radius: 5rem;
+
+  position: relative;
+  overflow: hidden;
+
+  .link-btn__inner {
+    display: flex;
+    gap: 0.625rem;
+    color: var(--color-white);
+
+    position: relative;
+    z-index: 1;
+  }
+
+  &::before {
+    //transition으로 깜박임 생기는 문제 해결을 위해 가상요소 만듬
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: var(--color-linkbtn-hover);
+
+    opacity: 0;
+    transition: opacity 0.25s ease;
+
+    border-radius: inherit;
+  }
+
+  @include mixins.hover {
+    &:hover::before {
+      opacity: 1;
+    }
+  }
+}

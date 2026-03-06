@@ -1,7 +1,7 @@
 @use '../base/variables';
 @use '../base/mixins';
 
-button.scroll-top {
+.scroll-top {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,9 +13,10 @@ button.scroll-top {
   width: 48px;
   height: 48px;
   border-radius: 48px;
+  overflow: hidden;
   box-sizing: border-box;
   background: var(--gradient-skyblue-purple-wide-light);
-  color: var( --color-white-alpha-85);
+  color: var(--color-white-alpha-85);
   font-size: 20px;
   font-weight: 600;
   cursor: pointer;
@@ -25,15 +26,34 @@ button.scroll-top {
   transform: translateY(12rem);
   transition: all 0.5s;
 
-  @include mixins.hover{
-    &:hover{
-      background: var(--color-purple-400-alpha-60);
-    }
+
+  >i{
+    position: relative;
+    z-index: 1;
   }
 
+  &::before {
+    //transition으로 깜박임 생기는 문제 해결을 위해 가상요소 만듬
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: var(--color-purple-400-alpha-60);
+
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    border-radius: inherit;
+  }
+
+  @include mixins.hover {
+    &:hover::before {
+      opacity: 1;
+    }
+  }
 }
 
-button.scroll-top.show {
+.scroll-top.show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);

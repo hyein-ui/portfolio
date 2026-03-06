@@ -111,7 +111,7 @@ table {
   --color-magenta: #ef3080;
   /* ===== 3. Gradients (Composition) ===== */
   --gradient-purple-skyblue-wide: linear-gradient(0deg, var(--color-skyblue-500) 0%, var(--color-purple-500) 85%);
-  --gradient-purple-skyblue-narrow: linear-gradient(90deg, var(--color-skyblue-500) 20%, var(--color-purple-500) 80%);
+  --gradient-purple-skyblue-narrow: linear-gradient(90deg,var(--color-skyblue-500) 0%, var(--color-skyblue-500) 20%, var(--color-purple-500) 80%);
   --gradient-skyblue-purple-wide-light: linear-gradient(180deg, var(--color-skyblue-400) 0%, var(--color-purple-400-alpha-60) 85%);
   --gradient-skyblue-pink: linear-gradient(0deg, var(--color-pink-150) 0%, var(--color-skyblue-200) 85%);
   --gradient-pink-skyblue: linear-gradient(180deg, var(--color-pink-150) 0%, var(--color-skyblue-200) 85%);
@@ -136,6 +136,9 @@ table {
   /* 아이콘색 */
   --color-icon: var(--color-gray-900);
   --color-icon-hover: var(--color-purple-500);
+  /* 버튼색 */
+  --color-linkbtn: var(--gradient-purple-skyblue-narrow);
+  --color-linkbtn-hover: var(--color-black);
 }
 
 /* ===== 5. Theme Dark ===== */
@@ -368,7 +371,37 @@ footer {
 }
 
 /* 5. Components */
-button.scroll-top {
+.link-btn {
+  display: inline-block;
+  padding: 0.625rem 1.25rem;
+  background: var(--color-linkbtn);
+  border-radius: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.link-btn .link-btn__inner {
+  display: flex;
+  gap: 0.625rem;
+  color: var(--color-white);
+  position: relative;
+  z-index: 1;
+}
+.link-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-linkbtn-hover);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  border-radius: inherit;
+}
+@media (hover: hover) and (pointer: fine) {
+  .link-btn:hover::before {
+    opacity: 1;
+  }
+}
+
+.scroll-top {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -378,6 +411,7 @@ button.scroll-top {
   width: 48px;
   height: 48px;
   border-radius: 48px;
+  overflow: hidden;
   box-sizing: border-box;
   background: var(--gradient-skyblue-purple-wide-light);
   color: var(--color-white-alpha-85);
@@ -389,13 +423,26 @@ button.scroll-top {
   transform: translateY(12rem);
   transition: all 0.5s;
 }
+.scroll-top > i {
+  position: relative;
+  z-index: 1;
+}
+.scroll-top::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-purple-400-alpha-60);
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: inherit;
+}
 @media (hover: hover) and (pointer: fine) {
-  button.scroll-top:hover {
-    background: var(--color-purple-400-alpha-60);
+  .scroll-top:hover::before {
+    opacity: 1;
   }
 }
 
-button.scroll-top.show {
+.scroll-top.show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
