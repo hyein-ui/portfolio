@@ -5,19 +5,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* ========== hero 섹션 ========== */
-  const elTitShapeBox = document.querySelector(".title-ani__shapes");
-  const arrTitStartShapes = document.querySelectorAll(".title-ani__shapes .shape-start");
-  const arrTitEndShapes = document.querySelectorAll(".title-ani__shapes .shape-end");
+  const elTitShapeBox = document.querySelector(".title-ani .shapes");
+  const arrTitStartShapes = document.querySelectorAll(".title-ani .shapes .shape-start");
+  const arrTitEndShapes = document.querySelectorAll(".title-ani .shapes .shape-end");
 
   /* (초기 셋팅) */
   gsap.set(elTitShapeBox, {
     opacity: 0,
     scale: 0.9
   });
-  gsap.set(".title-ani__brace--left", {
+  gsap.set(".title-ani .brace-left", {
     opacity: 0
   });
-  gsap.set(".title-ani__brace--right", {
+  gsap.set(".title-ani .brace-right", {
     opacity: 0
   });
 
@@ -48,19 +48,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   tlHero_show
-    .set(".title-ani__brace--left", {
+    .set(".title-ani .brace-left", {
       x: 0,
       opacity: 1
     })
-    .set(".title-ani__brace--right", {
+    .set(".title-ani .brace-right", {
       x: 0,
       opacity: 1
     })
-    .to(".title-ani__brace--left", {
+    .to(".title-ani .brace-left", {
       x: () => -((elTitShapeBox.offsetWidth / 2) + (elTitShapeBox.offsetWidth * 0.06)),
       duration: 1
     })
-    .to(".title-ani__brace--right", {
+    .to(".title-ani .brace-right", {
       x: () => ((elTitShapeBox.offsetWidth / 2) + (elTitShapeBox.offsetWidth * 0.06)),
       duration: 1
     }, "<") // 동시에 실행
@@ -77,10 +77,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const width = elTitShapeBox.offsetWidth;
     const distance = (width / 2) + (width * 0.06);
 
-    gsap.set(".title-ani__brace--left", {
+    gsap.set(".title-ani .brace-left", {
       x: -distance
     });
-    gsap.set(".title-ani__brace--right", {
+    gsap.set(".title-ani .brace-right", {
       x: distance
     });
   }
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /* (서브 타임라인) : 하단 스티커 움직이기 */
   const tlHero_sticker = gsap.timeline();
   tlHero_sticker.fromTo(
-    ".hero .sticker__inner", {
+    ".hero .sticker-inner", {
       y: -5
     }, {
       y: 5,
@@ -284,7 +284,7 @@ document.addEventListener("DOMContentLoaded", function () {
         trigger 대상을 pin으로 position: fixed로 만들어서 세로스크롤이 되고있지 않는 것처럼 보이게 하는 원리.
         따라서 100vh에 최적화 된 기능이라고 보면 됨.
       */
-      const arrIntroCons = gsap.utils.toArray(".intro .intro__con");
+      const arrIntroCons = gsap.utils.toArray(".intro .intro-con");
       const elRightGroup = document.querySelector(".right-group");
       const elIntro = document.querySelector(".intro");
       const distance = elIntro.scrollWidth - elRightGroup.offsetWidth; // .intro 전체 가로길이 - 보이는 영역 너비 = 실제 가로로 이동해야 할 거리

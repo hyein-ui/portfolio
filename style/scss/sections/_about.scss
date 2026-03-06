@@ -16,6 +16,7 @@ section.about-me {
     padding: 200px 16px 150px;
     height: 100vh;
   }
+
   @include mixins.respond(lg) {
     gap: 100px;
   }
@@ -143,12 +144,12 @@ section.about-me {
         flex-direction: column;
         gap: 80px;
 
-        @include mixins.respond(md){
+        @include mixins.respond(md) {
           flex-direction: row;
           gap: 0;
         }
 
-        .intro__con {
+        .intro-con {
           flex: 0 0 100%;
 
           @include mixins.respond(md) {
@@ -163,82 +164,83 @@ section.about-me {
             color: var(--color-text-emphasis);
             margin-bottom: 30px;
           }
+        }
 
-          .intro--who {
-            .contents {
-              >strong {
-                display: block;
-                font-weight: 700;
-                font-size: 1.25rem;
-                margin-bottom: 12px;
-              }
+        .intro-con-who {
+          .contents {
+            >strong {
+              display: block;
+              font-weight: 700;
+              font-size: 1.25rem;
+              margin-bottom: 12px;
+            }
 
-              .textbox {
+            .textbox {
+              display: flex;
+              flex-direction: column;
+              gap: 30px;
+
+              >div {
                 display: flex;
                 flex-direction: column;
-                gap: 30px;
+                gap: 14px;
+                font-size: 0.875rem;
 
-                >div {
+                >p {
                   display: flex;
-                  flex-direction: column;
-                  gap: 14px;
-                  font-size: 0.875rem;
+                  gap: 16px;
 
-                  >p {
-                    display: flex;
-                    gap: 16px;
-
-                    span {
-                      font-weight: 700;
-                    }
+                  span {
+                    font-weight: 700;
                   }
                 }
               }
             }
           }
+        }
 
-          .intro--skills {
-            margin-left: 4px;
+        .intro-con-skills {
+          margin-left: 4px;
 
-            @include mixins.respond(md) {
-              box-sizing: border-box;
-            }
+          @include mixins.respond(md) {
+            box-sizing: border-box;
+          }
 
-            .contents {
-              display: flex;
-              flex-direction: column;
-              gap: 20px;
+          .contents {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
 
-              >p {
+            >p {
 
-                &::before {
-                  display: block;
-                  content: "";
-                  width: 10px;
-                  height: 1px;
-                  background-color: var(--color-text-weak);
-                  margin-bottom: 20px; //부모 .contents 의 gap 크기 따라가기
-                }
+              &::before {
+                display: block;
+                content: "";
+                width: 10px;
+                height: 1px;
+                background-color: var(--color-text-weak);
+                margin-bottom: 20px; //부모 .contents 의 gap 크기 따라가기
+              }
 
-                >span {
-                  display: inline-block;
-                  padding: 0.25rem 0.825rem;
-                  border: 1px solid var(--color-text-weak);
-                  transform: skewX(-8deg);
-                  margin: 0.2rem 0.05rem;
-                }
+              >span {
+                display: inline-block;
+                padding: 0.25rem 0.825rem;
+                border: 1px solid var(--color-text-weak);
+                transform: skewX(-8deg);
+                margin: 0.2rem 0.05rem;
               }
             }
           }
+        }
 
-          .intro--history {
-            .contents {
-              display: flex;
-              flex-direction: column;
-              gap: 8px;
-            }
+        .intro-con-history {
+          .contents {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
           }
         }
+
       }
 
     }

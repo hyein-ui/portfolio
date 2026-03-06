@@ -561,36 +561,36 @@ section.hero .title-ani {
   align-items: center;
   margin: 60px 0 100px;
 }
-section.hero .title-ani .title-ani__brace {
+section.hero .title-ani .brace {
   position: absolute;
   font-family: var(--font-english);
   font-weight: 300;
   font-size: 20px;
 }
 @media (min-width: 800px) {
-  section.hero .title-ani .title-ani__brace {
+  section.hero .title-ani .brace {
     font-size: 36px;
   }
 }
-section.hero .title-ani .title-ani__shapes {
+section.hero .title-ani .shapes {
   display: flex;
   justify-content: space-between;
   width: 70%;
   max-width: 450px;
 }
 @media (min-width: 800px) {
-  section.hero .title-ani .title-ani__shapes {
+  section.hero .title-ani .shapes {
     width: 75%;
     max-width: 700px;
   }
 }
 @media (min-width: 1280px) {
-  section.hero .title-ani .title-ani__shapes {
+  section.hero .title-ani .shapes {
     width: 700px;
     max-width: none;
   }
 }
-section.hero .title-ani .title-ani__shapes .title-ani__shape {
+section.hero .title-ani .shapes .shape {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -599,7 +599,7 @@ section.hero .title-ani .title-ani__shapes .title-ani__shape {
   padding: 0 4px;
 }
 @media (min-width: 800px) {
-  section.hero .title-ani .title-ani__shapes .title-ani__shape {
+  section.hero .title-ani .shapes .shape {
     width: 50px;
     height: 50px;
     padding: 0;
@@ -622,7 +622,7 @@ section.hero .sticker {
   transform: translate(-50%, 50%);
   z-index: 10;
 }
-section.hero .sticker .sticker__inner {
+section.hero .sticker .sticker-inner {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -633,11 +633,11 @@ section.hero .sticker .sticker__inner {
   box-shadow: 0 10px 20px rgba(26, 10, 44, 0.2);
 }
 @media (min-width: 800px) {
-  section.hero .sticker .sticker__inner {
+  section.hero .sticker .sticker-inner {
     padding: 40px 25px;
   }
 }
-section.hero .sticker .sticker__inner span {
+section.hero .sticker .sticker-inner span {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -648,11 +648,11 @@ section.hero .sticker .sticker__inner span {
   color: var(--color-text-inverse);
 }
 @media (min-width: 800px) {
-  section.hero .sticker .sticker__inner span {
+  section.hero .sticker .sticker-inner span {
     font-size: 12px;
   }
 }
-section.hero .sticker .sticker__inner span::after {
+section.hero .sticker .sticker-inner span::after {
   display: block;
   content: "";
   width: 1px;
@@ -794,60 +794,60 @@ section.about-me .right-group .pin-wrap .intro {
     gap: 0;
   }
 }
-section.about-me .right-group .pin-wrap .intro .intro__con {
+section.about-me .right-group .pin-wrap .intro .intro-con {
   flex: 0 0 100%;
 }
 @media (min-width: 800px) {
-  section.about-me .right-group .pin-wrap .intro .intro__con {
+  section.about-me .right-group .pin-wrap .intro .intro-con {
     padding: 0 100px 0 30px;
     box-sizing: border-box;
   }
 }
-section.about-me .right-group .pin-wrap .intro .intro__con h3 {
+section.about-me .right-group .pin-wrap .intro .intro-con h3 {
   font-family: var(--font-english);
   font-weight: 400;
   font-size: 1.5rem;
   color: var(--color-text-emphasis);
   margin-bottom: 30px;
 }
-section.about-me .right-group .pin-wrap .intro .intro__con .intro--who .contents > strong {
+section.about-me .right-group .pin-wrap .intro .intro-con-who .contents > strong {
   display: block;
   font-weight: 700;
   font-size: 1.25rem;
   margin-bottom: 12px;
 }
-section.about-me .right-group .pin-wrap .intro .intro__con .intro--who .contents .textbox {
+section.about-me .right-group .pin-wrap .intro .intro-con-who .contents .textbox {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
-section.about-me .right-group .pin-wrap .intro .intro__con .intro--who .contents .textbox > div {
+section.about-me .right-group .pin-wrap .intro .intro-con-who .contents .textbox > div {
   display: flex;
   flex-direction: column;
   gap: 14px;
   font-size: 0.875rem;
 }
-section.about-me .right-group .pin-wrap .intro .intro__con .intro--who .contents .textbox > div > p {
+section.about-me .right-group .pin-wrap .intro .intro-con-who .contents .textbox > div > p {
   display: flex;
   gap: 16px;
 }
-section.about-me .right-group .pin-wrap .intro .intro__con .intro--who .contents .textbox > div > p span {
+section.about-me .right-group .pin-wrap .intro .intro-con-who .contents .textbox > div > p span {
   font-weight: 700;
 }
-section.about-me .right-group .pin-wrap .intro .intro__con .intro--skills {
+section.about-me .right-group .pin-wrap .intro .intro-con-skills {
   margin-left: 4px;
 }
 @media (min-width: 800px) {
-  section.about-me .right-group .pin-wrap .intro .intro__con .intro--skills {
+  section.about-me .right-group .pin-wrap .intro .intro-con-skills {
     box-sizing: border-box;
   }
 }
-section.about-me .right-group .pin-wrap .intro .intro__con .intro--skills .contents {
+section.about-me .right-group .pin-wrap .intro .intro-con-skills .contents {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-section.about-me .right-group .pin-wrap .intro .intro__con .intro--skills .contents > p::before {
+section.about-me .right-group .pin-wrap .intro .intro-con-skills .contents > p::before {
   display: block;
   content: "";
   width: 10px;
@@ -855,14 +855,14 @@ section.about-me .right-group .pin-wrap .intro .intro__con .intro--skills .conte
   background-color: var(--color-text-weak);
   margin-bottom: 20px;
 }
-section.about-me .right-group .pin-wrap .intro .intro__con .intro--skills .contents > p > span {
+section.about-me .right-group .pin-wrap .intro .intro-con-skills .contents > p > span {
   display: inline-block;
   padding: 0.25rem 0.825rem;
   border: 1px solid var(--color-text-weak);
   transform: skewX(-8deg);
   margin: 0.2rem 0.05rem;
 }
-section.about-me .right-group .pin-wrap .intro .intro__con .intro--history .contents {
+section.about-me .right-group .pin-wrap .intro .intro-con-history .contents {
   display: flex;
   flex-direction: column;
   gap: 8px;

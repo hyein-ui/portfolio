@@ -47,7 +47,7 @@ section.hero {
     align-items: center;
     margin: 60px 0 100px;
 
-    .title-ani__brace {
+    .brace {
       position: absolute;
       font-family: var(--font-english);
       font-weight: 300;
@@ -58,7 +58,7 @@ section.hero {
       }
     }
 
-    .title-ani__shapes {
+    .shapes {
       display: flex;
       justify-content: space-between;
       width: 70%;
@@ -74,7 +74,7 @@ section.hero {
         max-width: none;
       }
 
-      .title-ani__shape {
+      .shape {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -108,7 +108,7 @@ section.hero {
     transform: translate(-50%, 50%);
     z-index: 10;
 
-    .sticker__inner {
+    .sticker-inner {
       display: flex;
       justify-content: center;
       align-items: center;
