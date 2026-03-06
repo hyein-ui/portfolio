@@ -27,7 +27,7 @@
   transition: all 0.5s;
 
 
-  >i{
+  i{
     position: relative;
     z-index: 1;
   }
@@ -52,7 +52,6 @@
     }
   }
 }
-
 .scroll-top.show {
   opacity: 1;
   visibility: visible;

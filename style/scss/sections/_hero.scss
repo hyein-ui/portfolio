@@ -47,18 +47,18 @@ section.hero {
     align-items: center;
     margin: 60px 0 100px;
 
-    &__brace {
+    .title-ani__brace {
       position: absolute;
       font-family: var(--font-english);
       font-weight: 300;
       font-size: 20px;
-      
-      @include mixins.respond(md){
+
+      @include mixins.respond(md) {
         font-size: 36px;
       }
     }
 
-    &__shapes {
+    .title-ani__shapes {
       display: flex;
       justify-content: space-between;
       width: 70%;
@@ -73,20 +73,20 @@ section.hero {
         width: 700px;
         max-width: none;
       }
-    }
 
-    &__shape {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 34px;
-      height: 34px;
-      padding: 0 4px;
+      .title-ani__shape {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 34px;
+        height: 34px;
+        padding: 0 4px;
 
-      @include mixins.respond(md) {
-        width: 50px;
-        height: 50px;
-        padding: 0;
+        @include mixins.respond(md) {
+          width: 50px;
+          height: 50px;
+          padding: 0;
+        }
       }
     }
   }
@@ -107,8 +107,8 @@ section.hero {
     bottom: 0;
     transform: translate(-50%, 50%);
     z-index: 10;
-    
-    .sticker__inner{
+
+    .sticker__inner {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -118,9 +118,9 @@ section.hero {
       padding: 24px 16px;
       box-shadow: 0 10px 20px rgba(26, 10, 44, 0.2);
 
-    @include mixins.respond(md) {
-      padding: 40px 25px;
-    }
+      @include mixins.respond(md) {
+        padding: 40px 25px;
+      }
 
       span {
         display: flex;
@@ -131,11 +131,11 @@ section.hero {
         font-weight: 400;
         font-size: 10px;
         color: var(--color-text-inverse);
-  
+
         @include mixins.respond(md) {
           font-size: 12px;
         }
-  
+
         &::after {
           display: block;
           content: '';

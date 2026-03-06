@@ -1,7 +1,7 @@
 @use '../base/variables';
 @use '../base/mixins';
 
-.link-btn {
+a.link-btn {
   display: inline-block;
   padding: 0.625rem 1.25rem;
   background: var(--color-linkbtn);

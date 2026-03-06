@@ -148,7 +148,7 @@ section.about-me {
           gap: 0;
         }
 
-        &__con {
+        .intro__con {
           flex: 0 0 100%;
 
           @include mixins.respond(md) {
@@ -164,7 +164,7 @@ section.about-me {
             margin-bottom: 30px;
           }
 
-          &--who {
+          .intro--who {
             .contents {
               >strong {
                 display: block;
@@ -197,7 +197,7 @@ section.about-me {
             }
           }
 
-          &--skills {
+          .intro--skills {
             margin-left: 4px;
 
             @include mixins.respond(md) {
@@ -231,7 +231,7 @@ section.about-me {
             }
           }
 
-          &--history {
+          .intro--history {
             .contents {
               display: flex;
               flex-direction: column;
