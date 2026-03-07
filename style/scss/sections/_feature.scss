@@ -1,10 +1,25 @@
 @use '../base/variables';
 @use '../base/mixins';
 
-section.feature{
+section.feature {
   background: var(--color-bg-feature);
 
+  .titlebox {
+    display: flex;
+    align-items: center;
+    height: fit-content;
 
+    .deco-wave{
+      width: 30%;
+      max-width: 250px;
+    }
 
+    h2{
+      font-size: 4rem;
+      font-weight: 700;
+    }
+  }
+
+  .conbox {}
 
 }

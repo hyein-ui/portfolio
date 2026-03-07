@@ -29,13 +29,6 @@ body {
 }
 
 
-
-// 전역 타이포그래피 베이스
-
-
-
-
-
 // 전역 포커스 링 스타일
 :focus-visible {
   @include mixins.focus-visible;
@@ -43,7 +36,6 @@ body {
 a, button{
   border-radius: 4px; //포커스링 라운드 주려고
 }
-
 
 // 스크린리더용 텍스트 숨김
 .sr-only {

@@ -1,80 +1,143 @@
 document.addEventListener("DOMContentLoaded", function () {
-  /* ========== GSAP 플러그인 ========== */
+
+  /* ===== [GSAP] 플러그인 ===== */
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(MorphSVGPlugin);
 
 
-  /* ========== hero 섹션 ========== */
-  const elTitShapeBox = document.querySelector(".title-ani .shapes");
-  const arrTitStartShapes = document.querySelectorAll(".title-ani .shapes .shape-start");
-  const arrTitEndShapes = document.querySelectorAll(".title-ani .shapes .shape-end");
 
-  /* (초기 셋팅) */
-  gsap.set(elTitShapeBox, {
-    opacity: 0,
-    scale: 0.9
-  });
-  gsap.set(".title-ani .brace-left", {
-    opacity: 0
-  });
-  gsap.set(".title-ani .brace-right", {
-    opacity: 0
-  });
+  /* ===== [GSAP] 헤더 ===== */
+  function headerAnimation() {
+    // DOM 선체크(부재시 에러 방지)
+    const elHeader = document.querySelector("#header");
+    if (!elHeader) return;
 
-  /* (주 타임라인) */
-  const tlHero = gsap.timeline();
-
-  /* (서브 타임라인) : 텍스트 먼저 등장 */
-  const tlHero_text = gsap.timeline();
-  tlHero_text
-    .from(".hero-name", {
-      y: 50,
+    gsap.from("header", {
+      scrollTrigger: {
+        trigger: ".about-me",
+        start: "top top",
+        toggleActions: "play none none none",
+      },
+      y: -30,
       opacity: 0,
-      duration: 1,
+      duration: 0.8,
       ease: "power2.out",
-    })
-    .from(".text-decorative", {
-      y: 50,
+    });
+  }
+
+
+
+  /* ===== [GSAP] hero 섹션 ===== */
+  function heroAnimation() {
+    const elHero = document.querySelector(".hero");
+    if (!elHero) return;
+
+    const elTitShapeBox = document.querySelector(".title-ani .shapes");
+    const arrTitStartShapes = document.querySelectorAll(".title-ani .shapes .shape-start");
+    const arrTitEndShapes = document.querySelectorAll(".title-ani .shapes .shape-end");
+
+    /* (초기 셋팅) */
+    gsap.set(elTitShapeBox, {
       opacity: 0,
-      duration: 1,
-      ease: "power2.out",
-    }, "-=0.6");
-  tlHero.add(tlHero_text);
+      scale: 0.9
+    });
+    gsap.set(".title-ani .brace-left", {
+      opacity: 0
+    });
+    gsap.set(".title-ani .brace-right", {
+      opacity: 0
+    });
 
-  /* (서브 타임라인) : 괄호 움직인 후 모양 등장 */
-  const tlHero_show = gsap.timeline({
-    defaults: {
-      ease: "power3.out",
-    }
-  });
-  tlHero_show
-    .set(".title-ani .brace-left", {
-      x: 0,
-      opacity: 1
-    })
-    .set(".title-ani .brace-right", {
-      x: 0,
-      opacity: 1
-    })
-    .to(".title-ani .brace-left", {
-      x: () => -((elTitShapeBox.offsetWidth / 2) + (elTitShapeBox.offsetWidth * 0.06)),
-      duration: 1
-    })
-    .to(".title-ani .brace-right", {
-      x: () => ((elTitShapeBox.offsetWidth / 2) + (elTitShapeBox.offsetWidth * 0.06)),
-      duration: 1
-    }, "<") // 동시에 실행
-    .to(elTitShapeBox, {
-      opacity: 1,
-      scale: 1,
-      duration: 2,
-      ease: "power2.out",
-    }, "-=0.3"); //직전 애니메이션 끝나는 지점보다 0.3초 앞에서 시작
-  tlHero.add(tlHero_show, "-=0.5");
+    /* (주 타임라인) */
+    const tlHero = gsap.timeline();
 
-  // [함수] 리사이징 대응 : 괄호 위치 재계산
+    /* (서브 타임라인) : 텍스트 먼저 등장 */
+    const tlHero_text = gsap.timeline();
+    tlHero_text
+      .from(".hero-name", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+      })
+      .from(".text-decorative", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+      }, "-=0.6");
+    tlHero.add(tlHero_text);
+
+    /* (서브 타임라인) : 괄호 움직인 후 모양 등장 */
+    const tlHero_show = gsap.timeline({
+      defaults: {
+        ease: "power3.out",
+      }
+    });
+    tlHero_show
+      .set(".title-ani .brace-left", {
+        x: 0,
+        opacity: 1
+      })
+      .set(".title-ani .brace-right", {
+        x: 0,
+        opacity: 1
+      })
+      .to(".title-ani .brace-left", {
+        x: () => -((elTitShapeBox.offsetWidth / 2) + (elTitShapeBox.offsetWidth * 0.06)),
+        duration: 1
+      })
+      .to(".title-ani .brace-right", {
+        x: () => ((elTitShapeBox.offsetWidth / 2) + (elTitShapeBox.offsetWidth * 0.06)),
+        duration: 1
+      }, "<") // 동시에 실행
+      .to(elTitShapeBox, {
+        opacity: 1,
+        scale: 1,
+        duration: 2,
+        ease: "power2.out",
+      }, "-=0.3"); //직전 애니메이션 끝나는 지점보다 0.3초 앞에서 시작
+    tlHero.add(tlHero_show, "-=0.5");
+
+    /* (서브 타임라인) : 모양을 글자로 바꾸기 */
+    const tlHero_shapes = gsap.timeline({
+      defaults: {
+        duration: 2,
+        ease: "expo.inOut",
+      },
+      repeat: -1,
+      yoyo: true,
+      repeatDelay: 1, // yoyo에 지연시간 주기
+    });
+    arrTitStartShapes.forEach((startEl, i) => {
+      tlHero_shapes.to(startEl, {
+        morphSVG: {
+          shape: arrTitEndShapes[i],
+          shapeIndex: "auto"
+        },
+      }, 0); // 전부 동시에
+    });
+    tlHero.add(tlHero_shapes, "-=1");
+
+    /* (서브 타임라인) : 하단 스티커 움직이기 */
+    const tlHero_sticker = gsap.timeline();
+    tlHero_sticker.fromTo(
+      ".hero .sticker-inner", {
+        y: -5
+      }, {
+        y: 5,
+        duration: 0.6,
+        repeat: -1,
+        yoyo: true,
+        ease: "power2.in"
+      }
+    );
+    tlHero.add(tlHero_sticker, "-=2.5");
+  }
+
+  /* (리사이징 대응 함수) : 괄호 위치 재계산 */
   function updateBracePosition() {
-    const width = elTitShapeBox.offsetWidth;
+    const width = document.querySelector(".title-ani .shapes").offsetWidth;
     const distance = (width / 2) + (width * 0.06);
 
     gsap.set(".title-ani .brace-left", {
@@ -85,54 +148,60 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* (서브 타임라인) : 모양을 글자로 바꾸기 */
-  const tlHero_shapes = gsap.timeline({
-    defaults: {
-      duration: 2,
-      ease: "expo.inOut",
-    },
-    repeat: -1,
-    yoyo: true,
-    repeatDelay: 1, // yoyo에 지연시간 주기
-  });
-  arrTitStartShapes.forEach((startEl, i) => {
-    tlHero_shapes.to(startEl, {
-      morphSVG: {
-        shape: arrTitEndShapes[i],
-        shapeIndex: "auto"
+
+
+  /* ===== [GSAP] about me 섹션 ===== */
+  function aboutMeAnimation_md() {
+    const elAbout = document.querySelector(".about-me");
+    if (!elAbout) return;
+
+    /* 가로스크롤 애니메이션
+      div.pin-spacer를 생성한 후 그 세로길이를 움직일 요소의 가로길이와 같게 만듬.
+      trigger 대상을 pin으로 position: fixed로 만들어서 세로스크롤이 되고있지 않는 것처럼 보이게 하는 원리.
+      따라서 100vh에 최적화 된 기능이라고 보면 됨.
+    */
+    const arrIntroCons = gsap.utils.toArray(".intro .intro-con");
+    const elRightGroup = document.querySelector(".right-group");
+    const elIntro = document.querySelector(".intro");
+    const distance = elIntro.scrollWidth - elRightGroup.offsetWidth; // .intro 전체 가로길이 - 보이는 영역 너비 = 실제 가로로 이동해야 할 거리
+
+    const tlIntro = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".about-me",
+        start: "top top",
+        pin: true, //대상을 fixed 처럼 고정
+        scrub: 1, // 1초정도 부드럽게 따라감
+        anticipatePin: 1, //pin 시작시 발생하는 튕김 방지
+        end: () => "+=" + (distance + 800), // 스크롤 여유 800px
+      }
+    });
+    tlIntro.to(arrIntroCons, {
+      x: -distance,
+      ease: "none",
+      duration: 0.8,
+    });
+  }
+
+
+
+  /* ===== [GSAP] feature 섹션 ===== */
+  function featureAnimation() {
+    const elFeature = document.querySelector(".feature");
+    if (!elFeature) return;
+
+
+    gsap.from(".feature .titlebox", {
+      scrollTrigger: {
+        trigger: ".feature",
+        start: "top 80%",
+        toggleActions: "play none none none",
       },
-    }, 0); // 전부 동시에
-  });
-  tlHero.add(tlHero_shapes, "-=1");
-
-  /* (서브 타임라인) : 하단 스티커 움직이기 */
-  const tlHero_sticker = gsap.timeline();
-  tlHero_sticker.fromTo(
-    ".hero .sticker-inner", {
-      y: -5
-    }, {
-      y: 5,
-      duration: 0.6,
-      repeat: -1,
-      yoyo: true,
-      ease: "power2.in"
-    }
-  );
-  tlHero.add(tlHero_sticker, "-=2.5");
-
-
-
-
-
-
-
-  /* ----- [ 화면 리사이징 대응 ] ----- */
-  window.addEventListener("resize", () => {
-    // 애니메이션을 재실행
-    // tlHero_show.invalidate().restart();
-
-    updateBracePosition(); // 위치만 재계산
-  });
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+    });
+  }
 
 
 
@@ -206,6 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
   /* ===== 반응형 모바일 퍼스트  ===== */
   const breakpoints = {
     sm: "(max-width: 799px)", // 반응형 분기별 GSAP에서 사용하기 위한 추가 브레이크 포인트. 평소엔 사용할 필요 없음.
@@ -251,68 +321,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* ===== 반응형 분기별 GSAP 애니메이션 ===== */
-  /* ----- 스크롤트리거 ----- */
-  ScrollTrigger.matchMedia({
-    "all": function () {
-      /* --- 공통 --- */
+  const gsapMM = gsap.matchMedia();
 
-      /* 헤더 */
-      gsap.from("header", {
-        scrollTrigger: {
-          trigger: ".about-me",
-          start: "top top",
-          toggleActions: "play none none none",
-        },
-        y: -30,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
-      });
+  gsapMM.add("all", () => {
+    headerAnimation();
+    heroAnimation();
+    featureAnimation();
+  });
+  gsapMM.add(breakpoints.sm, () => {
 
-    },
-    [breakpoints.sm]: function () {
-      /* --- sm --- */
+  });
+  gsapMM.add(breakpoints.md, () => {
+    aboutMeAnimation_md();
+  });
+  gsapMM.add(breakpoints.lg, () => {
 
-
-    },
-    [breakpoints.md]: function () {
-      /* --- md --- */
-  
-      /* about me 가로스크롤 */
-      /* 가로스크롤 애니메이션
-        div.pin-spacer를 생성한 후 그 세로길이를 움직일 요소의 가로길이와 같게 만듬.
-        trigger 대상을 pin으로 position: fixed로 만들어서 세로스크롤이 되고있지 않는 것처럼 보이게 하는 원리.
-        따라서 100vh에 최적화 된 기능이라고 보면 됨.
-      */
-      const arrIntroCons = gsap.utils.toArray(".intro .intro-con");
-      const elRightGroup = document.querySelector(".right-group");
-      const elIntro = document.querySelector(".intro");
-      const distance = elIntro.scrollWidth - elRightGroup.offsetWidth; // .intro 전체 가로길이 - 보이는 영역 너비 = 실제 가로로 이동해야 할 거리
-
-      const tlIntro = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".about-me",
-          start: "top top",
-          pin: true, //대상을 fixed 처럼 고정
-          scrub: 1, // 1초정도 부드럽게 따라감
-          anticipatePin: 1, //pin 시작시 발생하는 튕김 방지
-          end: () => "+=" + (distance + 800), // 스크롤 여유 800px
-        }
-      });
-      tlIntro.to(arrIntroCons, {
-        x: -distance,
-        ease: "none",
-        duration: 0.8,
-      });
-
-
-    }
   });
 
 
+  /* ===== 화면 리사이징 대응 ===== */
+  window.addEventListener("resize", () => {
 
+    /* [GSAP] hero 섹션 괄호 위치 재계산 */
+    updateBracePosition();
 
-
+  });
 
 
 

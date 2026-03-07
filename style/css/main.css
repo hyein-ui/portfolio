@@ -871,7 +871,20 @@ section.about-me .right-group .pin-wrap .intro .intro-con-history .contents {
 section.feature {
   background: var(--color-bg-feature);
 }
-
+section.feature .titlebox {
+  display: flex;
+  align-items: center;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+section.feature .titlebox .deco-wave {
+  width: 30%;
+  max-width: 250px;
+}
+section.feature .titlebox h2 {
+  font-size: 4rem;
+  font-weight: 700;
+}
 section.thanks {
   background: var(--color-bg-thanks);
   display: flex;
