@@ -41,21 +41,23 @@ section.about-me {
     h2 {
       display: inline-block;
       position: absolute;
-      left: 0;
+      left: -20px;
       top: 60px;
+      z-index: 2;
       text-align: right;
       font-size: 54px;
       font-weight: 700;
       line-height: 0.65;
 
       @include mixins.respond(md) {
-        top: 45px;
+        top: 20px;
       }
 
       @include mixins.respond(lg) {
+        left: 10px;
+        top: 65px;
         font-size: 64px;
       }
-
 
       &::before {
         position: absolute;
@@ -65,16 +67,15 @@ section.about-me {
         content: '';
         width: 50px;
         height: 45px;
-        background-image: url("/images/thumb-up.svg");
+        background-image: url("../../images/thumb-up.svg"); //main.scss 기준으로 써야 함
         background-size: contain;
-        background-repeat: none;
+        background-repeat: no-repeat;
 
         @include mixins.respond(lg) {
           width: 50px;
           height: 45px;
           left: 66px;
           top: -38px;
-
         }
       }
     }
@@ -84,8 +85,39 @@ section.about-me {
         margin-left: 33%;
       }
 
-      >img {
-        border-radius: 200px;
+      .imgbox {
+        position: relative;
+
+        img {
+          border-radius: 200px;
+        }
+
+        &::after {
+          position: absolute;
+          bottom: 43px;
+          right: 40px;
+          display: block;
+          content: '';
+          width: 20px;
+          height: 20px;
+          background-image: url("../../images/heart-red.svg"); // main.css 기준으로 작성해야 함
+          background-size: contain;
+          background-repeat: no-repeat;
+
+          @include mixins.respond(md) {
+            bottom: 35px;
+            right: 33px;
+            width: 16px;
+            height: 16px;
+          }
+
+          @include mixins.respond(lg) {
+            bottom: 43px;
+            right: 40px;
+            width: 20px;
+            height: 20px;
+          }
+        }
       }
 
       .bottom {
@@ -140,6 +172,7 @@ section.about-me {
       @include mixins.respond(md) {
         max-width: 450px;
       }
+
       @include mixins.respond(lg) {
         max-width: 530px;
       }
@@ -164,6 +197,7 @@ section.about-me {
             box-sizing: border-box;
             padding: 0 50px 0 20px;
           }
+
           @include mixins.respond(lg) {
             padding: 0 100px 0 50px;
           }

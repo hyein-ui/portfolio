@@ -721,8 +721,9 @@ section.about-me .left-group {
 section.about-me .left-group h2 {
   display: inline-block;
   position: absolute;
-  left: 0;
+  left: -20px;
   top: 60px;
+  z-index: 2;
   text-align: right;
   font-size: 54px;
   font-weight: 700;
@@ -730,11 +731,13 @@ section.about-me .left-group h2 {
 }
 @media (min-width: 800px) {
   section.about-me .left-group h2 {
-    top: 45px;
+    top: 20px;
   }
 }
 @media (min-width: 1280px) {
   section.about-me .left-group h2 {
+    left: 10px;
+    top: 65px;
     font-size: 64px;
   }
 }
@@ -746,9 +749,9 @@ section.about-me .left-group h2::before {
   content: "";
   width: 50px;
   height: 45px;
-  background-image: url("/images/thumb-up.svg");
+  background-image: url("../../images/thumb-up.svg");
   background-size: contain;
-  background-repeat: none;
+  background-repeat: no-repeat;
 }
 @media (min-width: 1280px) {
   section.about-me .left-group h2::before {
@@ -763,8 +766,39 @@ section.about-me .left-group h2::before {
     margin-left: 33%;
   }
 }
-section.about-me .left-group .contents > img {
+section.about-me .left-group .contents .imgbox {
+  position: relative;
+}
+section.about-me .left-group .contents .imgbox img {
   border-radius: 200px;
+}
+section.about-me .left-group .contents .imgbox::after {
+  position: absolute;
+  bottom: 43px;
+  right: 40px;
+  display: block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-image: url("../../images/heart-red.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+@media (min-width: 800px) {
+  section.about-me .left-group .contents .imgbox::after {
+    bottom: 35px;
+    right: 33px;
+    width: 16px;
+    height: 16px;
+  }
+}
+@media (min-width: 1280px) {
+  section.about-me .left-group .contents .imgbox::after {
+    bottom: 43px;
+    right: 40px;
+    width: 20px;
+    height: 20px;
+  }
 }
 section.about-me .left-group .contents .bottom {
   margin-top: 20px;
