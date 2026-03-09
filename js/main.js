@@ -151,6 +151,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* ===== [GSAP] about me 섹션 ===== */
+  function aboutMeAnimation_sm() {
+    const elAbout = document.querySelector(".about-me");
+    if (!elAbout) return;
+
+    const arrIntroCons = document.querySelectorAll(".about-me .intro-con");
+
+    gsap.set(".intro-con", {
+      y: 50,
+      opacity: 0,
+    });
+
+    arrIntroCons.forEach((el) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+          toggleActions: "play none none reset",
+        },
+        y: 0,
+        opacity: 1,
+        ease: "power1.out",
+      }, ">")
+    });
+  }
+
   function aboutMeAnimation_md() {
     const elAbout = document.querySelector(".about-me");
     if (!elAbout) return;
@@ -189,24 +214,81 @@ document.addEventListener("DOMContentLoaded", function () {
     const elFeature = document.querySelector(".feature");
     if (!elFeature) return;
 
+    const elWaveStart = document.querySelector(".wave-start");
+    const elWaveStartLength = elWaveStart.getTotalLength();
 
-    gsap.from(".feature .titlebox", {
+    /* (초기 셋팅) */
+    gsap.set(".wave-start", {
+      strokeDasharray: elWaveStartLength,
+      strokeDashoffset: elWaveStartLength
+    });
+
+    /* (주 타임라인) */
+    const tlFeature = gsap.timeline({
       scrollTrigger: {
-        trigger: ".feature",
+        trigger: ".feature .titlebox",
         start: "top 80%",
-        toggleActions: "play none none none",
+        toggleActions: "play none none reset",
+        invalidateOnRefresh: true, // 앞에 가로스크롤 pin 섹션이 있으면 refresh 시 재계산
+        // markers: true,
       },
+    });
+
+    /* (서브 타임라인) : 타이틀 */
+    const tlFeature_tit = gsap.timeline();
+    tlFeature_tit
+      .from(".feature .titlebox", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+      }, ">")
+      .to(".wave-start", {
+        strokeDashoffset: 0,
+        duration: 1,
+        ease: "none",
+      }, ">")
+      .to(".wave-start", {
+        morphSVG: {
+          shape: ".wave-end",
+          shapeIndex: "auto",
+        },
+        duration: 1.5,
+        ease: "power3.inOut",
+        repeat: -1,
+        yoyo: true,
+        repeatDelay: 1,
+      }, "+=0.6");
+
+    tlFeature.add(tlFeature_tit);
+
+    /* (description 애니메이션) */
+    const arrContents = document.querySelectorAll(".feature .description .content");
+
+    gsap.set(".feature .description .content", {
       y: 50,
       opacity: 0,
-      duration: 0.8,
-      ease: "power2.out",
+    })
+
+    arrContents.forEach((el) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+          toggleActions: "play none none reset",
+        },
+        y: 0,
+        opacity: 1,
+        ease: "power1.out",
+      }, ">")
     });
   }
 
 
 
 
-  /* ===== 메인메뉴 ===== */
+  /* ===== 헤더 ===== */
+  /* --- 메인메뉴(햄메뉴) --- */
   const elHam = document.querySelector(".ham");
   const elMainNav = document.getElementById("mainNav");
 
@@ -322,21 +404,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ===== 반응형 분기별 GSAP 애니메이션 ===== */
   const gsapMM = gsap.matchMedia();
-
+  /* 분기별 하나씩이 아니라 실행 순서대로 add */
   gsapMM.add("all", () => {
     headerAnimation();
     heroAnimation();
-    featureAnimation();
   });
   gsapMM.add(breakpoints.sm, () => {
-
+    aboutMeAnimation_sm();
   });
   gsapMM.add(breakpoints.md, () => {
     aboutMeAnimation_md();
   });
-  gsapMM.add(breakpoints.lg, () => {
-
+  gsapMM.add("all", () => {
+    featureAnimation();
   });
+
 
 
   /* ===== 화면 리사이징 대응 ===== */

@@ -1,4 +1,3 @@
-
 @use 'variables';
 @use 'mixins';
 
@@ -19,11 +18,11 @@ body {
   background-color: var(--color-bg-primary);
 
 
-  main{    
-    section{
+  main {
+    section {
       width: 100%;
       min-height: 250px;
-      padding: 0 16px;
+      box-sizing: border-box;
     }
   }
 }
@@ -33,7 +32,9 @@ body {
 :focus-visible {
   @include mixins.focus-visible;
 }
-a, button{
+
+a,
+button {
   border-radius: 4px; //포커스링 라운드 주려고
 }
 
@@ -49,4 +50,11 @@ a, button{
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
+}
+
+// sm사이즈 화면 전용
+.sm-only{
+  @include mixins.respond(md){
+    display: none;
+  }
 }

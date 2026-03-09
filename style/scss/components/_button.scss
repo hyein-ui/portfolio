@@ -3,6 +3,7 @@
 
 a.link-btn {
   display: inline-block;
+  width: fit-content;
   padding: 0.625rem 1.25rem;
   background: var(--color-linkbtn);
   border-radius: 5rem;
@@ -12,8 +13,10 @@ a.link-btn {
 
   .link-btn__inner {
     display: flex;
+    align-items: center;
     gap: 0.625rem;
     color: var(--color-white);
+    line-height: 1.2;
 
     position: relative;
     z-index: 1;
