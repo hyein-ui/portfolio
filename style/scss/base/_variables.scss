@@ -5,7 +5,7 @@
   --font-decoration: 'Ephesis', cursive;
 
 
-  
+
   /* ===== 2. Color Palette (Raw values) ===== */
   --color-black: #000;
   --color-gray-900: #333;
@@ -41,7 +41,7 @@
 
   /* ===== 3. Gradients (Composition) ===== */
   --gradient-purple-skyblue-wide: linear-gradient(0deg, var(--color-skyblue-500) 0%, var(--color-purple-500) 85%);
-  --gradient-purple-skyblue-narrow: linear-gradient(90deg,var(--color-skyblue-500) 0%, var(--color-skyblue-500) 20%, var(--color-purple-500) 80%);
+  --gradient-purple-skyblue-narrow: linear-gradient(90deg, var(--color-skyblue-500) 0%, var(--color-skyblue-500) 20%, var(--color-purple-500) 80%);
 
   --gradient-skyblue-purple-wide-light: linear-gradient(180deg, var(--color-skyblue-400) 0%, var(--color-purple-400-alpha-60) 85%);
 
@@ -82,6 +82,9 @@
   /* 버튼색 */
   --color-linkbtn: var(--gradient-purple-skyblue-narrow);
   --color-linkbtn-hover: var(--color-black);
+
+  /* 라인색상 */
+  --color-stroke: var(--color-gray-900);
 }
 
 
@@ -94,15 +97,20 @@
   --color-bg-feature: var(--color-gray-800);
   --color-bg-thanks: var(--gradient-gray-fade-in-dark);
   --color-bg-footer: var(--color-black);
-  
+
   /* 글자색 */
   --color-text-primary: var(--color-gray-100);
   --color-text-inverse: var(--color-gray-900);
   --color-text-weak: var(--color-gray-400);
+
+  /* 아이콘색 */
+  --color-icon: var(--color-gray-100);
+
+  /* 라인색상 */
+  --color-stroke: var(--color-gray-100);
 }
 
 
 
 /* ===== 반응형 min-width 변수 ===== */
 $breakpoints: (md: 800px, lg: 1280px);
-

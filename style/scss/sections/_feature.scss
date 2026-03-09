@@ -24,7 +24,7 @@ section.feature {
       &::before {
         display: block;
         content: '';
-        width: 300px;
+        width: 350px;
         height: 100%;
       }
     }
@@ -59,6 +59,7 @@ section.feature {
           }
 
           path {
+            stroke: var(--color-stroke);
             stroke-width: 2;
             fill: none;
             stroke-dasharray: 1000;
@@ -161,6 +162,13 @@ section.feature {
                   
                   @include mixins.respond(md){
                     flex-wrap: nowrap;
+                  }
+
+                  >div{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
                   }
                 }
               }

@@ -111,7 +111,7 @@ table {
   --color-magenta: #ef3080;
   /* ===== 3. Gradients (Composition) ===== */
   --gradient-purple-skyblue-wide: linear-gradient(0deg, var(--color-skyblue-500) 0%, var(--color-purple-500) 85%);
-  --gradient-purple-skyblue-narrow: linear-gradient(90deg,var(--color-skyblue-500) 0%, var(--color-skyblue-500) 20%, var(--color-purple-500) 80%);
+  --gradient-purple-skyblue-narrow: linear-gradient(90deg, var(--color-skyblue-500) 0%, var(--color-skyblue-500) 20%, var(--color-purple-500) 80%);
   --gradient-skyblue-purple-wide-light: linear-gradient(180deg, var(--color-skyblue-400) 0%, var(--color-purple-400-alpha-60) 85%);
   --gradient-skyblue-pink: linear-gradient(0deg, var(--color-pink-150) 0%, var(--color-skyblue-200) 85%);
   --gradient-pink-skyblue: linear-gradient(180deg, var(--color-pink-150) 0%, var(--color-skyblue-200) 85%);
@@ -141,6 +141,8 @@ table {
   /* 버튼색 */
   --color-linkbtn: var(--gradient-purple-skyblue-narrow);
   --color-linkbtn-hover: var(--color-black);
+  /* 라인색상 */
+  --color-stroke: var(--color-gray-900);
 }
 
 /* ===== 5. Theme Dark ===== */
@@ -155,6 +157,10 @@ table {
   --color-text-primary: var(--color-gray-100);
   --color-text-inverse: var(--color-gray-900);
   --color-text-weak: var(--color-gray-400);
+  /* 아이콘색 */
+  --color-icon: var(--color-gray-100);
+  /* 라인색상 */
+  --color-stroke: var(--color-gray-100);
 }
 
 /* ===== 반응형 min-width 변수 ===== */
@@ -722,6 +728,11 @@ section.about-me .left-group h2 {
   font-weight: 700;
   line-height: 0.65;
 }
+@media (min-width: 800px) {
+  section.about-me .left-group h2 {
+    top: 45px;
+  }
+}
 @media (min-width: 1280px) {
   section.about-me .left-group h2 {
     font-size: 64px;
@@ -781,7 +792,7 @@ section.about-me .left-group .contents .bottom .links::before {
   background-color: var(--color-text-primary);
 }
 section.about-me .left-group .contents .bottom .links a svg {
-  fill: var(--color--icon);
+  fill: var(--color-icon);
 }
 @media (hover: hover) and (pointer: fine) {
   section.about-me .left-group .contents .bottom .links a:hover svg {
@@ -917,7 +928,7 @@ section.feature {
   section.feature .feature-inner::before {
     display: block;
     content: "";
-    width: 300px;
+    width: 350px;
     height: 100%;
   }
 }
@@ -954,6 +965,7 @@ section.feature .feature-inner .wrap .titlebox .deco-wave {
   }
 }
 section.feature .feature-inner .wrap .titlebox .deco-wave path {
+  stroke: var(--color-stroke);
   stroke-width: 2;
   fill: none;
   stroke-dasharray: 1000;
@@ -1053,6 +1065,12 @@ section.feature .feature-inner .wrap .conbox .conbox-group .description .content
   section.feature .feature-inner .wrap .conbox .conbox-group .description .content-2 .skillbox {
     flex-wrap: nowrap;
   }
+}
+section.feature .feature-inner .wrap .conbox .conbox-group .description .content-2 .skillbox > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 section.feature .feature-inner .wrap .conbox .conbox-group-1 {
   margin-bottom: 100px;
