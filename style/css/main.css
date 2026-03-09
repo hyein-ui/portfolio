@@ -1099,6 +1099,9 @@ section.thanks .clovers {
      object-fit: cover;
   gap: 20px;
 }
+section.thanks .clovers > svg {
+  fill: var(--color-icon);
+}
 section.thanks .textbox {
   width: 70%;
   display: flex;

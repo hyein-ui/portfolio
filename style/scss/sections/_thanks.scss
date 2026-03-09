@@ -18,6 +18,10 @@ section.thanks {
     justify-items: center;
     object-fit: cover;
     gap: 20px;
+
+    >svg{
+      fill: var(--color-icon);
+    }
   }
 
   .textbox{
