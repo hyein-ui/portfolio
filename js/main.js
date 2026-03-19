@@ -210,6 +210,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* ===== [GSAP] feature 섹션 ===== */
+  /* 물결 그려지는거랑 동시에 타이틀 글자만 보여지게 애니메이션 수정하고싶음 */
+
   function featureAnimation() {
     const elFeature = document.querySelector(".feature");
     if (!elFeature) return;

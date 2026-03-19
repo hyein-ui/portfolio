@@ -93,7 +93,7 @@ table {
   --color-gray-100: #f5f5f5;
   --color-white: #fff;
   --color-white-alpha-85: rgba(255, 255, 255, 0.85);
-  --color-white-alpha-60: rgba(255, 255, 255, 0.6);
+  --color-white-alpha-70: rgba(255, 255, 255, 0.7);
   --color-white-alpha-40: rgba(255, 255, 255, 0.4);
   --color-purple-500: #8A70FF;
   --color-purple-400: #ab98fe;
@@ -130,9 +130,13 @@ table {
   /* 글자색 */
   --color-text-primary: var(--color-gray-900);
   --color-text-inverse: var(--color-white);
-  --color-text-nav-hover: var(--color-purple-500);
   --color-text-emphasis: var(--color-purple-500);
   --color-text-weak: var(--color-gray-400);
+  /* 헤더 */
+  --color-header-bg: var(--color-white-alpha-70);
+  --color-header-text-mainmenu: var(--color-black);
+  --color-header-text-submenu: var(--color-gray-900);
+  --color-header-text-submenu-hover: var(--color-purple-500);
   /* 글상자색 */
   --color-textbox-strong: var(--color-purple-200-alpha-20);
   /* 아이콘색 */
@@ -224,7 +228,7 @@ header {
   height: 44px;
   padding: 0 1rem;
   box-sizing: border-box;
-  background-color: var(--color-white-alpha-60);
+  background-color: var(--color-header-bg);
   position: sticky;
   left: 0;
   top: 0;
@@ -270,7 +274,7 @@ header nav.gnb {
   top: 44px;
   padding: 20px 40px;
   box-sizing: border-box;
-  background-color: var(--color-white-alpha-85);
+  background-color: var(--color-header-bg);
 }
 @media (min-width: 1280px) {
   header nav.gnb {
@@ -287,7 +291,7 @@ header nav.gnb ul.gnb-menu {
   gap: 1.5rem;
   width: 100%;
   font-family: var(--font-english);
-  color: var(--color-black);
+  color: var(--color-header-text-mainmenu);
 }
 @media (min-width: 1280px) {
   header nav.gnb ul.gnb-menu {
@@ -345,7 +349,7 @@ header nav.gnb ul.gnb-menu > li > ul.submenu {
     min-width: 4.68rem;
     line-height: 2;
     padding: 0.5rem 1.5rem 1rem;
-    background-color: var(--color-white-alpha-60);
+    background-color: var(--color-header-bg);
   }
 }
 header nav.gnb ul.gnb-menu > li > ul.submenu > li {
@@ -363,13 +367,13 @@ header nav.gnb ul.gnb-menu > li > ul.submenu > li > a::before {
   content: "";
   width: 4px;
   height: 1px;
-  background-color: var(--color-gray-900);
+  background-color: var(--color-header-text-submenu);
   margin-right: 4px;
 }
 @media (hover: hover) and (pointer: fine) {
   header nav.gnb ul.gnb-menu > li > ul.submenu > li > a:hover {
     text-decoration: underline;
-    color: var(--color-text-nav-hover);
+    color: var(--color-header-text-submenu-hover);
     font-weight: 400;
   }
 }
@@ -1033,7 +1037,7 @@ section.feature .feature-inner .wrap .conbox .conbox-group {
 }
 section.feature .feature-inner .wrap .conbox .conbox-group h3 {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -1046,6 +1050,12 @@ section.feature .feature-inner .wrap .conbox .conbox-group h3 {
 section.feature .feature-inner .wrap .conbox .conbox-group h3 > img {
   display: inline-block;
   margin-right: 8px;
+  width: 24px;
+  height: 2.25rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
 }
 @media (min-width: 1280px) {
   section.feature .feature-inner .wrap .conbox .conbox-group .description {

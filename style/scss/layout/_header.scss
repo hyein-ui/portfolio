@@ -11,7 +11,7 @@ header {
   height: 44px;
   padding: 0 1rem;
   box-sizing: border-box;
-  background-color: var(--color-white-alpha-60);
+  background-color: var(--color-header-bg);
   position: sticky;
   left: 0;
   top: 0;
@@ -59,7 +59,7 @@ header {
     top: 44px;
     padding: 20px 40px;
     box-sizing: border-box;
-    background-color: var(--color-white-alpha-85);
+    background-color: var(--color-header-bg);
 
     @include mixins.respond(lg) {
       position: relative;
@@ -75,7 +75,7 @@ header {
       gap: 1.5rem;
       width: 100%;
       font-family: var(--font-english);
-      color: var(--color-black);
+      color: var(--color-header-text-mainmenu);
 
       @include mixins.respond(lg) {
         justify-content: space-between;
@@ -132,7 +132,7 @@ header {
             min-width: 4.68rem;
             line-height: 2;
             padding: 0.5rem 1.5rem 1rem;
-            background-color: var(--color-white-alpha-60);
+            background-color: var(--color-header-bg);
           }
 
           >li {
@@ -150,14 +150,14 @@ header {
                 content: '';
                 width: 4px;
                 height: 1px;
-                background-color: var(--color-gray-900);
+                background-color: var(--color-header-text-submenu);
                 margin-right: 4px;
               }
 
               @include mixins.hover {
                 &:hover {
                   text-decoration: underline;
-                  color: var(--color-text-nav-hover);
+                  color: var(--color-header-text-submenu-hover);
                   font-weight: 400;
                 }
               }

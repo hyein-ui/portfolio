@@ -15,7 +15,7 @@
   --color-gray-100: #f5f5f5;
   --color-white: #fff;
   --color-white-alpha-85: rgba(255, 255, 255, 0.85);
-  --color-white-alpha-60: rgba(255, 255, 255, 0.6);
+  --color-white-alpha-70: rgba(255, 255, 255, 0.7);
   --color-white-alpha-40: rgba(255, 255, 255, 0.4);
 
   --color-purple-500: #8A70FF;
@@ -68,9 +68,14 @@
   /* 글자색 */
   --color-text-primary: var(--color-gray-900);
   --color-text-inverse: var(--color-white);
-  --color-text-nav-hover: var(--color-purple-500);
   --color-text-emphasis: var(--color-purple-500);
   --color-text-weak: var(--color-gray-400);
+  
+  /* 헤더 */
+  --color-header-bg: var(--color-white-alpha-70);
+  --color-header-text-mainmenu: var(--color-black);
+  --color-header-text-submenu: var(--color-gray-900);
+  --color-header-text-submenu-hover: var(--color-purple-500);
 
   /* 글상자색 */
   --color-textbox-strong: var(--color-purple-200-alpha-20);
