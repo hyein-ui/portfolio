@@ -6,12 +6,7 @@ section.feature {
 
   display: flex;
   justify-content: center;
-  padding: 0 30px 150px;
-
-  @include mixins.respond(md) {
-    padding: 0 50px 150px;
-
-  }
+  padding-bottom: 150px;
 
   .feature-inner {
     @include mixins.respond(md) {

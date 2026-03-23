@@ -21,8 +21,13 @@ body {
   main {
     section {
       width: 100%;
-      min-height: 250px;
+      // min-height: 250px;
       box-sizing: border-box;
+      padding: 0 30px;
+
+      @include mixins.respond(md) {
+        padding: 0 50px;
+      }
     }
   }
 }
@@ -53,8 +58,8 @@ button {
 }
 
 // sm사이즈 화면 전용
-.sm-only{
-  @include mixins.respond(md){
+.sm-only {
+  @include mixins.respond(md) {
     display: none;
   }
 }

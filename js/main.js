@@ -310,6 +310,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+  /* ===== PC웹 보기 링크 제어 ===== */
+  const arrPcVerLinks = this.querySelectorAll(".link-btn.link-btn-pc-ver");
+  arrPcVerLinks.forEach(linkBtn => {
+    linkBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      if (window.innerWidth < 1280) {
+        alert("PC웹 전용입니다. PC를 통해 확인해주세요.");
+      } else {
+        window.open(this.href, "_blank", "noopener, noreferrer, width=1800, height=960");
+      }
+    });
+  });
+
+
+  /* ===== 모바일웹 보기 링크 제어 ===== */
+  const arrMoVerLinks = this.querySelectorAll(".link-btn.link-btn-mo-ver");
+  arrMoVerLinks.forEach(linkBtn => {
+    linkBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      window.open(this.href, '_blank', 'noopener, noreferrer, width=414, height=700');
+    });
+  });
+
+
+
+
   /* ===== scroll top 버튼 ===== */
   const elScrollBtn = document.querySelector(".scroll-top");
   // 버튼 보이는 구간 설정

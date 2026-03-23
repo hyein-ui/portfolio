@@ -41,7 +41,7 @@
 
   /* ===== 3. Gradients (Composition) ===== */
   --gradient-purple-skyblue-wide: linear-gradient(0deg, var(--color-skyblue-500) 0%, var(--color-purple-500) 85%);
-  --gradient-purple-skyblue-narrow: linear-gradient(90deg, var(--color-skyblue-500) 0%, var(--color-skyblue-500) 20%, var(--color-purple-500) 80%);
+  --gradient-purple-skyblue-narrow: linear-gradient(-90deg, var(--color-skyblue-500) 0%, var(--color-skyblue-500) 20%, var(--color-purple-500) 80%);
 
   --gradient-skyblue-purple-wide-light: linear-gradient(180deg, var(--color-skyblue-400) 0%, var(--color-purple-400-alpha-60) 85%);
 
@@ -70,12 +70,16 @@
   --color-text-inverse: var(--color-white);
   --color-text-emphasis: var(--color-purple-500);
   --color-text-weak: var(--color-gray-400);
-  
+
   /* 헤더 */
   --color-header-bg: var(--color-white-alpha-70);
   --color-header-text-mainmenu: var(--color-black);
   --color-header-text-submenu: var(--color-gray-900);
   --color-header-text-submenu-hover: var(--color-purple-500);
+
+  /* 카드상자 배경색 */
+  --color-focus-card-bg: var(--gradient-pink-skyblue);
+  --color-other-card-bg: var(--gradient-pink-skyblue);
 
   /* 글상자색 */
   --color-textbox-strong: var(--color-purple-200-alpha-20);

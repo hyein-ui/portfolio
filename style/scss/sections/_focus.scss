@@ -1,0 +1,132 @@
+@use '../base/variables';
+@use '../base/mixins';
+
+
+section.focus {
+  // height: 80vh;
+  // min-height: 650px;
+  // max-height: 800px;
+  padding-top: 30px;
+  position: relative;
+
+  h2 {
+    font-weight: 900;
+    font-size: 18.75rem;
+    line-height: 1;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+
+  .focus-card-wrap{
+
+    .focus-card {
+      background: var(--color-focus-card-bg);
+      max-width: 400px;
+      padding: 20px 16px;
+      box-sizing: border-box;
+      margin-bottom: 30px;
+  
+      .titlebox {
+        text-align: center;
+        margin-bottom: 10px;
+  
+        img {
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+        }
+  
+        h3 {
+          font-size: 1.25rem;
+          font-weight: 800;
+        }
+      }
+  
+      .conbox {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+  
+        .flag {
+          display: flex;
+          align-items: stretch;
+  
+          span {
+            // 디바이스 폰트사이즈 large일때도 보이도록 고정 height 사용 안하고 flex로 처리
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4px 8px;
+  
+            background-color: var(--color-gray-900);
+            font-size: 0.8125rem;
+            font-weight: 800;
+            color: var(--color-white);
+            line-height: 1;
+          }
+        }
+  
+  
+        .info {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+  
+          .textbox {
+            p {
+              font-size: 1rem;
+              font-weight: 400;
+              margin-bottom: 4px;
+            }
+  
+            .work-skills {
+              span {
+                display: inline-block;
+                font-size: 0.75rem;
+                font-weight: 700;
+                line-height: 1;
+                padding: 0.25rem 0.375rem;
+                border: 1px solid var(--color-text-weak);
+                transform: skewX(-8deg);
+                margin: 0.2rem 0.05rem;
+              }
+            }
+          }
+  
+          a.work-github-link {
+            display: flex;
+            align-items: center;
+  
+            img{
+              margin-right: 4px;
+            }
+  
+            span{
+              font-size: 0.75rem;
+              font-weight: 700;
+  
+              @include mixins.hover {
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+  
+          .date {
+            font-size: 0.75rem;
+          }
+        }
+  
+        .btnbox {
+          a{
+            margin-right: 6px;
+          }
+        }
+      }
+    }
+  }
+
+}
