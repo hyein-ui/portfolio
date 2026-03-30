@@ -433,6 +433,8 @@ a.link-btn::before {
 }
 
 .scroll-top {
+  position: relative;
+  z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1129,48 +1131,77 @@ section.feature .feature-inner .wrap .conbox .conbox-group-2 .description .conte
 }
 
 section.focus {
-  padding-top: 30px;
   position: relative;
+  padding-bottom: 400px;
 }
-section.focus h2 {
+section.focus .focus-inner {
+  position: relative;
+  max-width: 600px;
+  margin: 100px auto;
+}
+@media (min-width: 800px) {
+  section.focus .focus-inner {
+    max-width: 850px;
+  }
+}
+@media (min-width: 1280px) {
+  section.focus .focus-inner {
+    max-width: 1220px;
+  }
+}
+section.focus .focus-inner h2 {
+  position: sticky;
+  top: 100px;
+  left: 90px;
+  z-index: 1;
   font-weight: 900;
-  font-size: 18.75rem;
+  font-size: 5rem;
   line-height: 1;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
 }
-section.focus .focus-card-wrap .focus-card {
+@media (min-width: 800px) {
+  section.focus .focus-inner h2 {
+    font-size: 11.825rem;
+  }
+}
+@media (min-width: 1280px) {
+  section.focus .focus-inner h2 {
+    font-size: 18.75rem;
+  }
+}
+section.focus .focus-inner .focus-card-wrap {
+  position: relative;
+  z-index: 2;
+}
+section.focus .focus-inner .focus-card-wrap .focus-card {
   background: var(--color-focus-card-bg);
   max-width: 400px;
   padding: 20px 16px;
   box-sizing: border-box;
-  margin-bottom: 30px;
+  margin: 0 auto 30px;
 }
-section.focus .focus-card-wrap .focus-card .titlebox {
+section.focus .focus-inner .focus-card-wrap .focus-card .titlebox {
   text-align: center;
   margin-bottom: 10px;
 }
-section.focus .focus-card-wrap .focus-card .titlebox img {
+section.focus .focus-inner .focus-card-wrap .focus-card .titlebox img {
   display: inline-block;
   width: 14px;
   height: 14px;
 }
-section.focus .focus-card-wrap .focus-card .titlebox h3 {
+section.focus .focus-inner .focus-card-wrap .focus-card .titlebox h3 {
   font-size: 1.25rem;
   font-weight: 800;
 }
-section.focus .focus-card-wrap .focus-card .conbox {
+section.focus .focus-inner .focus-card-wrap .focus-card .conbox {
   display: flex;
   flex-direction: column;
   gap: 26px;
 }
-section.focus .focus-card-wrap .focus-card .conbox .flag {
+section.focus .focus-inner .focus-card-wrap .focus-card .conbox .flag {
   display: flex;
   align-items: stretch;
 }
-section.focus .focus-card-wrap .focus-card .conbox .flag span {
+section.focus .focus-inner .focus-card-wrap .focus-card .conbox .flag span {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1181,17 +1212,17 @@ section.focus .focus-card-wrap .focus-card .conbox .flag span {
   color: var(--color-white);
   line-height: 1;
 }
-section.focus .focus-card-wrap .focus-card .conbox .info {
+section.focus .focus-inner .focus-card-wrap .focus-card .conbox .info {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-section.focus .focus-card-wrap .focus-card .conbox .info .textbox p {
+section.focus .focus-inner .focus-card-wrap .focus-card .conbox .info .textbox p {
   font-size: 1rem;
   font-weight: 400;
   margin-bottom: 4px;
 }
-section.focus .focus-card-wrap .focus-card .conbox .info .textbox .work-skills span {
+section.focus .focus-inner .focus-card-wrap .focus-card .conbox .info .textbox .work-skills span {
   display: inline-block;
   font-size: 0.75rem;
   font-weight: 700;
@@ -1201,27 +1232,31 @@ section.focus .focus-card-wrap .focus-card .conbox .info .textbox .work-skills s
   transform: skewX(-8deg);
   margin: 0.2rem 0.05rem;
 }
-section.focus .focus-card-wrap .focus-card .conbox .info a.work-github-link {
+section.focus .focus-inner .focus-card-wrap .focus-card .conbox .info a.work-github-link {
   display: flex;
   align-items: center;
 }
-section.focus .focus-card-wrap .focus-card .conbox .info a.work-github-link img {
+section.focus .focus-inner .focus-card-wrap .focus-card .conbox .info a.work-github-link img {
   margin-right: 4px;
 }
-section.focus .focus-card-wrap .focus-card .conbox .info a.work-github-link span {
+section.focus .focus-inner .focus-card-wrap .focus-card .conbox .info a.work-github-link span {
   font-size: 0.75rem;
   font-weight: 700;
 }
 @media (hover: hover) and (pointer: fine) {
-  section.focus .focus-card-wrap .focus-card .conbox .info a.work-github-link span:hover {
+  section.focus .focus-inner .focus-card-wrap .focus-card .conbox .info a.work-github-link span:hover {
     text-decoration: underline;
   }
 }
-section.focus .focus-card-wrap .focus-card .conbox .info .date {
+section.focus .focus-inner .focus-card-wrap .focus-card .conbox .info .date {
   font-size: 0.75rem;
 }
-section.focus .focus-card-wrap .focus-card .conbox .btnbox a {
+section.focus .focus-inner .focus-card-wrap .focus-card .conbox .btnbox a {
   margin-right: 6px;
+}
+
+section.other {
+  height: 2000px;
 }
 
 section.thanks {

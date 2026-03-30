@@ -210,35 +210,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* ===== [GSAP] feature 섹션 ===== */
-  /* 물결 그려지는거랑 동시에 타이틀 글자만 보여지게 애니메이션 수정하고싶음 */
-
   function featureAnimation() {
     const elFeature = document.querySelector(".feature");
     if (!elFeature) return;
 
+
+    /* (타이틀 애니메이션) */
     const elWaveStart = document.querySelector(".wave-start");
     const elWaveStartLength = elWaveStart.getTotalLength();
 
-    /* (초기 셋팅) */
     gsap.set(".wave-start", {
       strokeDasharray: elWaveStartLength,
       strokeDashoffset: elWaveStartLength
     });
 
-    /* (주 타임라인) */
-    const tlFeature = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".feature .titlebox",
-        start: "top 80%",
-        toggleActions: "play none none reset",
-        invalidateOnRefresh: true, // 앞에 가로스크롤 pin 섹션이 있으면 refresh 시 재계산
-        // markers: true,
-      },
-    });
-
-    /* (서브 타임라인) : 타이틀 */
-    const tlFeature_tit = gsap.timeline();
-    tlFeature_tit
+    gsap.timeline({
+        scrollTrigger: {
+          trigger: ".feature .titlebox",
+          start: "top 80%",
+          toggleActions: "play none none reset",
+          invalidateOnRefresh: true, // 앞에 가로스크롤 pin 섹션이 있으면 refresh 시 재계산
+        },
+      })
       .from(".feature .titlebox", {
         y: 50,
         opacity: 0,
@@ -262,7 +255,6 @@ document.addEventListener("DOMContentLoaded", function () {
         repeatDelay: 1,
       }, "+=0.6");
 
-    tlFeature.add(tlFeature_tit);
 
     /* (description 애니메이션) */
     const arrContents = document.querySelectorAll(".feature .description .content");
@@ -287,6 +279,39 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
+  /* ===== [GSAP] focus 섹션 ===== */
+  function focusAnimation() {
+    const elFocus = document.querySelector(".focus");
+    if (!elFocus) return;
+
+    const elFocusTit = document.querySelector(".focus h2");
+    const elFocusCardWrap = document.querySelector(".focus-card-wrap");
+
+    gsap.set(elFocusCardWrap, {
+      opacity: 0,
+      y: 1000,
+    });
+
+    gsap.timeline({
+        scrollTrigger: {
+          trigger: elFocusTit,
+          start: "top 80%",
+          scrub: 3,
+        }
+      })
+      .from(elFocusTit, {
+        opacity: 0,
+        x: -100,
+      })
+      .to(elFocusTit, {
+        color: "#eaeaea",
+      })
+      .to(elFocusCardWrap, {
+        opacity: 1,
+        y: 400,
+        ease: "power1.out"
+      });
+  }
 
 
   /* ===== 헤더 ===== */
@@ -447,6 +472,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   gsapMM.add("all", () => {
     featureAnimation();
+    focusAnimation();
   });
 
 
