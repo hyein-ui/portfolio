@@ -2,7 +2,71 @@
 @use '../base/mixins';
 
 
-section.other{
+section.other {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
 
-  height: 2000px;
+  @include mixins.respond(md) {
+    max-width: 850px;
+  }
+
+  @include mixins.respond(lg) {
+    max-width: 1220px;
+  }
+
+  .sticky-wrap {
+    position: sticky;
+    top: 100px;
+    left: 90px;
+    z-index: 1;
+
+    width: 100%;
+    height: 50vh;
+
+    border: 1px solid red;
+
+    h2 {
+      font-weight: 900;
+      font-size: 5rem;
+      line-height: 1;
+
+      position: absolute;
+      right: 100px;
+      bottom: -150px;
+
+
+      @include mixins.respond(md) {
+        font-size: 11.825rem;
+      }
+
+      @include mixins.respond(lg) {
+        font-size: 18.75rem;
+      }
+    }
+  }
+
+  .other-card-wrap {
+    position: relative;
+    z-index: 2;
+
+    .other-card-left{
+      display: flex;
+      justify-content: left;
+      padding-left: 200px;
+    }
+    .other-card-right{
+      display: flex;
+      justify-content: right;
+      padding-right: 200px;
+      margin-top: 30px;
+    }
+
+    .other-card {
+      background: var(--color-other-card-bg);
+      max-width: 400px;
+      padding: 20px 16px;
+      box-sizing: border-box;
+    }
+  }
 }

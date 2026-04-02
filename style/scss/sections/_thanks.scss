@@ -8,6 +8,7 @@ section.thanks {
   justify-content: center;
   align-items: center;
   gap: 50px;
+  height: 250px;
 
   @include mixins.respond(lg){
     height: 400px;

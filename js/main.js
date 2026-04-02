@@ -1,12 +1,35 @@
+/* ============================
+  1. 공통
+  2. 초기화
+  3. 파트별
+  4. GSAP 애니메이션
+=============================== */
+
+
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* ===== [GSAP] 플러그인 ===== */
+
+
+
+
+
+
+
+
+
+
+  
+  /* ============================
+    1. GSAP 애니메이션
+  =============================== */
+
+  /* ----- [GSAP] 플러그인 ----- */
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(MorphSVGPlugin);
 
 
 
-  /* ===== [GSAP] 헤더 ===== */
+  /* ----- [GSAP] 헤더 ----- */
   function headerAnimation() {
     // DOM 선체크(부재시 에러 방지)
     const elHeader = document.querySelector("#header");
@@ -27,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  /* ===== [GSAP] hero 섹션 ===== */
+  /* ----- [GSAP] hero 섹션 ----- */
   function heroAnimation() {
     const elHero = document.querySelector(".hero");
     if (!elHero) return;
@@ -150,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  /* ===== [GSAP] about me 섹션 ===== */
+  /* ----- [GSAP] about me 섹션 ----- */
   function aboutMeAnimation_sm() {
     const elAbout = document.querySelector(".about-me");
     if (!elAbout) return;
@@ -209,7 +232,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  /* ===== [GSAP] feature 섹션 ===== */
+  /* ----- [GSAP] feature 섹션 ----- */
   function featureAnimation() {
     const elFeature = document.querySelector(".feature");
     if (!elFeature) return;
@@ -279,7 +302,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  /* ===== [GSAP] focus 섹션 ===== */
+  /* ----- [GSAP] focus 섹션 ----- */
   function focusAnimation() {
     const elFocus = document.querySelector(".focus");
     if (!elFocus) return;
@@ -308,14 +331,97 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .to(elFocusCardWrap, {
         opacity: 1,
-        y: 400,
+        y: 300,
         ease: "power1.out"
       });
   }
 
 
-  /* ===== 헤더 ===== */
-  /* --- 메인메뉴(햄메뉴) --- */
+
+  /* ----- [GSAP] other 섹션 ----- */
+  function otherAnimation() {
+    const elOther = document.querySelector(".other");
+    if (!elOther) return;
+
+    const elOtherTit = document.querySelector(".other h2");
+    const elOtherCardWrap = document.querySelector(".other-card-wrap");
+
+    gsap.set(elOtherCardWrap, {
+      opacity: 0,
+      y: 1000,
+    });
+
+    gsap.timeline({
+        scrollTrigger: {
+          trigger: elOtherTit,
+          start: "top 80%",
+          scrub: 3,
+        }
+      })
+      .from(elOtherTit, {
+        opacity: 0,
+        x: -100,
+      })
+      .to(elOtherTit, {
+        color: "#eaeaea",
+      })
+      .to(elOtherCardWrap, {
+        opacity: 1,
+        y: 300,
+        ease: "power1.out"
+      });
+  }
+
+
+
+
+
+
+  /* ============================
+    2. 공통 제어 코드
+  =============================== */
+
+  /* ----- PC웹 보기 링크 제어 ----- */
+  const arrPcVerLinks = this.querySelectorAll(".link-pc-ver");
+  arrPcVerLinks.forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      if (window.innerWidth < 1280) {
+        alert("PC웹 전용입니다. PC를 통해 확인해주세요.");
+      } else {
+        window.open(this.href, "_blank", "noopener, noreferrer, width=1800, height=860");
+      }
+    });
+  });
+
+  /* ----- 태블릿웹 보기 링크 제어 ----- */
+  const arrTabVerLinks = this.querySelectorAll(".link-tab-ver");
+  arrTabVerLinks.forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      window.open(this.href, '_blank', 'noopener, noreferrer, width=1024, height=768');
+    });
+  });
+
+  /* ----- 모바일웹 보기 링크 제어 ----- */
+  const arrMoVerLinks = this.querySelectorAll(".link-mo-ver");
+  arrMoVerLinks.forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      window.open(this.href, '_blank', 'noopener, noreferrer, width=414, height=700');
+    });
+  });
+
+
+
+  /* ============================
+    3. 파트별
+  =============================== */
+
+  /* --- 헤더 메인메뉴(햄메뉴) --- */
   const elHam = document.querySelector(".ham");
   const elMainNav = document.getElementById("mainNav");
 
@@ -334,36 +440,32 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
+  /* ----- 다크모드 theme dark ----- */
+  const elThemeToggleBtn = document.getElementById("themeToggle");
+  const elHtml = document.documentElement;
+  const mqDark = window.matchMedia("(prefers-color-scheme: dark)"); //OS 다크모드 감지
+  const savedTheme = localStorage.getItem("theme"); // 브라우저에 저장한 값 확인
 
-  /* ===== PC웹 보기 링크 제어 ===== */
-  const arrPcVerLinks = this.querySelectorAll(".link-btn.link-btn-pc-ver");
-  arrPcVerLinks.forEach(linkBtn => {
-    linkBtn.addEventListener("click", function (e) {
-      e.preventDefault();
+  /* (상태 확인) */
+  if (savedTheme) { // 값이 저장되어 있으면
+    elHtml.setAttribute("data-theme", savedTheme);
+    elThemeToggleBtn.checked = savedTheme === "dark"; // 토글버튼 상태 동기화
+  } else {
+    const systemTheme = mqDark.matches ? "dark" : "light"; // OS 테마 값
+    elHtml.setAttribute("data-theme", systemTheme);
+    elThemeToggleBtn.checked = mqDark.matches;
+  }
 
-      if (window.innerWidth < 1280) {
-        alert("PC웹 전용입니다. PC를 통해 확인해주세요.");
-      } else {
-        window.open(this.href, "_blank", "noopener, noreferrer, width=1800, height=960");
-      }
-    });
+  /* (토글버튼을 누르면) */
+  elThemeToggleBtn.addEventListener("change", () => {
+    const newTheme = elThemeToggleBtn.checked ? "dark" : "light";
+
+    elHtml.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
   });
 
 
-  /* ===== 모바일웹 보기 링크 제어 ===== */
-  const arrMoVerLinks = this.querySelectorAll(".link-btn.link-btn-mo-ver");
-  arrMoVerLinks.forEach(linkBtn => {
-    linkBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-
-      window.open(this.href, '_blank', 'noopener, noreferrer, width=414, height=700');
-    });
-  });
-
-
-
-
-  /* ===== scroll top 버튼 ===== */
+  /* ----- scroll top 버튼 ----- */
   const elScrollBtn = document.querySelector(".scroll-top");
   // 버튼 보이는 구간 설정
   window.addEventListener("scroll", () => {
@@ -383,35 +485,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  /* ===== 다크모드 theme dark ===== */
-  const elThemeToggleBtn = document.getElementById("themeToggle");
-  const elHtml = document.documentElement;
-  const mqDark = window.matchMedia("(prefers-color-scheme: dark)"); //OS 다크모드 감지
-  const savedTheme = localStorage.getItem("theme"); // 브라우저에 저장한 값 확인
-
-  /* --- 상태 확인 --- */
-  if (savedTheme) { // 값이 저장되어 있으면
-    elHtml.setAttribute("data-theme", savedTheme);
-    elThemeToggleBtn.checked = savedTheme === "dark"; // 토글버튼 상태 동기화
-  } else {
-    const systemTheme = mqDark.matches ? "dark" : "light"; // OS 테마 값
-    elHtml.setAttribute("data-theme", systemTheme);
-    elThemeToggleBtn.checked = mqDark.matches;
-  }
-
-  /* --- 토글버튼을 누르면 --- */
-  elThemeToggleBtn.addEventListener("change", () => {
-    const newTheme = elThemeToggleBtn.checked ? "dark" : "light";
-
-    elHtml.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-  });
 
 
 
-
-
-
+  /* ============================
+    4. 반응형
+  =============================== */
 
   /* ===== 반응형 모바일 퍼스트  ===== */
   const breakpoints = {
@@ -473,6 +552,7 @@ document.addEventListener("DOMContentLoaded", function () {
   gsapMM.add("all", () => {
     featureAnimation();
     focusAnimation();
+    otherAnimation();
   });
 
 

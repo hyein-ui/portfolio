@@ -49,6 +49,7 @@
   --gradient-pink-skyblue: linear-gradient(180deg, var(--color-pink-150) 0%, var(--color-skyblue-200) 85%);
   --gradient-pink-skyblue-fade-in: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--color-pink-150) 50%, var(--color-skyblue-200) 85%);
 
+  
   --gradient-gray-fade-in: linear-gradient(180deg, rgba(253, 251, 251, 0.4) 0%, rgba(235, 237, 238, 0.7) 85%);
   --gradient-gray-fade-in-dark: linear-gradient(180deg, rgba(51, 51, 51, 0.4) 0%, #434343b3 85%);
 
@@ -79,7 +80,7 @@
 
   /* 카드상자 배경색 */
   --color-focus-card-bg: var(--gradient-pink-skyblue);
-  --color-other-card-bg: var(--gradient-pink-skyblue);
+  --color-other-card-bg: var(--gradient-gray-fade-in);
 
   /* 글상자색 */
   --color-textbox-strong: var(--color-purple-200-alpha-20);
