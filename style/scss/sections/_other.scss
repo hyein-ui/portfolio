@@ -5,6 +5,7 @@
 section.other {
   position: relative;
   max-width: 600px;
+  color: var(--color-text-primary-no-change);
   margin: 0 auto;
   padding-bottom: 400px; // gsap 애니메이션 때문에 발생하는 공백 커버
 

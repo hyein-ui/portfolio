@@ -1,4 +1,5 @@
 /* 
+  0. Global
   1. Init
   2. Responsive
   3. Resizing
@@ -6,6 +7,17 @@
   5. UI
   6. GSAP
 */
+
+
+
+/* ========== 0. Global ========== */
+
+/* 반응형 분기 */
+const breakpoints = {
+  sm: "(max-width: 799px)", // 반응형 분기별 GSAP에서 사용하기 위한 추가 브레이크 포인트. 평소엔 사용할 필요 없음.
+  md: "(min-width: 800px)",
+  lg: "(min-width: 1280px)",
+};
 
 
 
@@ -26,13 +38,6 @@ function init() {
 
 
 /* ========== 2. Responsive ========== */
-
-/* --- 반응형 분기 --- */
-const breakpoints = {
-  sm: "(max-width: 799px)", // 반응형 분기별 GSAP에서 사용하기 위한 추가 브레이크 포인트. 평소엔 사용할 필요 없음.
-  md: "(min-width: 800px)",
-  lg: "(min-width: 1280px)",
-};
 
 /* --- 반응형 모바일 퍼스트 --- */
 function initResponsive() {
@@ -533,7 +538,6 @@ function focusAnimation() {
         trigger: elFocusTit,
         start: "top 80%",
         scrub: 3,
-        markers: true,
       }
     })
     .to(elFocusTit, {

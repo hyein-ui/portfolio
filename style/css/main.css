@@ -116,7 +116,7 @@ table {
   --gradient-skyblue-pink: linear-gradient(0deg, var(--color-pink-150) 0%, var(--color-skyblue-200) 85%);
   --gradient-pink-skyblue: linear-gradient(180deg, var(--color-pink-150) 0%, var(--color-skyblue-200) 85%);
   --gradient-pink-skyblue-fade-in: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--color-pink-150) 50%, var(--color-skyblue-200) 85%);
-  --gradient-gray-fade-in: linear-gradient(180deg, rgba(253, 251, 251, 0.4) 0%, rgba(235, 237, 238, 0.7) 85%);
+  --gradient-gray-fade-in: linear-gradient(180deg, rgba(253, 251, 251, 0.4) 0%, rgba(235, 237, 238) 60%);
   --gradient-gray-fade-in-dark: linear-gradient(180deg, rgba(51, 51, 51, 0.4) 0%, #434343b3 85%);
   /* ===== 4. Semantic Tokens ===== */
   /* 전역 포커스 링 색상 */
@@ -129,6 +129,7 @@ table {
   --color-bg-footer: var(--color-gray-900);
   /* 글자색 */
   --color-text-primary: var(--color-gray-900);
+  --color-text-primary-no-change: var(--color-gray-900);
   --color-text-inverse: var(--color-white);
   --color-text-emphasis: var(--color-purple-500);
   --color-text-weak: var(--color-gray-400);
@@ -1132,6 +1133,7 @@ section.feature .feature-inner .wrap .conbox .conbox-group-2 .description .conte
 
 section.focus {
   position: relative;
+  color: var(--color-text-primary-no-change);
   margin-top: 100px;
   padding-bottom: 300px;
 }
@@ -1261,6 +1263,7 @@ section.focus .focus-inner .focus-card-wrap .focus-card .conbox .btnbox a {
 section.other {
   position: relative;
   max-width: 600px;
+  color: var(--color-text-primary-no-change);
   margin: 0 auto;
   padding-bottom: 400px;
 }

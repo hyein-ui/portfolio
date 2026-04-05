@@ -4,6 +4,7 @@
 
 section.focus {
   position: relative;
+  color: var(--color-text-primary-no-change);
 
   // gsap 애니메이션 때문에 발생하는 공백 커버
   margin-top: 100px;
