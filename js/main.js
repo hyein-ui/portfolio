@@ -207,7 +207,7 @@ function initUI() {
 
 
 
-/* ========== 4. GSAP ========== */
+/* ========== 6. GSAP ========== */
 
 function initGSAP() {
   /* --- 플러그인 --- */
@@ -519,6 +519,10 @@ function focusAnimation() {
   const elFocusTit = document.querySelector(".focus h2");
   const elFocusCardWrap = document.querySelector(".focus-card-wrap");
 
+  gsap.set(elFocusTit, {
+    opacity: 0,
+    x: -100,
+  });
   gsap.set(elFocusCardWrap, {
     opacity: 0,
     y: 1000,
@@ -529,11 +533,12 @@ function focusAnimation() {
         trigger: elFocusTit,
         start: "top 80%",
         scrub: 3,
+        markers: true,
       }
     })
-    .from(elFocusTit, {
-      opacity: 0,
-      x: -100,
+    .to(elFocusTit, {
+      opacity: 1,
+      x: 0,
     })
     .to(elFocusTit, {
       color: "#eaeaea",
@@ -555,6 +560,10 @@ function otherAnimation() {
   const elOtherTit = document.querySelector(".other h2");
   const elOtherCardWrap = document.querySelector(".other-card-wrap");
 
+  gsap.set(elOtherTit, {
+    opacity: 0,
+    x: 100,
+  });
   gsap.set(elOtherCardWrap, {
     opacity: 0,
     y: 1000,
@@ -567,9 +576,9 @@ function otherAnimation() {
         scrub: 3,
       }
     })
-    .from(elOtherTit, {
-      opacity: 0,
-      x: -100,
+    .to(elOtherTit, {
+      opacity: 1,
+      x: 0,
     })
     .to(elOtherTit, {
       color: "#eaeaea",

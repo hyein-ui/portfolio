@@ -5,6 +5,10 @@
 section.focus {
   position: relative;
 
+  // gsap 애니메이션 때문에 발생하는 공백 커버
+  margin-top: 100px;
+  padding-bottom: 300px;
+
   .focus-inner {
     position: relative;
     max-width: 600px;
@@ -21,14 +25,16 @@ section.focus {
     h2 {
       position: sticky;
       top: 100px;
-      left: 90px;
       z-index: 1;
 
+      overflow: hidden;
       font-weight: 900;
-      font-size: 5rem;
+      font-size: 4.4rem;
       line-height: 1;
 
       @include mixins.respond(md) {
+        overflow: visible;
+        word-break: break-word;
         font-size: 11.825rem;
       }
 

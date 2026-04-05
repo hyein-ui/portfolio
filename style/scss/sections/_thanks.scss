@@ -38,12 +38,19 @@ section.thanks {
 
     span{
       font-weight: 300;
-      font-size: 1.5rem;
+      font-size: 1rem;
+
+      @include mixins.respond(md){
+        font-size: 1.5rem;
+      }
     }
     h2{
       font-weight: 400;
-      font-size: 1.825rem;
+      font-size: 1.5rem;
+      
+      @include mixins.respond(md){
+        font-size: 1.825rem;
+      }
     }
   }
-
 }

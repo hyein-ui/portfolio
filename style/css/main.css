@@ -1132,6 +1132,8 @@ section.feature .feature-inner .wrap .conbox .conbox-group-2 .description .conte
 
 section.focus {
   position: relative;
+  margin-top: 100px;
+  padding-bottom: 300px;
 }
 section.focus .focus-inner {
   position: relative;
@@ -1151,14 +1153,16 @@ section.focus .focus-inner {
 section.focus .focus-inner h2 {
   position: sticky;
   top: 100px;
-  left: 90px;
   z-index: 1;
+  overflow: hidden;
   font-weight: 900;
-  font-size: 5rem;
+  font-size: 4.4rem;
   line-height: 1;
 }
 @media (min-width: 800px) {
   section.focus .focus-inner h2 {
+    overflow: visible;
+    word-break: break-word;
     font-size: 11.825rem;
   }
 }
@@ -1258,6 +1262,7 @@ section.other {
   position: relative;
   max-width: 600px;
   margin: 0 auto;
+  padding-bottom: 400px;
 }
 @media (min-width: 800px) {
   section.other {
@@ -1272,19 +1277,24 @@ section.other {
 section.other .sticky-wrap {
   position: sticky;
   top: 100px;
-  left: 90px;
   z-index: 1;
   width: 100%;
   height: 50vh;
-  border: 1px solid red;
+  overflow: hidden;
+}
+@media (min-width: 1280px) {
+  section.other .sticky-wrap {
+    overflow: visible;
+    word-break: break-word;
+  }
 }
 section.other .sticky-wrap h2 {
   font-weight: 900;
-  font-size: 5rem;
+  font-size: 4.4rem;
   line-height: 1;
   position: absolute;
-  right: 100px;
-  bottom: -150px;
+  right: 0;
+  bottom: 0;
 }
 @media (min-width: 800px) {
   section.other .sticky-wrap h2 {
@@ -1294,6 +1304,8 @@ section.other .sticky-wrap h2 {
 @media (min-width: 1280px) {
   section.other .sticky-wrap h2 {
     font-size: 18.75rem;
+    right: 100px;
+    bottom: -148px;
   }
 }
 section.other .other-card-wrap {
@@ -1302,20 +1314,85 @@ section.other .other-card-wrap {
 }
 section.other .other-card-wrap .other-card-left {
   display: flex;
-  justify-content: left;
-  padding-left: 200px;
+  justify-content: center;
+}
+@media (min-width: 800px) {
+  section.other .other-card-wrap .other-card-left {
+    justify-content: left;
+  }
+}
+@media (min-width: 1280px) {
+  section.other .other-card-wrap .other-card-left {
+    padding-left: 200px;
+  }
 }
 section.other .other-card-wrap .other-card-right {
   display: flex;
-  justify-content: right;
-  padding-right: 200px;
+  justify-content: center;
   margin-top: 30px;
 }
-section.other .other-card-wrap .other-card {
+@media (min-width: 800px) {
+  section.other .other-card-wrap .other-card-right {
+    justify-content: right;
+  }
+}
+@media (min-width: 1280px) {
+  section.other .other-card-wrap .other-card-right {
+    padding-right: 200px;
+  }
+}
+section.other .other-card {
   background: var(--color-other-card-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   max-width: 400px;
-  padding: 20px 16px;
   box-sizing: border-box;
+  padding: 20px 16px;
+}
+@media (min-width: 800px) {
+  section.other .other-card {
+    width: 500px;
+    padding: 20px 36px;
+  }
+}
+section.other .other-card .titlebox {
+  text-align: center;
+  margin-bottom: 10px;
+}
+section.other .other-card .titlebox img {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+}
+section.other .other-card .titlebox h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+section.other .other-card .conbox .work {
+  margin-top: 45px;
+}
+@media (min-width: 800px) {
+  section.other .other-card .conbox .work > a > img {
+    max-width: 300px;
+  }
+}
+section.other .other-card .conbox .work .textbox {
+  width: 80%;
+  margin-left: 20%;
+  padding: 6px 0 6px 16px;
+  box-sizing: border-box;
+  border-left: 1px solid #333;
+}
+section.other .other-card .conbox .work .textbox h4 {
+  width: 100%;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+section.other .other-card .conbox .work .textbox p {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 section.thanks {
@@ -1356,10 +1433,20 @@ section.thanks .textbox {
 }
 section.thanks .textbox span {
   font-weight: 300;
-  font-size: 1.5rem;
+  font-size: 1rem;
+}
+@media (min-width: 800px) {
+  section.thanks .textbox span {
+    font-size: 1.5rem;
+  }
 }
 section.thanks .textbox h2 {
   font-weight: 400;
-  font-size: 1.825rem;
+  font-size: 1.5rem;
+}
+@media (min-width: 800px) {
+  section.thanks .textbox h2 {
+    font-size: 1.825rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */

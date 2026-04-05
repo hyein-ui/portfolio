@@ -6,6 +6,7 @@ section.other {
   position: relative;
   max-width: 600px;
   margin: 0 auto;
+  padding-bottom: 400px; // gsap 애니메이션 때문에 발생하는 공백 커버
 
   @include mixins.respond(md) {
     max-width: 850px;
@@ -18,23 +19,25 @@ section.other {
   .sticky-wrap {
     position: sticky;
     top: 100px;
-    left: 90px;
     z-index: 1;
 
     width: 100%;
     height: 50vh;
+    overflow: hidden;
 
-    border: 1px solid red;
+    @include mixins.respond(lg) {
+      overflow: visible;
+      word-break: break-word;
+    }
 
     h2 {
       font-weight: 900;
-      font-size: 5rem;
+      font-size: 4.4rem;
       line-height: 1;
 
       position: absolute;
-      right: 100px;
-      bottom: -150px;
-
+      right: 0;
+      bottom: 0;
 
       @include mixins.respond(md) {
         font-size: 11.825rem;
@@ -42,6 +45,8 @@ section.other {
 
       @include mixins.respond(lg) {
         font-size: 18.75rem;
+        right: 100px;
+        bottom: -148px;
       }
     }
   }
@@ -50,23 +55,98 @@ section.other {
     position: relative;
     z-index: 2;
 
-    .other-card-left{
+    .other-card-left {
       display: flex;
-      justify-content: left;
-      padding-left: 200px;
-    }
-    .other-card-right{
-      display: flex;
-      justify-content: right;
-      padding-right: 200px;
-      margin-top: 30px;
+      justify-content: center;
+
+      @include mixins.respond(md) {
+        justify-content: left;
+      }
+
+      @include mixins.respond(lg) {
+        padding-left: 200px;
+      }
     }
 
-    .other-card {
-      background: var(--color-other-card-bg);
-      max-width: 400px;
-      padding: 20px 16px;
-      box-sizing: border-box;
+    .other-card-right {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+
+      @include mixins.respond(md) {
+        justify-content: right;
+      }
+
+      @include mixins.respond(lg) {
+        padding-right: 200px;
+      }
+    }
+  }
+
+  .other-card {
+    background: var(--color-other-card-bg);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    max-width: 400px;
+    box-sizing: border-box;
+    padding: 20px 16px;
+
+    @include mixins.respond(md) {
+      width: 500px;
+      padding: 20px 36px;
+    }
+
+    .titlebox {
+      text-align: center;
+      margin-bottom: 10px;
+
+      img {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        font-weight: 800;
+      }
+    }
+
+    .conbox {
+      .work {
+        margin-top: 45px;
+
+        >a {
+          >img {
+            @include mixins.respond(md) {
+              max-width: 300px;
+            }
+          }
+        }
+
+        .textbox {
+          width: 80%;
+          margin-left: 20%;
+          padding: 6px 0 6px 16px;
+          box-sizing: border-box;
+          border-left: 1px solid #333;
+
+          h4 {
+            width: 100%;
+            font-size: 1.125rem;
+            font-weight: 700;
+          }
+
+          p {
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 400;
+          }
+        }
+      }
     }
   }
 }
