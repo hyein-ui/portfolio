@@ -96,6 +96,7 @@ section.other {
     padding: 20px 16px;
 
     @include mixins.respond(md) {
+      max-width: none;
       width: 500px;
       padding: 20px 36px;
     }
